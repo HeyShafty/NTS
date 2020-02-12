@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** OOP_nanotekspice_2019
 ** File description:
-** NoPinException
+** WrongPinException
 */
 
 #ifndef NOPINEXCEPTION_HPP_
@@ -14,12 +14,12 @@ namespace nts::exception
 {
     /**
      * @brief
-     * To be raised when a requested pin doesn't exist
+     * To be raised when a requested pin doesn't exist, or when a pin type is missed used
      */
-    class NoPinException : public NtsException
+    class WrongPinException : public NtsException
     {
         public:
-            NoPinException(std::string const &message = "Given pin does not exists", std::string const &component = "Unknown");
+            WrongPinException(std::string const &message = "Given pin does not exists", std::string const &component = "Unknown");
 
         protected:
         private:
