@@ -8,19 +8,23 @@
 #ifndef TRUECOMPONENT_HPP_
 #define TRUECOMPONENT_HPP_
 
-#include "IComponent.hpp"
+#include "Component.hpp"
 
-namespace nts
+namespace nts::Components
 {
     class TrueComponent : public IComponent
     {
+        private:
+            size_t pin_nb;
+            Pin *pins;
+
         public:
             TrueComponent();
             ~TrueComponent();
 
-            Tristate compute(size_t pin = 1);
-            void setLink(size_t pin, IComponent &other, size_t otherPin);
-            void dump() const;
+            Tristate compute(size_t pin = 1) const override;
+            void setLink(size_t pin, const IComponent &other, size_t otherPin) const override;
+            void dump() const override;
     };
 }
 
