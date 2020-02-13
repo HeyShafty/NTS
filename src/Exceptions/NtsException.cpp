@@ -7,16 +7,16 @@
 
 #include "NtsException.hpp"
 
-nts::exception::NtsException::NtsException(std::string const &message, std::string const &component)
+nts::Exception::NtsException::NtsException(std::string const &message, std::string const &component)
     : _message(message), _component(component)
 {}
 
-std::string const &nts::exception::NtsException::getComponent() const
+std::string const &nts::Exception::NtsException::getComponent() const
 {
     return this->_component;
 }
 
-const char *nts::exception::NtsException::what() const
+const char *nts::Exception::NtsException::what() const noexcept
 {
     return this->_message.c_str();
 }

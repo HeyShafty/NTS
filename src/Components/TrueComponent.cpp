@@ -29,16 +29,16 @@ nts::Components::TrueComponent::~TrueComponent()
 nts::Tristate nts::Components::TrueComponent::compute(size_t pin) const
 {
     if (pin == 0 || pin > this->pin_nb)
-        throw nts::exception::WrongPinException("Given pin is out of range", "True component");
+        throw nts::Exception::WrongPinException("Given pin is out of range", "True component");
     return this->pins[pin].value;
 }
 
 void nts::Components::TrueComponent::setLink(size_t pin, const IComponent &other, size_t otherPin) const
 {
     if (pin == 0 || pin > this->pin_nb)
-        throw nts::exception::WrongPinException("Given pin is out of range", "True component");
+        throw nts::Exception::WrongPinException("Given pin is out of range", "True component");
     if (this->pins[pin].type != PinType::IN)
-        throw nts::exception::WrongPinException("Given pin cannot be linked: it is not an 'IN' pin", "True component");
+        throw nts::Exception::WrongPinException("Given pin cannot be linked: it is not an 'IN' pin", "True component");
     this->pins[pin].link = &other;
     this->pins[pin].link_n = otherPin;
 }

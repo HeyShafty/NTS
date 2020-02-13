@@ -11,7 +11,7 @@
 #include <exception>
 #include <string>
 
-namespace nts::exception
+namespace nts::Exception
 {
     /**
      * @brief
@@ -21,9 +21,10 @@ namespace nts::exception
     {
         public:
             NtsException(std::string const &message, std::string const &component = "Unknown");
+            ~NtsException() = default;
 
             std::string const &getComponent() const;
-            const char* what() const noexcept override;
+            const char *what() const noexcept override;
 
         protected:
         private:

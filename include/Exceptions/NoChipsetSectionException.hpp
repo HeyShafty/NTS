@@ -10,7 +10,7 @@
 
 #include "NtsException.hpp"
 
-namespace nts::exception
+namespace nts::Exception
 {
     /**
      * @brief

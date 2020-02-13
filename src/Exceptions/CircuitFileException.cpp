@@ -7,6 +7,6 @@
 
 #include "CircuitFileException.hpp"
 
-nts::exception::CircuitFileException::CircuitFileException(std::string const &message, std::string const &component)
-    : nts::exception::NtsException(message, component)
+nts::Exception::CircuitFileException::CircuitFileException(std::string const &message, std::string const &component)
+    : nts::Exception::NtsException(message, component)
 {}

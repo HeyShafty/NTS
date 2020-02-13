@@ -7,6 +7,6 @@
 
 #include "UnknownComponentException.hpp"
 
-nts::exception::UnknownComponentException::UnknownComponentException(std::string const &message, std::string const &component)
-    : nts::exception::NtsException(message, component)
+nts::Exception::UnknownComponentException::UnknownComponentException(std::string const &message, std::string const &component)
+    : nts::Exception::NtsException(message, component)
 {}

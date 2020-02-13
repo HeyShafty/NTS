@@ -7,6 +7,6 @@
 
 #include "InputException.hpp"
 
-nts::exception::InputException::InputException(std::string const &message, std::string const &component)
-    : nts::exception::NtsException(message, component)
+nts::Exception::InputException::InputException(std::string const &message, std::string const &component)
+    : nts::Exception::NtsException(message, component)
 {}

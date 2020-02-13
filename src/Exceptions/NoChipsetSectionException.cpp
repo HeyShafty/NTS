@@ -7,6 +7,6 @@
 
 #include "NoChipsetSectionException.hpp"
 
-nts::exception::NoChipsetSectionException::NoChipsetSectionException(std::string const &message, std::string const &component)
-    : nts::exception::NtsException(message, component)
+nts::Exception::NoChipsetSectionException::NoChipsetSectionException(std::string const &message, std::string const &component)
+    : nts::Exception::NtsException(message, component)
 {}

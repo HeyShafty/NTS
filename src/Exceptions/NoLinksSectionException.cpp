@@ -7,6 +7,6 @@
 
 #include "NoLinksSectionException.hpp"
 
-nts::exception::NoLinksSectionException::NoLinksSectionException(std::string const &message, std::string const &component)
-    : nts::exception::NtsException(message, component)
+nts::Exception::NoLinksSectionException::NoLinksSectionException(std::string const &message, std::string const &component)
+    : nts::Exception::NtsException(message, component)
 {}
