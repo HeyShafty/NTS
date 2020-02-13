@@ -17,12 +17,25 @@ COLOR_THEME	=	$(BLUE_C)
 DEBUG_THEME	=	$(CYAN_C)
 TESTS_THEME	=	$(RED_C)
 
-SRC	=	Tristate.cpp
+COMPONENTS_DIR = Components/
+EXCEPTIONS_DIR = Exceptions/
+
+SRC	= 	$(COMPONENTS_DIR)TrueComponent.cpp	\
+		$(EXCEPTIONS_DIR)CircuitFileException.cpp	\
+		$(EXCEPTIONS_DIR)InputException.cpp	\
+		$(EXCEPTIONS_DIR)NoChipsetSectionException.cpp	\
+		$(EXCEPTIONS_DIR)NoLinksSectionException.cpp	\
+		$(EXCEPTIONS_DIR)NtsException.cpp	\
+		$(EXCEPTIONS_DIR)OutputException.cpp	\
+		$(EXCEPTIONS_DIR)UnknownComponentException.cpp	\
+		$(EXCEPTIONS_DIR)WrongPinException.cpp	\
+		Factory.cpp	\
+		Tristate.cpp
 
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_PATH)/main.cpp
 OBJ	=	$(SRCS:.cpp=.o)
 
-CPPFLAGS	=	-Wall -Wextra -Werror -I $(INCL_PATH)
+CPPFLAGS	=	-Wall -Wextra -Werror -I $(INCL_PATH) -I include/Components -I include/Exceptions
 LDFLAGS	=
 LDLIBS	=
 DEBUG_FLAGS	=	-g3 -gdwarf-4
