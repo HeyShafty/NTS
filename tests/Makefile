@@ -14,12 +14,12 @@ SRC_PATH	=	$(ROOT_PATH)$(SRC_NAME)
 INCL_PATH	=	$(ROOT_PATH)$(INCL_NAME)
 TESTS_PATH	=	$(ROOT_PATH)$(TESTS_NAME)
 
-SRC_TESTS	=	test_pattern.c
+SRC_TESTS	=	test_Tristate.cpp
 
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_TESTS)
-OBJ	=	$(SRCS:.c=.test_o)
+OBJ	=	$(SRCS:.cpp=.test_o)
 
-CFLAGS	=	-Wall -Wextra -Werror --coverage -I $(INCL_PATH)
+CXXFLAGS	=	-Wall -Wextra -Werror --coverage -I $(INCL_PATH)
 LDFLAGS	=	-lcriterion
 
 all:	message $(NAME)
@@ -29,7 +29,7 @@ message:
 	@$(ECHO) $(BOLD_T)\\$(COLOR_THEME)"UNIT TESTS"$(DEFAULT)
 
 $(NAME): $(OBJ)
-	@$(CC) -o $(NAME) $(OBJ) $(CFLAGS) $(LDFLAGS) && \
+	@$(CXX) -o $(NAME) $(OBJ) $(CXXFLAGS) $(LDFLAGS) && \
 		$(ECHO) $(BOLD_T)$(GREEN_C)"\n[✔] COMPILED:" $(DEFAULT)$(LIGHT_GREEN) "$(NAME)\n"$(DEFAULT) || \
 		$(ECHO) $(BOLD_T)$(RED_C)"[✘] "$(UNDLN_T)"BUILD FAILED:" $(LIGHT_RED) "$(NAME)\n"$(DEFAULT)
 	@./$(NAME)
@@ -46,10 +46,10 @@ fclean:	clean
 
 re:		fclean all
 
-%.test_o: %.c
-	@$(CC) -c $(CFLAGS) -o $@ $< && \
-		$(ECHO) $(DIM_T) "cc $(CFLAGS) -c "$<\\$(COLOR_THEME)" -o "$@ $(DEFAULT) || \
-		$(ECHO) "\n"$(MAGEN_C) $(UNDLN_T)$(BOLD_T)"cc $(CFLAGS) -c "$<" -o "$@$(DEFAULT)"\n"
+%.test_o: %.cpp
+	@$(CXX) -c $(CXXFLAGS) -o $@ $< && \
+		$(ECHO) $(DIM_T) "g++ $(CXXFLAGS) -c "$<\\$(COLOR_THEME)" -o "$@ $(DEFAULT) || \
+		$(ECHO) "\n"$(MAGEN_C) $(UNDLN_T)$(BOLD_T)"g++ $(CXXFLAGS) -c "$<" -o "$@$(DEFAULT)"\n"
 
 .PHONY: all message clean fclean re
 

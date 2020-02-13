@@ -9,16 +9,10 @@
 #define ICOMPONENT_HPP_
 
 #include <stddef.h>
+#include <Tristate.h>
 
 namespace nts
 {
-    enum Tristate
-    {
-        UNDEFINED = (-true),
-        FALSE = false,
-        TRUE = true
-    };
-
     class IComponent
     {
         public:

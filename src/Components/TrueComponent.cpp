@@ -12,7 +12,7 @@
 nts::Components::TrueComponent::TrueComponent()
     : pin_nb(1)
 {
-    this->pins = new Pin[this->pin_nb];
+    this->pins = std::make_unique<Pin[]>(this->pin_nb);
     for (size_t i = 0; i < this->pin_nb; i++) {
         this->pins[i].n = i + 1;
         this->pins[i].value = Tristate::TRUE;
@@ -24,7 +24,6 @@ nts::Components::TrueComponent::TrueComponent()
 
 nts::Components::TrueComponent::~TrueComponent()
 {
-    delete [] this->pins;
 }
 
 nts::Tristate nts::Components::TrueComponent::compute(size_t pin) const

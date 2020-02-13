@@ -17,7 +17,7 @@ COLOR_THEME	=	$(BLUE_C)
 DEBUG_THEME	=	$(CYAN_C)
 TESTS_THEME	=	$(RED_C)
 
-SRC	=
+SRC	=	Tristate.cpp
 
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_PATH)/main.cpp
 OBJ	=	$(SRCS:.cpp=.o)

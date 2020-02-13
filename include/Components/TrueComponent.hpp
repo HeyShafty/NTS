@@ -8,6 +8,7 @@
 #ifndef TRUECOMPONENT_HPP_
 #define TRUECOMPONENT_HPP_
 
+#include <memory>
 #include "Component.hpp"
 
 namespace nts::Components
@@ -16,7 +17,7 @@ namespace nts::Components
     {
         private:
             size_t pin_nb;
-            Pin *pins;
+            std::unique_ptr<Pin[]> pins;
 
         public:
             TrueComponent();
