@@ -17,25 +17,31 @@ COLOR_THEME	=	$(BLUE_C)
 DEBUG_THEME	=	$(CYAN_C)
 TESTS_THEME	=	$(RED_C)
 
-COMPONENTS_DIR = Components/
-EXCEPTIONS_DIR = Exceptions/
+COMPONENTS_INCL_NAME = Components
+EXCEPTIONS_INCL_NAME = Exceptions
 
-SRC	= 	$(COMPONENTS_DIR)TrueComponent.cpp	\
-		$(EXCEPTIONS_DIR)CircuitFileException.cpp	\
-		$(EXCEPTIONS_DIR)InputException.cpp	\
-		$(EXCEPTIONS_DIR)NoChipsetSectionException.cpp	\
-		$(EXCEPTIONS_DIR)NoLinksSectionException.cpp	\
-		$(EXCEPTIONS_DIR)NtsException.cpp	\
-		$(EXCEPTIONS_DIR)OutputException.cpp	\
-		$(EXCEPTIONS_DIR)UnknownComponentException.cpp	\
-		$(EXCEPTIONS_DIR)WrongPinException.cpp	\
+COMPONENTS_INCL_PATH = $(INCL_PATH)/$(COMPONENTS_INCL_NAME)
+EXCEPTIONS_INCL_PATH = $(INCL_PATH)/$(EXCEPTIONS_INCL_NAME)
+
+COMPONENTS_SRC_PATH = $(COMPONENTS_INCL_NAME)
+EXCEPTIONS_SRC_PATH = $(EXCEPTIONS_INCL_NAME)
+
+SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
+		$(EXCEPTIONS_SRC_PATH)/CircuitFileException.cpp	\
+		$(EXCEPTIONS_SRC_PATH)/InputException.cpp	\
+		$(EXCEPTIONS_SRC_PATH)/NoChipsetSectionException.cpp	\
+		$(EXCEPTIONS_SRC_PATH)/NoLinksSectionException.cpp	\
+		$(EXCEPTIONS_SRC_PATH)/NtsException.cpp	\
+		$(EXCEPTIONS_SRC_PATH)/OutputException.cpp	\
+		$(EXCEPTIONS_SRC_PATH)/UnknownComponentException.cpp	\
+		$(EXCEPTIONS_SRC_PATH)/WrongPinException.cpp	\
 		Factory.cpp	\
 		Tristate.cpp
 
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_PATH)/main.cpp
 OBJ	=	$(SRCS:.cpp=.o)
 
-CPPFLAGS	=	-Wall -Wextra -Werror -I $(INCL_PATH) -I include/Components -I include/Exceptions
+CPPFLAGS	=	-Wall -Wextra -Werror -I $(INCL_PATH) -I $(COMPONENTS_INCL_PATH) -I $(EXCEPTIONS_INCL_PATH)
 LDFLAGS	=
 LDLIBS	=
 DEBUG_FLAGS	=	-g3 -gdwarf-4
