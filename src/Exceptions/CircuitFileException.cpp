@@ -5,7 +5,7 @@
 ** CircuitFileException
 */
 
-#include "CircuitFileException.hpp"
+#include "Exceptions/CircuitFileException.hpp"
 
 nts::Exception::CircuitFileException::CircuitFileException(std::string const &message, std::string const &component)
     : nts::Exception::NtsException(message, component)

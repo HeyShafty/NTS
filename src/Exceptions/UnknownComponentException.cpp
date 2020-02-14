@@ -5,7 +5,7 @@
 ** UnknownComponentException
 */
 
-#include "UnknownComponentException.hpp"
+#include "Exceptions/UnknownComponentException.hpp"
 
 nts::Exception::UnknownComponentException::UnknownComponentException(std::string const &message, std::string const &component)
     : nts::Exception::NtsException(message, component)

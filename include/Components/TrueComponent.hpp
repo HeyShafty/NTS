@@ -8,7 +8,6 @@
 #ifndef TRUECOMPONENT_HPP_
 #define TRUECOMPONENT_HPP_
 
-#include <memory>
 #include "Component.hpp"
 
 namespace nts::Components

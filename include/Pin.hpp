@@ -29,7 +29,7 @@ namespace nts
      */
     struct Pin
     {
-        size_t n;
+        // size_t n;
         Tristate value;
         PinType type;
         const IComponent *link;

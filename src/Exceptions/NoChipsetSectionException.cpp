@@ -5,7 +5,7 @@
 ** NoChipsetSectionException
 */
 
-#include "NoChipsetSectionException.hpp"
+#include "Exceptions/NoChipsetSectionException.hpp"
 
 nts::Exception::NoChipsetSectionException::NoChipsetSectionException(std::string const &message, std::string const &component)
     : nts::Exception::NtsException(message, component)

@@ -17,6 +17,7 @@ namespace nts
         TRUE = true
     };
 }
+
 nts::Tristate operator&&(const nts::Tristate &left, const nts::Tristate &right);
 nts::Tristate operator||(const nts::Tristate &left, const nts::Tristate &right);
 nts::Tristate operator^(const nts::Tristate &left, const nts::Tristate &right);

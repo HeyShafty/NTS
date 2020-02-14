@@ -5,7 +5,7 @@
 ** WrongPinException
 */
 
-#include "WrongPinException.hpp"
+#include "Exceptions/WrongPinException.hpp"
 
 nts::Exception::WrongPinException::WrongPinException(std::string const &message, std::string const &component)
     : nts::Exception::NtsException(message, component)

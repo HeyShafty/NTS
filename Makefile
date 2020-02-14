@@ -27,6 +27,8 @@ COMPONENTS_SRC_PATH = $(COMPONENTS_INCL_NAME)
 EXCEPTIONS_SRC_PATH = $(EXCEPTIONS_INCL_NAME)
 
 SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/FalseComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/AndComponent.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/CircuitFileException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/InputException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/NoChipsetSectionException.cpp	\
@@ -41,9 +43,7 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_PATH)/main.cpp
 OBJ	=	$(SRCS:.cpp=.o)
 
-CPPFLAGS	=	-Wall -Wextra -Werror -I $(INCL_PATH) -I $(COMPONENTS_INCL_PATH) -I $(EXCEPTIONS_INCL_PATH)
-LDFLAGS	=
-LDLIBS	=
+CPPFLAGS	=	-Wall -Wextra -Werror -I $(INCL_PATH)
 DEBUG_FLAGS	=	-g3 -gdwarf-4
 
 all: message $(NAME)
@@ -53,7 +53,7 @@ message:
 	@$(ECHO) $(BOLD_T)$(COLOR_THEME)"NANO TEK SPICE"$(DEFAULT)
 
 $(NAME): $(OBJ)
-	@$(CXX) -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) && \
+	@$(CXX) -o $(NAME) $(OBJ) && \
 		$(ECHO) $(BOLD_T)$(GREEN_C)"\n[✔] COMPILED:" $(DEFAULT)$(LIGHT_GREEN) "$(NAME)\n"$(DEFAULT) || \
 		$(ECHO) $(BOLD_T)$(RED_C)"[✘] "$(UNDLN_T)"BUILD FAILED:" $(LIGHT_RED) "$(NAME)\n"$(DEFAULT)
 

@@ -8,6 +8,7 @@
 #ifndef COMPONENT_HPP_
 #define COMPONENT_HPP_
 
+#include <memory>
 #include "IComponent.hpp"
 #include "Pin.hpp"
 

@@ -5,7 +5,7 @@
 ** OutputException
 */
 
-#include "OutputException.hpp"
+#include "Exceptions/OutputException.hpp"
 
 nts::Exception::OutputException::OutputException(std::string const &message, std::string const &component)
     : nts::Exception::NtsException(message, component)

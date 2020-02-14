@@ -2,25 +2,25 @@
 ** EPITECH PROJECT, 2020
 ** OOP_nanotekspice_2019
 ** File description:
-** FalseComponent
+** AndComponent
 */
 
-#ifndef FALSECOMPONENT_HPP_
-#define FALSECOMPONENT_HPP_
+#ifndef ANDCOMPONENT_HPP_
+#define ANDCOMPONENT_HPP_
 
 #include "Component.hpp"
 
 namespace nts::Components
 {
-    class FalseComponent : public IComponent
+    class AndComponent : public IComponent
     {
         private:
             size_t pin_nb;
             std::unique_ptr<Pin[]> pins;
 
         public:
-            FalseComponent();
-            ~FalseComponent();
+            AndComponent();
+            ~AndComponent();
 
             Tristate compute(size_t pin = 1) const override;
             void setLink(size_t pin, const IComponent &other, size_t otherPin) const override;
@@ -28,4 +28,4 @@ namespace nts::Components
     };
 }
 
-#endif /* !FALSECOMPONENT_HPP_ */
+#endif /* !ANDCOMPONENT_HPP_ */

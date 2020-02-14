@@ -7,8 +7,8 @@
 
 #include "IComponent.hpp"
 #include "Factory.hpp"
-#include "TrueComponent.hpp"
-#include "UnknownComponentException.hpp"
+#include "Components/TrueComponent.hpp"
+#include "Exceptions/UnknownComponentException.hpp"
 
 const std::map<const std::string, std::function<std::unique_ptr<nts::IComponent>(const std::string &value)>> nts::Factory::componentMap = {
     {"true", [](const std::string &) {return nts::Factory().createTrue();}}

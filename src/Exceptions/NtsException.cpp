@@ -5,7 +5,7 @@
 ** NtsExpection
 */
 
-#include "NtsException.hpp"
+#include "Exceptions/NtsException.hpp"
 
 nts::Exception::NtsException::NtsException(std::string const &message, std::string const &component)
     : _message(message), _component(component)

@@ -5,7 +5,7 @@
 ** InputException
 */
 
-#include "InputException.hpp"
+#include "Exceptions/InputException.hpp"
 
 nts::Exception::InputException::InputException(std::string const &message, std::string const &component)
     : nts::Exception::NtsException(message, component)
