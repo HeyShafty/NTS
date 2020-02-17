@@ -8,8 +8,8 @@
 #include "Component.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
-nts::Component::Component(size_t pin_nb)
-    : pin_nb(pin_nb), pins(std::make_unique<Pin[]>(this->pin_nb))
+nts::Component::Component(const std::string &name, size_t pin_nb)
+    : name(name), pin_nb(pin_nb), pins(std::make_unique<Pin[]>(this->pin_nb))
 {
     for (size_t i = 0; i < this->pin_nb; i++) {
         this->pins[i].value = Tristate::UNDEFINED;

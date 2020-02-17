@@ -9,7 +9,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::OrComponent::OrComponent()
-    : Component(3)
+    : Component("OrComponent", 3)
 {
     this->pins[2].type = PinType::OUT;
 }
@@ -22,6 +22,8 @@ nts::Tristate nts::Components::OrComponent::compute(size_t pin) const
 {
     if (pin == 0 || pin > this->pin_nb)
         throw nts::Exception::WrongPinException("Pin cannot be computed", "OrComponent");
+    if (this->pins[pin - 1].type == PinType::ELECTRICAL)
+        throw nts::Exception::WrongPinException("Pin cannot be computed (electrical)", "OrComponent");
     if (pin == 1 || pin == 2) {
         this->pins[pin - 1].value = this->pins[pin - 1].link->compute(this->pins[pin - 1].link_n);
     } else

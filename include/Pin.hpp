@@ -15,7 +15,8 @@ namespace nts
     enum PinType
     {
         IN = 0,
-        OUT = 1
+        OUT = 1,
+        ELECTRICAL = 2
     };
 
     /**

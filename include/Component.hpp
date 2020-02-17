@@ -17,13 +17,14 @@ namespace nts
     class Component : public IComponent
     {
         public:
-            Component(size_t pin_nb);
+            Component(const std::string &name, size_t pin_nb);
             virtual ~Component();
 
             void setLink(size_t pin, const IComponent &other, size_t otherPin) const override;
             virtual void dump() const override;
 
         protected:
+            const std::string name;
             const size_t pin_nb;
             std::unique_ptr<Pin[]> pins;
     };
