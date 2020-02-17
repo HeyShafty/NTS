@@ -14,7 +14,7 @@ namespace nts::Exception
 {
     /**
      * @brief
-     * To be raised when a requested pin doesn't exist, or when a pin type is missed used
+     * To be raised when a requested pin doesn't exist, or when a pin type is misused
      */
     class WrongPinException : public NtsException
     {
