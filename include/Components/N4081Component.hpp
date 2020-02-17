@@ -2,24 +2,24 @@
 ** EPITECH PROJECT, 2020
 ** OOP_nanotekspice_2019
 ** File description:
-** OrComponent
+** N4081Component
 */
 
-#ifndef ORCOMPONENT_HPP_
-#define ORCOMPONENT_HPP_
+#ifndef N4081COMPONENT_HPP_
+#define N4081COMPONENT_HPP_
 
 #include "Component.hpp"
 
 namespace nts::Components
 {
-    class OrComponent : public Component
+    class N4081Component : public Component
     {
         public:
-            OrComponent();
-            ~OrComponent() = default;
+            N4081Component();
+            ~N4081Component();
 
             Tristate compute(size_t pin = 1) const override;
     };
 }
 
-#endif /* !ORCOMPONENT_HPP_ */
+#endif /* !N4081COMPONENT_HPP_ */

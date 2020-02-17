@@ -29,6 +29,11 @@ namespace nts
      */
     struct Pin
     {
+        Pin();
+        ~Pin() = default;
+
+        Tristate compute();
+
         Tristate value;
         PinType type;
         const IComponent *link;

@@ -18,7 +18,10 @@ namespace nts
         public:
             virtual ~IComponent() = default;
 
+            virtual Pin *getPin(size_t pin) const = 0;
+
             virtual Tristate compute(size_t pin = 1) const = 0;
+            // virtual Tristate compute(Pin *pin) const = 0;
             virtual void setLink(size_t pin, const IComponent &other, size_t otherPin) const = 0;
             virtual void dump() const = 0;
     };

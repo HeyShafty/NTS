@@ -41,6 +41,7 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/WrongPinException.cpp	\
 		Component.cpp \
 		Factory.cpp	\
+		Pin.cpp \
 		Tristate.cpp
 
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_PATH)/main.cpp

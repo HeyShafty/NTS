@@ -11,22 +11,16 @@
 nts::Components::XorComponent::XorComponent()
     : Component("XorComponent", 3)
 {
-    this->pins[2].type = PinType::OUT;
-}
-
-nts::Components::XorComponent::~XorComponent()
-{
+    this->pins[2]->type = PinType::OUT;
 }
 
 nts::Tristate nts::Components::XorComponent::compute(size_t pin) const
 {
     if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin cannot be computed", "XorComponent");
-    if (this->pins[pin - 1].type == PinType::ELECTRICAL)
-        throw nts::Exception::WrongPinException("Pin cannot be computed (electrical)", "XorComponent");
+        throw nts::Exception::WrongPinException("Pin is out of range.", "XorComponent");
     if (pin == 1 || pin == 2) {
-        this->pins[pin - 1].value = this->pins[pin - 1].link->compute(this->pins[pin - 1].link_n);
+        this->pins[pin - 1]->compute();
     } else
-        this->pins[2].value = this->compute(1) ^ this->compute(2);
-    return this->pins[pin - 1].value;
+        this->pins[2]->value = this->compute(1) ^ this->compute(2);
+    return this->pins[pin - 1]->value;
 }
