@@ -2,24 +2,24 @@
 ** EPITECH PROJECT, 2020
 ** OOP_nanotekspice_2019
 ** File description:
-** TrueComponent
+** XorComponent
 */
 
-#ifndef TRUECOMPONENT_HPP_
-#define TRUECOMPONENT_HPP_
+#ifndef XorCOMPONENT_HPP_
+#define XorCOMPONENT_HPP_
 
 #include "Component.hpp"
 
 namespace nts::Components
 {
-    class TrueComponent : public Component
+    class XorComponent : public Component
     {
         public:
-            TrueComponent();
-            ~TrueComponent();
+            XorComponent();
+            ~XorComponent();
 
             Tristate compute(size_t pin = 1) const override;
     };
 }
 
-#endif /* !TRUECOMPONENT_HPP_ */
+#endif /* !XorCOMPONENT_HPP_ */

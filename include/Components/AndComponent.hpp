@@ -12,19 +12,13 @@
 
 namespace nts::Components
 {
-    class AndComponent : public IComponent
+    class AndComponent : public Component
     {
-        private:
-            size_t pin_nb;
-            std::unique_ptr<Pin[]> pins;
-
         public:
             AndComponent();
             ~AndComponent();
 
             Tristate compute(size_t pin = 1) const override;
-            void setLink(size_t pin, const IComponent &other, size_t otherPin) const override;
-            void dump() const override;
     };
 }
 

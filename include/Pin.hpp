@@ -21,7 +21,6 @@ namespace nts
     /**
      * @brief Represents a chipset pin.
      *
-     * @n Pin position on the chipset.
      * @value Value of the pin.
      * @type Pin type (IN or OUT)
      * @link Component linked to pin.
@@ -29,7 +28,6 @@ namespace nts
      */
     struct Pin
     {
-        // size_t n;
         Tristate value;
         PinType type;
         const IComponent *link;

@@ -49,3 +49,10 @@ Test(Tristate, xor)
     cr_assert_eq(nts::Tristate::TRUE ^ nts::Tristate::FALSE, nts::Tristate::TRUE);
     cr_assert_eq(nts::Tristate::TRUE ^ nts::Tristate::TRUE, nts::Tristate::FALSE);
 }
+
+Test(Tristate, not)
+{
+    cr_assert_eq(~nts::Tristate::UNDEFINED, nts::Tristate::UNDEFINED);
+    cr_assert_eq(~nts::Tristate::FALSE, nts::Tristate::TRUE);
+    cr_assert_eq(~nts::Tristate::TRUE, nts::Tristate::FALSE);
+}

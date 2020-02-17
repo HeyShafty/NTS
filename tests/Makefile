@@ -15,7 +15,9 @@ INCL_PATH	=	$(ROOT_PATH)$(INCL_NAME)
 TESTS_PATH	=	$(ROOT_PATH)$(TESTS_NAME)
 
 SRC_TESTS	=	test_Tristate.cpp \
-				test_AndComponent.cpp
+				test_OrComponent.cpp \
+				test_AndComponent.cpp \
+				test_XorComponent.cpp
 
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_TESTS)
 OBJ	=	$(SRCS:.cpp=.test_o)
