@@ -8,7 +8,6 @@
 #ifndef COMPONENT_HPP_
 #define COMPONENT_HPP_
 
-#include <memory>
 #include <vector>
 #include "IComponent.hpp"
 
@@ -20,7 +19,7 @@ namespace nts
             Component(const std::string &name, size_t pin_nb);
             virtual ~Component() = default;
 
-            Pin *getPin(size_t pin) const override;
+            const std::shared_ptr<Pin> &getPin(size_t pin) const override;
 
             void setLink(size_t pin, const IComponent &other, size_t otherPin) const override;
             virtual void dump() const override;
@@ -29,6 +28,8 @@ namespace nts
             const std::string name;
             const size_t pin_nb;
             std::vector<std::shared_ptr<Pin>> pins;
+
+            Tristate computeInPin(size_t pin_index) const;
     };
 }
 

@@ -20,7 +20,7 @@ Test(XorComponent, false_false)
 
     cXor->setLink(1, *cFalse1, 1);
     cXor->setLink(2, *cFalse2, 1);
-    cr_assert_eq(cXor->compute(3), nts::Tristate::FALSE, "Value: %d");
+    cr_assert_eq(cXor->compute(3), nts::Tristate::FALSE);
 }
 
 Test(XorComponent, false_true)
@@ -31,7 +31,7 @@ Test(XorComponent, false_true)
 
     cXor->setLink(1, *cFalse1, 1);
     cXor->setLink(2, *cFalse2, 1);
-    cr_assert_eq(cXor->compute(3), nts::Tristate::TRUE, "Value: %d");
+    cr_assert_eq(cXor->compute(3), nts::Tristate::TRUE);
 }
 
 Test(XorComponent, true_false)
@@ -42,7 +42,7 @@ Test(XorComponent, true_false)
 
     cXor->setLink(1, *cFalse1, 1);
     cXor->setLink(2, *cFalse2, 1);
-    cr_assert_eq(cXor->compute(3), nts::Tristate::TRUE, "Value: %d");
+    cr_assert_eq(cXor->compute(3), nts::Tristate::TRUE);
 }
 
 Test(XorComponent, true_true)
@@ -53,7 +53,7 @@ Test(XorComponent, true_true)
 
     cXor->setLink(1, *cFalse1, 1);
     cXor->setLink(2, *cFalse2, 1);
-    cr_assert_eq(cXor->compute(3), nts::Tristate::FALSE, "Value: %d");
+    cr_assert_eq(cXor->compute(3), nts::Tristate::FALSE);
 }
 
 Test(XorComponent, bad_linking)

@@ -16,11 +16,11 @@ nts::Component::Component(const std::string &name, size_t pin_nb)
     }
 }
 
-nts::Pin *nts::Component::getPin(size_t pin) const
+const std::shared_ptr<nts::Pin> &nts::Component::getPin(size_t pin) const
 {
     if (pin == 0 || pin > this->pin_nb)
         throw nts::Exception::WrongPinException("Given pin is out of range", "Component");
-    return this->pins[pin - 1].get();
+    return this->pins[pin - 1];
 }
 
 void nts::Component::setLink(size_t pin, const IComponent &other, size_t otherPin) const
@@ -35,4 +35,11 @@ void nts::Component::setLink(size_t pin, const IComponent &other, size_t otherPi
 
 void nts::Component::dump() const
 {
+}
+
+nts::Tristate nts::Component::computeInPin(size_t pin_index) const
+{
+    if (this->pins[pin_index]->link == nullptr)
+        return Tristate::UNDEFINED;
+    return this->pins[pin_index]->link->compute(this->pins[pin_index]->link_n);
 }

@@ -23,7 +23,7 @@ SRC_TESTS	=	test_Tristate.cpp \
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_TESTS)
 OBJ	=	$(SRCS:.cpp=.test_o)
 
-CXXFLAGS	=	-Wall -Wextra -Werror --coverage -I $(INCL_PATH)
+CXXFLAGS	=	-Wall -Wextra -Werror --coverage -I $(INCL_PATH) -std=c++17
 LDFLAGS	=	-lcriterion
 
 all:	message $(NAME)
@@ -52,8 +52,8 @@ re:		fclean all
 
 %.test_o: %.cpp
 	@$(CXX) -c $(CXXFLAGS) -o $@ $< && \
-		$(ECHO) $(DIM_T) "g++ $(CXXFLAGS) -c "$<\\$(COLOR_THEME)" -o "$@ $(DEFAULT) || \
-		$(ECHO) "\n"$(MAGEN_C) $(UNDLN_T)$(BOLD_T)"g++ $(CXXFLAGS) -c "$<" -o "$@$(DEFAULT)"\n"
+		$(ECHO) $(DIM_T) "$(CXX) $(CXXFLAGS) -c "$<\\$(COLOR_THEME)" -o "$@ $(DEFAULT) || \
+		$(ECHO) "\n"$(MAGEN_C) $(UNDLN_T)$(BOLD_T)"$(CXX) $(CXXFLAGS) -c "$<" -o "$@$(DEFAULT)"\n"
 
 .PHONY: all message clean fclean re
 
