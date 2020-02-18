@@ -8,7 +8,8 @@
 #ifndef PIN_HPP_
 #define PIN_HPP_
 
-#include "IComponent.hpp"
+#include <functional>
+#include "Tristate.h"
 
 namespace nts
 {
@@ -19,20 +20,24 @@ namespace nts
         ELECTRICAL = 2
     };
 
+    class IComponent;
+
     /**
      * @brief Represents a chipset pin.
      *
-     * @value Value of the pin.
      * @type Pin type (IN or OUT)
      * @link Component linked to pin.
      * @link_n Position of linked pin.
      */
     struct Pin
     {
-        Tristate value;
+        Pin();
+        ~Pin() = default;
+
         PinType type;
         const IComponent *link;
         size_t link_n;
+        std::function<Tristate ()> compute;
     };
 }
 

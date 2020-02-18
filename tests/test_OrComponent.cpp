@@ -20,7 +20,7 @@ Test(OrComponent, false_false)
 
     cOr->setLink(1, *cFalse1, 1);
     cOr->setLink(2, *cFalse2, 1);
-    cr_assert_eq(cOr->compute(3), nts::Tristate::FALSE, "Value: %d");
+    cr_assert_eq(cOr->compute(3), nts::Tristate::FALSE);
 }
 
 Test(OrComponent, false_true)
@@ -31,7 +31,7 @@ Test(OrComponent, false_true)
 
     cOr->setLink(1, *cFalse1, 1);
     cOr->setLink(2, *cFalse2, 1);
-    cr_assert_eq(cOr->compute(3), nts::Tristate::TRUE, "Value: %d");
+    cr_assert_eq(cOr->compute(3), nts::Tristate::TRUE);
 }
 
 Test(OrComponent, true_false)
@@ -42,7 +42,7 @@ Test(OrComponent, true_false)
 
     cOr->setLink(1, *cFalse1, 1);
     cOr->setLink(2, *cFalse2, 1);
-    cr_assert_eq(cOr->compute(3), nts::Tristate::TRUE, "Value: %d");
+    cr_assert_eq(cOr->compute(3), nts::Tristate::TRUE);
 }
 
 Test(OrComponent, true_true)
@@ -53,7 +53,7 @@ Test(OrComponent, true_true)
 
     cOr->setLink(1, *cFalse1, 1);
     cOr->setLink(2, *cFalse2, 1);
-    cr_assert_eq(cOr->compute(3), nts::Tristate::TRUE, "Value: %d");
+    cr_assert_eq(cOr->compute(3), nts::Tristate::TRUE);
 }
 
 Test(OrComponent, bad_linking)

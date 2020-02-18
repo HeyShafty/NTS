@@ -20,7 +20,7 @@ Test(AndComponent, false_false)
 
     cAnd->setLink(1, *cFalse1, 1);
     cAnd->setLink(2, *cFalse2, 1);
-    cr_assert_eq(cAnd->compute(3), nts::Tristate::FALSE, "Value: %d");
+    cr_assert_eq(cAnd->compute(3), nts::Tristate::FALSE);
 }
 
 Test(AndComponent, false_true)
@@ -31,7 +31,7 @@ Test(AndComponent, false_true)
 
     cAnd->setLink(1, *cFalse1, 1);
     cAnd->setLink(2, *cFalse2, 1);
-    cr_assert_eq(cAnd->compute(3), nts::Tristate::FALSE, "Value: %d");
+    cr_assert_eq(cAnd->compute(3), nts::Tristate::FALSE);
 }
 
 Test(AndComponent, true_false)
@@ -42,7 +42,7 @@ Test(AndComponent, true_false)
 
     cAnd->setLink(1, *cFalse1, 1);
     cAnd->setLink(2, *cFalse2, 1);
-    cr_assert_eq(cAnd->compute(3), nts::Tristate::FALSE, "Value: %d");
+    cr_assert_eq(cAnd->compute(3), nts::Tristate::FALSE);
 }
 
 Test(AndComponent, true_true)
@@ -53,7 +53,7 @@ Test(AndComponent, true_true)
 
     cAnd->setLink(1, *cFalse1, 1);
     cAnd->setLink(2, *cFalse2, 1);
-    cr_assert_eq(cAnd->compute(3), nts::Tristate::TRUE, "Value: %d");
+    cr_assert_eq(cAnd->compute(3), nts::Tristate::TRUE);
 }
 
 Test(AndComponent, bad_linking)

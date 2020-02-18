@@ -16,9 +16,12 @@ namespace nts::Components
     {
         public:
             OrComponent();
-            ~OrComponent();
+            ~OrComponent() = default;
 
             Tristate compute(size_t pin = 1) const override;
+
+        private:
+            Tristate computeComponent() const;
     };
 }
 

@@ -31,6 +31,7 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/AndComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/OrComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/XorComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/N4081Component.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/BadFileException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/CircuitFileException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/InputException.cpp	\
@@ -42,13 +43,15 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/WrongPinException.cpp	\
 		Component.cpp \
 		Factory.cpp	\
-		Tristate.cpp	\
+		Tristate.cpp \
+		Pin.cpp \
 		Parser.cpp
 
+CXX	= 	clang++
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_PATH)/main.cpp
 OBJ	=	$(SRCS:.cpp=.o)
 
-CPPFLAGS	=	-Wall -Wextra -Werror -I $(INCL_PATH)
+CXXFLAGS	=	-Wall -Wextra -Werror -I $(INCL_PATH) -std=c++17
 DEBUG_FLAGS	=	-g3 -gdwarf-4
 
 all: message $(NAME)
@@ -77,9 +80,9 @@ fclean:	clean
 
 re: fclean all
 
-debug: CPPFLAGS += $(DEBUG_FLAGS)
+debug: CXXFLAGS += $(DEBUG_FLAGS)
 debug: COLOR_THEME = $(DEBUG_THEME)
-debug: re
+debug: all
 	@$(ECHO) $(BOLD_T)$(COLOR_THEME)"⚠ DEBUG MODE ACTIVATED ⚠\n"$(DEFAULT)
 
 tests_run:
@@ -94,9 +97,9 @@ tests_run:
 	@gcovr --exclude tests/ --sort-percentage --html-details --html-title "Unit tests" --html-medium-threshold 40 --html-high-threshold 75 > results.html
 
 %.o: %.cpp
-	@$(CXX) -c $(CPPFLAGS) -o $@ $< && \
-		$(ECHO) $(DIM_T) "g++ $(CPPFLAGS) -c "$<$(COLOR_THEME)" -o "$@ $(DEFAULT) || \
-		$(ECHO) "\n"$(MAGEN_C) $(UNDLN_T)$(BOLD_T)"g++ $(CPPFLAGS) -c "$<" -o "$@$(DEFAULT)"\n"
+	@$(CXX) -c $(CXXFLAGS) -o $@ $< && \
+		$(ECHO) $(DIM_T) "$(CXX) $(CXXFLAGS) -c "$<$(COLOR_THEME)" -o "$@ $(DEFAULT) || \
+		$(ECHO) "\n"$(MAGEN_C) $(UNDLN_T)$(BOLD_T)"$(CXX) $(CXXFLAGS) -c "$<" -o "$@$(DEFAULT)"\n"
 
 .PHONY: all message clean fclean re debug tests_run
 

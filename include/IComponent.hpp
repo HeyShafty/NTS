@@ -8,8 +8,9 @@
 #ifndef ICOMPONENT_HPP_
 #define ICOMPONENT_HPP_
 
-#include <stddef.h>
-#include <Tristate.h>
+#include <memory>
+#include "Pin.hpp"
+#include "Tristate.h"
 
 namespace nts
 {
@@ -18,7 +19,10 @@ namespace nts
         public:
             virtual ~IComponent() = default;
 
+            virtual const std::shared_ptr<Pin> &getPin(size_t pin) const = 0;
+
             virtual Tristate compute(size_t pin = 1) const = 0;
+            // virtual Tristate compute(Pin *pin) const = 0;
             virtual void setLink(size_t pin, const IComponent &other, size_t otherPin) const = 0;
             virtual void dump() const = 0;
     };

@@ -12,19 +12,18 @@
 nts::Components::FalseComponent::FalseComponent()
     : Component("FalseComponent", 1)
 {
-    this->pins[0].value = Tristate::FALSE;
-    this->pins[0].type = PinType::OUT;
-}
-
-nts::Components::FalseComponent::~FalseComponent()
-{
+    this->pins[0]->type = PinType::OUT;
+    this->pins[0]->compute = std::bind(&FalseComponent::computeComponent, this);
 }
 
 nts::Tristate nts::Components::FalseComponent::compute(size_t pin) const
 {
     if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Given pin is out of range", "FalseComponent");
-    if (this->pins[pin - 1].type == PinType::ELECTRICAL)
-        throw nts::Exception::WrongPinException("Pin cannot be computed (electrical)", "FalseComponent");
-    return this->pins[pin - 1].value;
+        throw nts::Exception::WrongPinException("Pin is out of range.", "FalseComponent");
+    return this->pins[pin - 1]->compute();
+}
+
+nts::Tristate nts::Components::FalseComponent::computeComponent() const
+{
+    return Tristate::FALSE;
 }

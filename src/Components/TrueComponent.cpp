@@ -12,19 +12,18 @@
 nts::Components::TrueComponent::TrueComponent()
     : Component("TrueComponent", 1)
 {
-    this->pins[0].value = Tristate::TRUE;
-    this->pins[0].type = PinType::OUT;
-}
-
-nts::Components::TrueComponent::~TrueComponent()
-{
+    this->pins[0]->type = PinType::OUT;
+    this->pins[0]->compute = std::bind(&TrueComponent::computeComponent, this);
 }
 
 nts::Tristate nts::Components::TrueComponent::compute(size_t pin) const
 {
     if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Given pin is out of range", "TrueComponent");
-    if (this->pins[pin - 1].type == PinType::ELECTRICAL)
-        throw nts::Exception::WrongPinException("Pin cannot be computed (electrical)", "TrueComponent");
-    return this->pins[pin - 1].value;
+        throw nts::Exception::WrongPinException("Pin is out of range.", "TrueComponent");
+    return this->pins[pin - 1]->compute();
+}
+
+nts::Tristate nts::Components::TrueComponent::computeComponent() const
+{
+    return Tristate::TRUE;
 }

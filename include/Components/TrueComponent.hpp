@@ -16,9 +16,12 @@ namespace nts::Components
     {
         public:
             TrueComponent();
-            ~TrueComponent();
+            ~TrueComponent() = default;
 
             Tristate compute(size_t pin = 1) const override;
+
+        private:
+            Tristate computeComponent() const;
     };
 }
 

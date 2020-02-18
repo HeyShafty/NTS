@@ -11,22 +11,20 @@
 nts::Components::OrComponent::OrComponent()
     : Component("OrComponent", 3)
 {
-    this->pins[2].type = PinType::OUT;
-}
-
-nts::Components::OrComponent::~OrComponent()
-{
+    this->pins[0]->compute = std::bind(&OrComponent::computeInPin, this, 0);
+    this->pins[1]->compute = std::bind(&OrComponent::computeInPin, this, 1);
+    this->pins[2]->type = PinType::OUT;
+    this->pins[2]->compute = std::bind(&OrComponent::computeComponent, this);
 }
 
 nts::Tristate nts::Components::OrComponent::compute(size_t pin) const
 {
     if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin cannot be computed", "OrComponent");
-    if (this->pins[pin - 1].type == PinType::ELECTRICAL)
-        throw nts::Exception::WrongPinException("Pin cannot be computed (electrical)", "OrComponent");
-    if (pin == 1 || pin == 2) {
-        this->pins[pin - 1].value = this->pins[pin - 1].link->compute(this->pins[pin - 1].link_n);
-    } else
-        this->pins[2].value = this->compute(1) || this->compute(2);
-    return this->pins[pin - 1].value;
+        throw nts::Exception::WrongPinException("Pin is out of range.", "OrComponent");
+    return this->pins[pin - 1]->compute();
+}
+
+nts::Tristate nts::Components::OrComponent::computeComponent() const
+{
+    return this->pins[0]->compute() || this->pins[1]->compute();
 }
