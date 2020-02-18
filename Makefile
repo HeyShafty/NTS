@@ -31,6 +31,7 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/AndComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/OrComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/XorComponent.cpp	\
+		$(EXCEPTIONS_SRC_PATH)/BadFileException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/CircuitFileException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/InputException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/NoChipsetSectionException.cpp	\
@@ -41,7 +42,8 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/WrongPinException.cpp	\
 		Component.cpp \
 		Factory.cpp	\
-		Tristate.cpp
+		Tristate.cpp	\
+		Parser.cpp
 
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_PATH)/main.cpp
 OBJ	=	$(SRCS:.cpp=.o)

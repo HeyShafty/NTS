@@ -17,7 +17,9 @@ TESTS_PATH	=	$(ROOT_PATH)$(TESTS_NAME)
 SRC_TESTS	=	test_Tristate.cpp \
 				test_OrComponent.cpp \
 				test_AndComponent.cpp \
-				test_XorComponent.cpp
+				test_XorComponent.cpp	\
+				test_AndComponent.cpp	\
+				test_parser.cpp
 
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_TESTS)
 OBJ	=	$(SRCS:.cpp=.test_o)
