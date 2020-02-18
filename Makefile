@@ -31,6 +31,7 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/AndComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/OrComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/XorComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/N4081Component.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/CircuitFileException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/InputException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/NoChipsetSectionException.cpp	\

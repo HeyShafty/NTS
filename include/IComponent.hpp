@@ -9,7 +9,8 @@
 #define ICOMPONENT_HPP_
 
 #include <stddef.h>
-#include <Tristate.h>
+#include "Pin.hpp"
+#include "Tristate.h"
 
 namespace nts
 {

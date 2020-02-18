@@ -7,6 +7,7 @@
 
 #include "Exceptions/WrongPinException.hpp"
 #include "Pin.hpp"
+#include "IComponent.hpp"
 
 nts::Pin::Pin()
     : value(Tristate::UNDEFINED), type(PinType::IN), link(NULL), link_n(0)

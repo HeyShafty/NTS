@@ -11,7 +11,6 @@
 #include <memory>
 #include <vector>
 #include "IComponent.hpp"
-#include "Pin.hpp"
 
 namespace nts
 {
@@ -21,7 +20,7 @@ namespace nts
             Component(const std::string &name, size_t pin_nb);
             virtual ~Component() = default;
 
-            nts::Pin *nts::Component::getPin(size_t pin) const override;
+            Pin *getPin(size_t pin) const override;
 
             void setLink(size_t pin, const IComponent &other, size_t otherPin) const override;
             virtual void dump() const override;
