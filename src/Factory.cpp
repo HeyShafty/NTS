@@ -11,7 +11,7 @@
 #include "Exceptions/UnknownComponentException.hpp"
 
 const std::map<const std::string, std::function<std::unique_ptr<nts::IComponent>(const std::string &value)>> nts::Factory::componentMap = {
-    {"true", [](const std::string &) {return nts::Factory().createTrue();}}
+    {"true", [](const std::string &) {return nts::Factory::createTrue();}}
 };
 
 std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string &type, const std::string &value)
@@ -23,7 +23,7 @@ std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string
     }
 }
 
-std::unique_ptr<nts::IComponent> nts::Factory::createTrue(void) const noexcept
+std::unique_ptr<nts::IComponent> nts::Factory::createTrue(void) noexcept
 {
     return std::make_unique<nts::Components::TrueComponent>();
 }
