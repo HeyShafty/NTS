@@ -17,7 +17,6 @@ nts::Components::AndComponent::AndComponent()
     this->pins[2]->compute = std::bind(&AndComponent::computeComponent, this);
 }
 
-#include <functional>
 nts::Tristate nts::Components::AndComponent::compute(size_t pin) const
 {
     if (pin == 0 || pin > this->pin_nb)
