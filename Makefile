@@ -29,9 +29,13 @@ EXCEPTIONS_SRC_PATH = $(EXCEPTIONS_INCL_NAME)
 SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/FalseComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/AndComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/NandComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/OrComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/XorComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/N4081Component.cpp	\
+		$(COMPONENTS_SRC_PATH)/CD4011BComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/CD4030CComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/HEF4071BComponent.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/BadFileException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/CircuitFileException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/InputException.cpp	\
