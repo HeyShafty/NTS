@@ -2,14 +2,14 @@
 ** EPITECH PROJECT, 2020
 ** OOP_nanotekspice_2019
 ** File description:
-** N4081Component
+** HCF4081BComponent
 */
 
 #include "Components/N4081Component.hpp"
 #include "Components/AndComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
-nts::Components::N4081Component::N4081Component()
+nts::Components::HCF4081BComponent::HCF4081BComponent()
     : Component("4081Component", 14)
 {
     std::shared_ptr<IComponent> cAnd1 = std::make_shared<AndComponent>();
@@ -37,11 +37,11 @@ nts::Components::N4081Component::N4081Component()
     this->innerComponents.push_back(cAnd4);
 }
 
-nts::Tristate nts::Components::N4081Component::compute(size_t pin) const
+nts::Tristate nts::Components::HCF4081BComponent::compute(size_t pin) const
 {
     if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Given pin is out of range", "N4081Component");
+        throw nts::Exception::WrongPinException("Given pin is out of range", "HCF4081BComponent");
     if (this->pins[pin - 1]->type == PinType::ELECTRICAL)
-        throw nts::Exception::WrongPinException("Pin cannot be computed (electrical)", "N4081Component");
+        throw nts::Exception::WrongPinException("Pin cannot be computed (electrical)", "HCF4081BComponent");
     return this->pins[pin - 1]->compute();
 }

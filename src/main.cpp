@@ -13,7 +13,7 @@
 
 int main(int argc, char *argv[])
 {
-    std::unique_ptr<nts::IComponent> c4081(new nts::Components::N4081Component);
+    std::unique_ptr<nts::IComponent> c4081(new nts::Components::HCF4081BComponent);
     std::unique_ptr<nts::IComponent> cAnd(new nts::Components::AndComponent);
     std::unique_ptr<nts::IComponent> cFalse1(new nts::Components::TrueComponent);
     std::unique_ptr<nts::IComponent> cFalse2(new nts::Components::TrueComponent);

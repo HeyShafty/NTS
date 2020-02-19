@@ -18,7 +18,7 @@ SRC_TESTS	=	test_Tristate.cpp \
 				test_OrComponent.cpp \
 				test_XorComponent.cpp	\
 				test_AndComponent.cpp	\
-				test_N4081Component.cpp \
+				test_HCF4081BComponent.cpp \
 				test_parser.cpp
 
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_TESTS)

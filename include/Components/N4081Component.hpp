@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** OOP_nanotekspice_2019
 ** File description:
-** N4081Component
+** HCF4081BComponent
 */
 
 #ifndef N4081COMPONENT_HPP_
@@ -12,11 +12,11 @@
 
 namespace nts::Components
 {
-    class N4081Component : public Component
+    class HCF4081BComponent : public Component
     {
         public:
-            N4081Component();
-            ~N4081Component() = default;
+            HCF4081BComponent();
+            ~HCF4081BComponent() = default;
 
             Tristate compute(size_t pin = 1) const override;
 

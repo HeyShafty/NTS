@@ -12,9 +12,9 @@
 #include "Components/N4081Component.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
-Test(N4081Component, false_false)
+Test(HCF4081BComponent, false_false)
 {
-    std::unique_ptr<nts::IComponent> c4081(new nts::Components::N4081Component);
+    std::unique_ptr<nts::IComponent> c4081(new nts::Components::HCF4081BComponent);
     std::unique_ptr<nts::IComponent> cFalse1(new nts::Components::FalseComponent);
     std::unique_ptr<nts::IComponent> cFalse2(new nts::Components::FalseComponent);
 
@@ -23,9 +23,9 @@ Test(N4081Component, false_false)
     cr_assert_eq(c4081->compute(3), nts::Tristate::FALSE);
 }
 
-Test(N4081Component, false_true)
+Test(HCF4081BComponent, false_true)
 {
-    std::unique_ptr<nts::IComponent> c4081(new nts::Components::N4081Component);
+    std::unique_ptr<nts::IComponent> c4081(new nts::Components::HCF4081BComponent);
     std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
     std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
 
@@ -34,9 +34,9 @@ Test(N4081Component, false_true)
     cr_assert_eq(c4081->compute(3), nts::Tristate::FALSE);
 }
 
-Test(N4081Component, true_false)
+Test(HCF4081BComponent, true_false)
 {
-    std::unique_ptr<nts::IComponent> c4081(new nts::Components::N4081Component);
+    std::unique_ptr<nts::IComponent> c4081(new nts::Components::HCF4081BComponent);
     std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
     std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
 
@@ -45,9 +45,9 @@ Test(N4081Component, true_false)
     cr_assert_eq(c4081->compute(3), nts::Tristate::FALSE);
 }
 
-Test(N4081Component, true_true)
+Test(HCF4081BComponent, true_true)
 {
-    std::unique_ptr<nts::IComponent> c4081(new nts::Components::N4081Component);
+    std::unique_ptr<nts::IComponent> c4081(new nts::Components::HCF4081BComponent);
     std::unique_ptr<nts::IComponent> cTrue1(new nts::Components::TrueComponent);
     std::unique_ptr<nts::IComponent> cTrue2(new nts::Components::TrueComponent);
 
