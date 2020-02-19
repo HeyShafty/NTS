@@ -5,7 +5,6 @@
 ** FalseComponent
 */
 
-#include <iostream>
 #include "Components/FalseComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 

@@ -10,6 +10,6 @@
 #include "IComponent.hpp"
 
 nts::Pin::Pin()
-    : type(PinType::IN), link(NULL), link_n(0)
+    : value(Tristate::UNDEFINED), type(PinType::IN), link(nullptr), link_n(0)
 {
 }

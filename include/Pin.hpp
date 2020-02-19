@@ -22,18 +22,12 @@ namespace nts
 
     class IComponent;
 
-    /**
-     * @brief Represents a chipset pin.
-     *
-     * @type Pin type (IN or OUT)
-     * @link Component linked to pin.
-     * @link_n Position of linked pin.
-     */
     struct Pin
     {
         Pin();
         ~Pin() = default;
 
+        Tristate value;
         PinType type;
         const IComponent *link;
         size_t link_n;
