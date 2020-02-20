@@ -10,7 +10,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::CD4013BCComponent::CD4013BCComponent()
-    : Component("4011", 14)
+    : Component("CD4013BCComponent", 14)
 {
     std::shared_ptr<IComponent> dFlipFlop1 = std::make_shared<DFlipFlopComponent>();
     std::shared_ptr<IComponent> dFlipFlop2 = std::make_shared<DFlipFlopComponent>();
