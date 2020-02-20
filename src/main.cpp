@@ -11,7 +11,8 @@
 #include "Components/FalseComponent.hpp"
 #include "Components/DFlipFlopComponent.hpp"
 #include "Components/AndComponent.hpp"
-#include "Components/N4081Component.hpp"
+#include "Components/HCF4081BComponent.hpp"
+#include "Components/SumComponent.hpp"
 
 // int toto(int argc, char *argv[])
 // {
@@ -51,12 +52,26 @@
 //     printf("%d\n", dFlipFlop->compute(1));
 // }
 
-int main(void)
-{
-    std::unique_ptr<nts::IComponent> set(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent);
+#include <iostream>
+#include "Parser.hpp"
+#include "Simulator.hpp"
 
-    dFlipFlop->setLink(6, *set, 1);
-    printf("%d\n", dFlipFlop->compute(1));
+int main(int ac, char **av)
+{
+    if (ac < 2) {
+        return 84;
+    }
+    nts::Simulator simulator;
+
+    try
+    {
+        simulator.initSimulation(ac, av);
+        simulator.runSimulation();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return 84;
+    }
     return 0;
 }
