@@ -32,12 +32,16 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/NandComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/OrComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/XorComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/SumComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/InputComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/OutputComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/HCF4081BComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/CD4011BComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/CD4030CComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/HEF4071BComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/DFlipFlopComponent.cpp \
 		$(COMPONENTS_SRC_PATH)/CD4013BCComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/CD4008BMSComponent.cpp \
 		$(EXCEPTIONS_SRC_PATH)/BadFileException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/CircuitFileException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/InputException.cpp	\
@@ -51,7 +55,8 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		Factory.cpp	\
 		Tristate.cpp \
 		Pin.cpp \
-		Parser.cpp
+		Parser.cpp	\
+		Simulator.cpp
 
 CXX	= 	clang++
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_PATH)/main.cpp
