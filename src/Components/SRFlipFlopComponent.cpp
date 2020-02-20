@@ -10,7 +10,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::SRFlipFlopComponent::SRFlipFlopComponent()
-    : Component("SRFlipFlopComponent", 4)
+    : AComponent("SRFlipFlopComponent", 4)
 {
     std::shared_ptr<IComponent> cHEF4001B = std::make_shared<HEF4001BComponent>();
 

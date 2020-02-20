@@ -21,6 +21,6 @@ namespace nts
 nts::Tristate operator&&(const nts::Tristate &left, const nts::Tristate &right);
 nts::Tristate operator||(const nts::Tristate &left, const nts::Tristate &right);
 nts::Tristate operator^(const nts::Tristate &left, const nts::Tristate &right);
-nts::Tristate operator~(const nts::Tristate &state);
+nts::Tristate operator!(const nts::Tristate &state);
 
 #endif /* !TRISTATE_H_ */

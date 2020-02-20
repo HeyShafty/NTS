@@ -8,11 +8,11 @@
 #ifndef ORCOMPONENT_HPP_
 #define ORCOMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class OrComponent : public Component
+    class OrComponent : public AComponent
     {
         public:
             OrComponent();

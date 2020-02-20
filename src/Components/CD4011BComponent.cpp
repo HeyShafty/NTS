@@ -10,7 +10,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::CD4011BComponent::CD4011BComponent()
-    : Component("CD4011BComponent", 14)
+    : AComponent("CD4011BComponent", 14)
 {
     std::shared_ptr<IComponent> cNand1 = std::make_shared<NandComponent>();
     std::shared_ptr<IComponent> cNand2 = std::make_shared<NandComponent>();

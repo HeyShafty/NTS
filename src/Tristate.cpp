@@ -32,7 +32,7 @@ nts::Tristate operator^(const nts::Tristate &left, const nts::Tristate &right)
     return (nts::Tristate)((bool)left ^ (bool)right);
 }
 
-nts::Tristate operator~(const nts::Tristate &state)
+nts::Tristate operator!(const nts::Tristate &state)
 {
     if (state == nts::Tristate::UNDEFINED)
         return nts::Tristate::UNDEFINED;

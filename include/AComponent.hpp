@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** OOP_nanotekspice_2019
 ** File description:
-** Component
+** AComponent
 */
 
 #ifndef COMPONENT_HPP_
@@ -17,11 +17,11 @@
 
 namespace nts
 {
-    class Component : public IComponent
+    class AComponent : public IComponent
     {
         public:
-            Component(const std::string &name, size_t pin_nb);
-            virtual ~Component() = default;
+            AComponent(const std::string &name, size_t pin_nb);
+            virtual ~AComponent() = default;
 
             const std::shared_ptr<Pin> &getPin(size_t pin) const override;
 

@@ -8,11 +8,11 @@
 #ifndef CD4013BCCOMPONENT_HPP_
 #define CD4013BCCOMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class CD4013BCComponent : public Component
+    class CD4013BCComponent : public AComponent
     {
         public:
             CD4013BCComponent();

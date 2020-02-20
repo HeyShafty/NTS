@@ -9,7 +9,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::OrComponent::OrComponent()
-    : Component("OrComponent", 3)
+    : AComponent("OrComponent", 3)
 {
     BIND_IN_PIN(0, OrComponent);
     BIND_IN_PIN(1, OrComponent);

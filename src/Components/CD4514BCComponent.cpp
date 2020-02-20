@@ -9,7 +9,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::CD4514BCComponent::CD4514BCComponent()
-    : Component("CD4514BCComponent", 24)
+    : AComponent("CD4514BCComponent", 24)
 {
     // std::shared_ptr<IComponent> cXor1 = std::make_shared<XorComponent>();
     // std::shared_ptr<IComponent> cXor2 = std::make_shared<XorComponent>();

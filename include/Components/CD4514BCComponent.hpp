@@ -8,11 +8,11 @@
 #ifndef CD4514BC_HPP_
 #define CD4514BC_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class CD4514BCComponent : public Component {
+    class CD4514BCComponent : public AComponent {
         public:
             CD4514BCComponent();
             ~CD4514BCComponent() = default;

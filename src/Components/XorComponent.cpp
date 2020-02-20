@@ -9,7 +9,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::XorComponent::XorComponent()
-    : Component("XorComponent", 3)
+    : AComponent("XorComponent", 3)
 {
     BIND_IN_PIN(0, XorComponent);
     BIND_IN_PIN(1, XorComponent);

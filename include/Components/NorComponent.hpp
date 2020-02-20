@@ -8,11 +8,11 @@
 #ifndef NorComponent_HPP_
 #define NorComponent_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class NorComponent : public Component
+    class NorComponent : public AComponent
     {
         public:
             NorComponent();

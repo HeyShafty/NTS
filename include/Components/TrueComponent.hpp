@@ -8,11 +8,11 @@
 #ifndef TRUECOMPONENT_HPP_
 #define TRUECOMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class TrueComponent : public Component
+    class TrueComponent : public AComponent
     {
         public:
             TrueComponent();

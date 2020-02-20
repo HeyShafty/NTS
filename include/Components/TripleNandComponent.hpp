@@ -8,11 +8,11 @@
 #ifndef TRIPLENANDCOMPONENT_HPP_
 #define TRIPLENANDCOMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class TripleNandComponent : public Component {
+    class TripleNandComponent : public AComponent {
         public:
             TripleNandComponent();
             ~TripleNandComponent() = default;

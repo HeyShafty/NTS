@@ -9,7 +9,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::NandComponent::NandComponent()
-    : Component("NandComponent", 3)
+    : AComponent("NandComponent", 3)
 {
     BIND_IN_PIN(0, NandComponent);
     BIND_IN_PIN(1, NandComponent);

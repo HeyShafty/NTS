@@ -10,7 +10,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::HEF4001BComponent::HEF4001BComponent()
-    : Component("HEF4001BComponent", 14)
+    : AComponent("HEF4001BComponent", 14)
 {
     std::shared_ptr<IComponent> cNor1 = std::make_shared<NorComponent>();
     std::shared_ptr<IComponent> cNor2 = std::make_shared<NorComponent>();

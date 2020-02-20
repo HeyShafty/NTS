@@ -8,11 +8,11 @@
 #ifndef SRFlipFlopComponent_HPP_
 #define SRFlipFlopComponent_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class SRFlipFlopComponent : public Component
+    class SRFlipFlopComponent : public AComponent
     {
         public:
             SRFlipFlopComponent();

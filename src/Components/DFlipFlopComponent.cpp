@@ -9,7 +9,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::DFlipFlopComponent::DFlipFlopComponent()
-    : Component("DFlipFlopComponent", 6), currClock(Tristate::UNDEFINED)
+    : AComponent("DFlipFlopComponent", 6), currClock(Tristate::UNDEFINED)
 {
     this->pins[Q]->type = PinType::OUT;
     this->pins[Q]->compute = [this]() {
@@ -72,7 +72,7 @@ nts::Tristate nts::Components::DFlipFlopComponent::computeNotQPin(const Tristate
     else if (states[SET] == Tristate::TRUE)
         return Tristate::FALSE;
     else if (IS_ASCENDANT(states[1], this->currClock))
-        return ~states[DATA];
+        return !states[DATA];
     else if (IS_DESCENDANT(states[1], this->currClock))
         return this->pins[NQ]->value;
     return Tristate::UNDEFINED;

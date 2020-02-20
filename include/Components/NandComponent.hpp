@@ -8,11 +8,11 @@
 #ifndef NANDCOMPONENT_HPP_
 #define NANDCOMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class NandComponent : public Component {
+    class NandComponent : public AComponent {
         public:
             NandComponent();
             ~NandComponent() = default;

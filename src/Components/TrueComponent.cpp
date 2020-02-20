@@ -10,7 +10,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::TrueComponent::TrueComponent()
-    : Component("TrueComponent", 1)
+    : AComponent("TrueComponent", 1)
 {
     this->pins[0]->type = PinType::OUT;
     this->pins[0]->compute = std::bind(&TrueComponent::computeComponent, this);

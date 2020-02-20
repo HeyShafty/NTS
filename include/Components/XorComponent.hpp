@@ -8,11 +8,11 @@
 #ifndef XorCOMPONENT_HPP_
 #define XorCOMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class XorComponent : public Component
+    class XorComponent : public AComponent
     {
         public:
             XorComponent();

@@ -2,16 +2,16 @@
 ** EPITECH PROJECT, 2020
 ** OOP_nanotekspice_2019
 ** File description:
-** Component
+** AComponent
 */
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
-std::unordered_set<nts::Pin *> nts::Component::callHistory;
-nts::Pin *nts::Component::callingPin = nullptr;
+std::unordered_set<nts::Pin *> nts::AComponent::callHistory;
+nts::Pin *nts::AComponent::callingPin = nullptr;
 
-nts::Component::Component(const std::string &name, size_t pin_nb)
+nts::AComponent::AComponent(const std::string &name, size_t pin_nb)
     : name(name), pin_nb(pin_nb)
 {
     for (size_t i = 0; i < this->pin_nb; i++) {
@@ -19,28 +19,28 @@ nts::Component::Component(const std::string &name, size_t pin_nb)
     }
 }
 
-const std::shared_ptr<nts::Pin> &nts::Component::getPin(size_t pin) const
+const std::shared_ptr<nts::Pin> &nts::AComponent::getPin(size_t pin) const
 {
     if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Given pin is out of range", "Component");
+        throw nts::Exception::WrongPinException("Given pin is out of range", "AComponent");
     return this->pins[pin - 1];
 }
 
-void nts::Component::setLink(size_t pin, const IComponent &other, size_t otherPin) const
+void nts::AComponent::setLink(size_t pin, const IComponent &other, size_t otherPin) const
 {
     if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Given pin is out of range", "Component");
+        throw nts::Exception::WrongPinException("Given pin is out of range", "AComponent");
     if (this->pins[pin - 1]->type != PinType::IN)
-        throw nts::Exception::WrongPinException("Cannot link pin: not an input pin", "Component");
+        throw nts::Exception::WrongPinException("Cannot link pin: not an input pin", "AComponent");
     this->pins[pin - 1]->link = &other;
     this->pins[pin - 1]->link_n = otherPin;
 }
 
-void nts::Component::dump() const
+void nts::AComponent::dump() const
 {
 }
 
-nts::Tristate nts::Component::computeInPin(size_t pin_index) const
+nts::Tristate nts::AComponent::computeInPin(size_t pin_index) const
 {
     if (this->pins[pin_index]->link == nullptr)
         return Tristate::UNDEFINED;

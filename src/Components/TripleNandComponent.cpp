@@ -9,7 +9,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::TripleNandComponent::TripleNandComponent()
-    : Component("TripleNandComponent", 4)
+    : AComponent("TripleNandComponent", 4)
 {
     BIND_IN_PIN(0, TripleNandComponent);
     BIND_IN_PIN(1, TripleNandComponent);
@@ -29,5 +29,5 @@ nts::Tristate nts::Components::TripleNandComponent::computeComponent() const
 {
     nts::Tristate result = this->pins[0]->compute() && this->pins[1]->compute() && this->pins[2]->compute();
 
-    return ~result;
+    return !result;
 }

@@ -9,7 +9,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::NorComponent::NorComponent()
-    : Component("NorComponent", 3)
+    : AComponent("NorComponent", 3)
 {
     BIND_IN_PIN(0, NorComponent);
     BIND_IN_PIN(1, NorComponent);
@@ -26,5 +26,5 @@ nts::Tristate nts::Components::NorComponent::compute(size_t pin) const
 
 nts::Tristate nts::Components::NorComponent::computeComponent() const
 {
-    return ~(this->pins[0]->compute() || this->pins[1]->compute());
+    return !(this->pins[0]->compute() || this->pins[1]->compute());
 }

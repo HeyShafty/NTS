@@ -9,7 +9,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::NotComponent::NotComponent()
-    : Component("NotComponent", 2)
+    : AComponent("NotComponent", 2)
 {
     BIND_IN_PIN(0, NotComponent);
     this->pins[1]->type = PinType::OUT;
@@ -25,5 +25,5 @@ nts::Tristate nts::Components::NotComponent::compute(size_t pin) const
 
 nts::Tristate nts::Components::NotComponent::computeComponent() const
 {
-    return ~this->pins[0]->compute();
+    return !this->pins[0]->compute();
 }

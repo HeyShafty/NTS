@@ -8,11 +8,11 @@
 #ifndef HEF4071B_HPP_
 #define HEF4071B_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class HEF4071BComponent : public Component {
+    class HEF4071BComponent : public AComponent {
         public:
             HEF4071BComponent();
             ~HEF4071BComponent() = default;

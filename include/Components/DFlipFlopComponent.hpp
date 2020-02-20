@@ -11,11 +11,11 @@
 #define IS_ASCENDANT(pc, cc) (pc == nts::Tristate::FALSE && cc == nts::Tristate::TRUE)
 #define IS_DESCENDANT(pc, cc) (pc == nts::Tristate::TRUE && cc == nts::Tristate::FALSE)
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class DFlipFlopComponent : public Component
+    class DFlipFlopComponent : public AComponent
     {
         public:
             DFlipFlopComponent();

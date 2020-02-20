@@ -8,11 +8,11 @@
 #ifndef N4081COMPONENT_HPP_
 #define N4081COMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class HCF4081BComponent : public Component
+    class HCF4081BComponent : public AComponent
     {
         public:
             HCF4081BComponent();

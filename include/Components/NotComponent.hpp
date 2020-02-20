@@ -8,11 +8,11 @@
 #ifndef NOTCOMPONENT_HPP_
 #define NOTCOMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class NotComponent : public Component
+    class NotComponent : public AComponent
     {
         public:
             NotComponent();
