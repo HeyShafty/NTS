@@ -25,6 +25,9 @@ namespace nts
         private:
             static const std::map<const std::string, std::function<std::unique_ptr<nts::IComponent>(const std::string &value)>> componentMap;
             static std::unique_ptr<nts::IComponent> createTrue(void) noexcept;
+            static std::unique_ptr<nts::IComponent> createInput(const std::string &value) noexcept;
+            static std::unique_ptr<nts::IComponent> createOutput(void) noexcept;
+            static std::unique_ptr<nts::IComponent> create4071(void) noexcept;
     };
 }
 

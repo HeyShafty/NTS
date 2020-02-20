@@ -22,13 +22,18 @@ namespace nts
             Parser(const std::string &filename);
             ~Parser();
 
-            using ChipsetsMap = std::unordered_map<std::string, std::unique_ptr<IComponent>>;
+            struct Link {
+                std::string componentName;
+                int pinNumber;
+            };
 
-            std::unique_ptr<ChipsetsMap> parseFile(int ac, const char *av[]) const;
-            void addComponentToMap(std::unique_ptr<ChipsetsMap> &chipsetsMap, std::string line, std::vector<std::string> args) const;
-            void linkComponents(std::unique_ptr<ChipsetsMap> &chipsetsMap, std::string line) const;
-            void parseChipsets(std::unique_ptr<ChipsetsMap> &chipsetsMap, std::ifstream &file, std::vector<std::string> args, std::string &line) const;
-            void parseLinks(std::unique_ptr<ChipsetsMap> &chipsetsMap, std::ifstream &file) const;
+            using ChipsetsMap = std::unordered_map<std::string, std::vector<std::string>>;
+            using LinksVector = std::vector<std::tuple<Link, Link>>;
+
+            void addComponentToMap(ChipsetsMap &chipsetsMap, std::string line, std::vector<std::string> args) const;
+            void addLinkToMap(LinksVector &chipsetsMap, ChipsetsMap &chipsetMap, std::string line) const;
+            ChipsetsMap parseChipsets(std::vector<std::string> args) const;
+            LinksVector parseLinks(ChipsetsMap &chipsetMap) const;
 
             void setFilename(const std::string &filename);
 
@@ -37,6 +42,7 @@ namespace nts
             static const std::regex validChipsetLine;
             static const std::regex linksRegex;
             static const std::regex validLinksLine;
+            static const std::regex commandLineRegex;
             static const std::vector<std::string> componentsWithCommandLineArg;
 
         protected:
