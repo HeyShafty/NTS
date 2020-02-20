@@ -21,8 +21,6 @@ namespace nts::Components
             DFlipFlopComponent();
             ~DFlipFlopComponent() = default;
 
-            nts::Tristate compute(size_t pin) const override;
-
         private:
             enum PinDesc
             {

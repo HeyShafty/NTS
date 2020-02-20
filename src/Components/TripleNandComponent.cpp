@@ -18,13 +18,6 @@ nts::Components::TripleNandComponent::TripleNandComponent()
     this->pins[3]->compute = std::bind(&TripleNandComponent::computeComponent, this);
 }
 
-nts::Tristate nts::Components::TripleNandComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "TripleNandComponent");
-    return this->pins[pin - 1]->compute();
-}
-
 nts::Tristate nts::Components::TripleNandComponent::computeComponent() const
 {
     nts::Tristate result = this->pins[0]->compute() && this->pins[1]->compute() && this->pins[2]->compute();

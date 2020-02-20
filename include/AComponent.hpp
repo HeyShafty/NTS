@@ -19,14 +19,17 @@ namespace nts
 {
     class AComponent : public IComponent
     {
-        public:
+        protected:
             AComponent(const std::string &name, size_t pin_nb);
+
+        public:
             virtual ~AComponent() = default;
 
             const std::shared_ptr<Pin> &getPin(size_t pin) const override;
 
-            void setLink(size_t pin, const IComponent &other, size_t otherPin) const override;
-            virtual void dump() const override;
+            Tristate compute(size_t pin = 1) const final;
+            void setLink(size_t pin, const IComponent &other, size_t otherPin) const final;
+            void dump() const override;
 
         protected:
             const std::string name;

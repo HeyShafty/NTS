@@ -36,12 +36,3 @@ nts::Components::CD4030CComponent::CD4030CComponent()
     this->innerComponents.push_back(cXor3);
     this->innerComponents.push_back(cXor4);
 }
-
-nts::Tristate nts::Components::CD4030CComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "CD4030CComponent");
-    if (this->pins[pin - 1]->type == PinType::ELECTRICAL)
-        throw nts::Exception::WrongPinException("Pin cannot be computed (electrical)", "CD4030CComponent");
-    return this->pins[pin - 1]->compute();
-}

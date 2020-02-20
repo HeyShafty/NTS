@@ -43,15 +43,6 @@ nts::Components::CD4514BCComponent::CD4514BCComponent()
     // this->innerComponents.push_back();
 }
 
-nts::Tristate nts::Components::CD4514BCComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "CD4030CComponent");
-    if (this->pins[pin - 1]->type == PinType::ELECTRICAL)
-        throw nts::Exception::WrongPinException("Pin cannot be computed (electrical)", "HCF4081BComponent");
-    return this->pins[pin - 1]->compute();
-}
-
 nts::Tristate nts::Components::CD4514BCComponent::computeComponent(size_t bit_index) const
 {
     Tristate strobe = this->pins[0]->compute();

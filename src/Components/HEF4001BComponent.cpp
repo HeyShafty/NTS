@@ -36,12 +36,3 @@ nts::Components::HEF4001BComponent::HEF4001BComponent()
     this->innerComponents.push_back(cNor3);
     this->innerComponents.push_back(cNor4);
 }
-
-nts::Tristate nts::Components::HEF4001BComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "CD4030CComponent");
-    if (this->pins[pin - 1]->type == PinType::ELECTRICAL)
-        throw nts::Exception::WrongPinException("Pin cannot be computed (electrical)", "HCF4081BComponent");
-    return this->pins[pin - 1]->compute();
-}

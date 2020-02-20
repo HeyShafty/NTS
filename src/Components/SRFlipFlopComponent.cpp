@@ -22,10 +22,3 @@ nts::Components::SRFlipFlopComponent::SRFlipFlopComponent()
     this->pins[3] = cHEF4001B->getPin(4);
     this->innerComponents.push_back(cHEF4001B);
 }
-
-nts::Tristate nts::Components::SRFlipFlopComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "SRFlipFlopComponent");
-    return this->pins[pin - 1]->compute();
-}

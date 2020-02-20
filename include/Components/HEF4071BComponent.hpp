@@ -17,8 +17,6 @@ namespace nts::Components
             HEF4071BComponent();
             ~HEF4071BComponent() = default;
 
-            nts::Tristate compute(size_t pin) const override;
-
         private:
             std::vector<std::shared_ptr<IComponent>> innerComponents;
     };

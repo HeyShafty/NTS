@@ -17,13 +17,6 @@ nts::Components::AndComponent::AndComponent()
     this->pins[2]->compute = std::bind(&AndComponent::computeComponent, this);
 }
 
-nts::Tristate nts::Components::AndComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "AndComponent");
-    return this->pins[pin - 1]->compute();
-}
-
 nts::Tristate nts::Components::AndComponent::computeComponent() const
 {
     return this->pins[0]->compute() && this->pins[1]->compute();

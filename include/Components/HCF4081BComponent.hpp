@@ -18,8 +18,6 @@ namespace nts::Components
             HCF4081BComponent();
             ~HCF4081BComponent() = default;
 
-            Tristate compute(size_t pin = 1) const override;
-
         private:
             std::vector<std::shared_ptr<IComponent>> innerComponents;
     };

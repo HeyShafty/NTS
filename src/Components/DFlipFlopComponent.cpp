@@ -27,13 +27,6 @@ nts::Components::DFlipFlopComponent::DFlipFlopComponent()
     BIND_IN_PIN(5, DFlipFlopComponent);
 }
 
-nts::Tristate nts::Components::DFlipFlopComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "DFlipFlopComponent");
-    return this->pins[pin - 1]->compute();
-}
-
 void nts::Components::DFlipFlopComponent::computeComponent()
 {
     Tristate clock = this->pins[CLOCK]->compute();

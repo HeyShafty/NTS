@@ -17,8 +17,6 @@ namespace nts::Components
             TripleNandComponent();
             ~TripleNandComponent() = default;
 
-            nts::Tristate compute(size_t pin) const override;
-
         private:
             Tristate computeComponent(void) const;
     };

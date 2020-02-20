@@ -17,13 +17,6 @@ nts::Components::NorComponent::NorComponent()
     this->pins[2]->compute = std::bind(&NorComponent::computeComponent, this);
 }
 
-nts::Tristate nts::Components::NorComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "NorComponent");
-    return this->pins[pin - 1]->compute();
-}
-
 nts::Tristate nts::Components::NorComponent::computeComponent() const
 {
     return !(this->pins[0]->compute() || this->pins[1]->compute());

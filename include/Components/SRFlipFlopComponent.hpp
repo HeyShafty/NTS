@@ -18,8 +18,6 @@ namespace nts::Components
             SRFlipFlopComponent();
             ~SRFlipFlopComponent() = default;
 
-            nts::Tristate compute(size_t pin) const override;
-
         private:
             std::vector<std::shared_ptr<IComponent>> innerComponents;
     };

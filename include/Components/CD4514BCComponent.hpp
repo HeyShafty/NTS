@@ -17,8 +17,6 @@ namespace nts::Components
             CD4514BCComponent();
             ~CD4514BCComponent() = default;
 
-            nts::Tristate compute(size_t pin) const override;
-
         private:
             Tristate computeComponent(size_t bit_index) const;
             int getBitValue(Tristate bit1, Tristate bit2, Tristate bit3, Tristate bit4) const;

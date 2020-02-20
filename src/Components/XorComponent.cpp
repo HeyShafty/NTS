@@ -17,13 +17,6 @@ nts::Components::XorComponent::XorComponent()
     this->pins[2]->compute = std::bind(&XorComponent::computeComponent, this);
 }
 
-nts::Tristate nts::Components::XorComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "XorComponent");
-    return this->pins[pin - 1]->compute();
-}
-
 nts::Tristate nts::Components::XorComponent::computeComponent() const
 {
     return this->pins[0]->compute() ^ this->pins[1]->compute();
