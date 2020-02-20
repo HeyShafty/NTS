@@ -41,6 +41,10 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/CD4011BComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/CD4030CComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/HEF4071BComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/CD4514BCComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/QuadNotComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/QuadSRFlipFlopComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/QuadTripleNandComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/DFlipFlopComponent.cpp \
 		$(COMPONENTS_SRC_PATH)/CD4013BCComponent.cpp \
 		$(EXCEPTIONS_SRC_PATH)/BadFileException.cpp	\

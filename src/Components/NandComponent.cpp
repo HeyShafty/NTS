@@ -19,10 +19,5 @@ nts::Components::NandComponent::NandComponent()
 
 nts::Tristate nts::Components::NandComponent::computeComponent() const
 {
-    nts::Tristate result = this->pins[0]->compute() && this->pins[1]->compute();
-
-    if (result == nts::Tristate::UNDEFINED)
-        return result;
-    else
-        return (nts::Tristate)!(bool)result;
+    return !(this->pins[0]->compute() && this->pins[1]->compute());
 }

@@ -12,6 +12,7 @@
 #include "Components/DFlipFlopComponent.hpp"
 #include "Components/AndComponent.hpp"
 #include "Components/HCF4081BComponent.hpp"
+#include "Components/CD4514BCComponent.hpp"
 #include "Components/SRFlipFlopComponent.hpp"
 
 // int toto(int argc, char *argv[])
@@ -62,17 +63,46 @@
 //     return 0;
 // }
 
+// int toto4(void)
+// {
+//     std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent);
+//     std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+//     std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+
+//     srFlipFlop->setLink(1, *cTrue, 1);
+//     srFlipFlop->setLink(2, *cTrue, 1);
+//     printf("%d\n", srFlipFlop->compute(3));
+//     printf("%d\n", srFlipFlop->compute(4));
+//     srFlipFlop->setLink(1, *cFalse, 1);
+//     printf("%d\n", srFlipFlop->compute(3)); // FALSE
+//     printf("%d\n", srFlipFlop->compute(4)); // TRUE
+// }
+
 int main(void)
 {
-    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
     std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
     std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
 
-    srFlipFlop->setLink(1, *cTrue, 1);
-    srFlipFlop->setLink(2, *cFalse, 1);
-    printf("%d\n", srFlipFlop->compute(3)); // FALSE
-    printf("%d\n", srFlipFlop->compute(4)); // TRUE
-    srFlipFlop->setLink(1, *cFalse, 1);
-    printf("%d\n", srFlipFlop->compute(3)); // FALSE
-    printf("%d\n", srFlipFlop->compute(4)); // TRUE
+    decoder->setLink(1, *cTrue, 1);
+    decoder->setLink(2, *cTrue, 1);
+    decoder->setLink(21, *cTrue, 1);
+    decoder->setLink(22, *cTrue, 1);
+    decoder->setLink(23, *cFalse, 1);
+    printf("%d\n", decoder->compute(11));
+    printf("%d\n", decoder->compute(9));
+    printf("%d\n", decoder->compute(10));
+    printf("%d\n", decoder->compute(8));
+    printf("%d\n", decoder->compute(7));
+    printf("%d\n", decoder->compute(6));
+    printf("%d\n", decoder->compute(5));
+    printf("%d\n", decoder->compute(4));
+    printf("%d\n", decoder->compute(18));
+    printf("%d\n", decoder->compute(17));
+    printf("%d\n", decoder->compute(20));
+    printf("%d\n", decoder->compute(19));
+    printf("%d\n", decoder->compute(14));
+    printf("%d\n", decoder->compute(13));
+    printf("%d\n", decoder->compute(16));
+    printf("%d\n", decoder->compute(15));
 }
