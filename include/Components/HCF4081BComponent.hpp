@@ -5,8 +5,8 @@
 ** HCF4081BComponent
 */
 
-#ifndef N4081COMPONENT_HPP_
-#define N4081COMPONENT_HPP_
+#ifndef HCF4081BCOMPONENT_HPP_
+#define HCF4081BCOMPONENT_HPP_
 
 #include "Component.hpp"
 
@@ -21,8 +21,8 @@ namespace nts::Components
             Tristate compute(size_t pin = 1) const override;
 
         private:
-            std::vector<std::shared_ptr<IComponent>> innerComponents;
+            std::vector<std::unique_ptr<IComponent>> innerComponents;
     };
 }
 
-#endif /* !N4081COMPONENT_HPP_ */
+#endif /* !HCF4081BCOMPONENT_HPP_ */
