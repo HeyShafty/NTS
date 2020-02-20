@@ -17,7 +17,7 @@ namespace nts::Components
             CD4030CComponent();
             ~CD4030CComponent() = default;
 
-            nts::Tristate compute(size_t pin) const override;
+            nts::Tristate compute(size_t pin = 1) const override;
 
         private:
             std::vector<std::shared_ptr<IComponent>> innerComponents;
