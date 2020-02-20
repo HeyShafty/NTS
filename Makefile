@@ -52,7 +52,7 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/OutputException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/UnknownComponentException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/WrongPinException.cpp	\
-		Component.cpp \
+		AComponent.cpp \
 		Factory.cpp	\
 		Tristate.cpp \
 		Pin.cpp \
