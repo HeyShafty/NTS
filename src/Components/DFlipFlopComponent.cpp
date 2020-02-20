@@ -21,10 +21,10 @@ nts::Components::DFlipFlopComponent::DFlipFlopComponent()
         this->computeComponent();
         return this->pins[NQ]->value;
     };
-    this->pins[2]->compute = std::bind(&DFlipFlopComponent::computeInPin, this, 2);
-    this->pins[3]->compute = std::bind(&DFlipFlopComponent::computeInPin, this, 3);
-    this->pins[4]->compute = std::bind(&DFlipFlopComponent::computeInPin, this, 4);
-    this->pins[5]->compute = std::bind(&DFlipFlopComponent::computeInPin, this, 5);
+    BIND_IN_PIN(2, DFlipFlopComponent);
+    BIND_IN_PIN(3, DFlipFlopComponent);
+    BIND_IN_PIN(4, DFlipFlopComponent);
+    BIND_IN_PIN(5, DFlipFlopComponent);
 }
 
 nts::Tristate nts::Components::DFlipFlopComponent::compute(size_t pin) const
@@ -48,7 +48,7 @@ void nts::Components::DFlipFlopComponent::computeComponent()
     this->pins[NQ]->value = this->computeNotQPin(states);
 }
 
-nts::Tristate nts::Components::DFlipFlopComponent::computeQPin(const Tristate * const states)
+nts::Tristate nts::Components::DFlipFlopComponent::computeQPin(const Tristate * const states) const
 {
     if ((states[RESET] && states[SET]) == Tristate::UNDEFINED)
         return Tristate::UNDEFINED;
@@ -63,7 +63,7 @@ nts::Tristate nts::Components::DFlipFlopComponent::computeQPin(const Tristate * 
     return Tristate::UNDEFINED;
 }
 
-nts::Tristate nts::Components::DFlipFlopComponent::computeNotQPin(const Tristate * const states)
+nts::Tristate nts::Components::DFlipFlopComponent::computeNotQPin(const Tristate * const states) const
 {
     if ((states[RESET] && states[SET]) == Tristate::UNDEFINED)
         return Tristate::UNDEFINED;

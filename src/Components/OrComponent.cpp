@@ -11,8 +11,8 @@
 nts::Components::OrComponent::OrComponent()
     : Component("OrComponent", 3)
 {
-    this->pins[0]->compute = std::bind(&OrComponent::computeInPin, this, 0);
-    this->pins[1]->compute = std::bind(&OrComponent::computeInPin, this, 1);
+    BIND_IN_PIN(0, OrComponent);
+    BIND_IN_PIN(1, OrComponent);
     this->pins[2]->type = PinType::OUT;
     this->pins[2]->compute = std::bind(&OrComponent::computeComponent, this);
 }

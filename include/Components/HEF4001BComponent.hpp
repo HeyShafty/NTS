@@ -2,20 +2,20 @@
 ** EPITECH PROJECT, 2020
 ** OOP_nanotekspice_2019
 ** File description:
-** HEF4071B
+** HEF4001BComponent
 */
 
-#ifndef HEF4071B_HPP_
-#define HEF4071B_HPP_
+#ifndef HEF4001BCOMPONENT_HPP_
+#define HEF4001BCOMPONENT_HPP_
 
 #include "Component.hpp"
 
 namespace nts::Components
 {
-    class HEF4071BComponent : public Component {
+    class HEF4001BComponent : public Component {
         public:
-            HEF4071BComponent();
-            ~HEF4071BComponent() = default;
+            HEF4001BComponent();
+            ~HEF4001BComponent() = default;
 
             nts::Tristate compute(size_t pin) const override;
 
@@ -24,4 +24,4 @@ namespace nts::Components
     };
 }
 
-#endif /* !HEF4071B_HPP_ */
+#endif /* !HEF4001BCOMPONENT_HPP_ */

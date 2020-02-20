@@ -5,7 +5,7 @@
 ** HCF4081BComponent
 */
 
-#include "Components/N4081Component.hpp"
+#include "Components/HCF4081BComponent.hpp"
 #include "Components/AndComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 

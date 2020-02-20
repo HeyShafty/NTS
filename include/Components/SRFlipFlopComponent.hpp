@@ -2,26 +2,27 @@
 ** EPITECH PROJECT, 2020
 ** OOP_nanotekspice_2019
 ** File description:
-** HEF4071B
+** SRFlipFlopComponent
 */
 
-#ifndef HEF4071B_HPP_
-#define HEF4071B_HPP_
+#ifndef SRFlipFlopComponent_HPP_
+#define SRFlipFlopComponent_HPP_
 
 #include "Component.hpp"
 
 namespace nts::Components
 {
-    class HEF4071BComponent : public Component {
+    class SRFlipFlopComponent : public Component
+    {
         public:
-            HEF4071BComponent();
-            ~HEF4071BComponent() = default;
+            SRFlipFlopComponent();
+            ~SRFlipFlopComponent() = default;
 
             nts::Tristate compute(size_t pin) const override;
 
         private:
             std::vector<std::shared_ptr<IComponent>> innerComponents;
     };
-}
+} // namespace nts::Components
 
-#endif /* !HEF4071B_HPP_ */
+#endif /* !SRFlipFlopComponent_HPP_ */

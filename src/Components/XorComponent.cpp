@@ -11,8 +11,8 @@
 nts::Components::XorComponent::XorComponent()
     : Component("XorComponent", 3)
 {
-    this->pins[0]->compute = std::bind(&XorComponent::computeInPin, this, 0);
-    this->pins[1]->compute = std::bind(&XorComponent::computeInPin, this, 1);
+    BIND_IN_PIN(0, XorComponent);
+    BIND_IN_PIN(1, XorComponent);
     this->pins[2]->type = PinType::OUT;
     this->pins[2]->compute = std::bind(&XorComponent::computeComponent, this);
 }

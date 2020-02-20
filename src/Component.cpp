@@ -8,6 +8,9 @@
 #include "Component.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
+std::unordered_set<nts::Pin *> nts::Component::callHistory;
+nts::Pin *nts::Component::callingPin = nullptr;
+
 nts::Component::Component(const std::string &name, size_t pin_nb)
     : name(name), pin_nb(pin_nb)
 {
@@ -41,5 +44,19 @@ nts::Tristate nts::Component::computeInPin(size_t pin_index) const
 {
     if (this->pins[pin_index]->link == nullptr)
         return Tristate::UNDEFINED;
-    return this->pins[pin_index]->link->compute(this->pins[pin_index]->link_n);
+    if (this->callHistory.find(this->pins[pin_index].get()) != this->callHistory.end())
+        return this->pins[pin_index]->value;
+    else {
+        if (this->callingPin == nullptr)
+            this->callingPin = this->pins[pin_index].get();
+        this->callHistory.insert(this->pins[pin_index].get());
+
+        Tristate value = this->pins[pin_index]->link->compute(this->pins[pin_index]->link_n);
+
+        if (this->pins[pin_index].get() == this->callingPin) {
+            this->callingPin = nullptr;
+            this->callHistory.clear();
+        }
+        return value;
+    }
 }

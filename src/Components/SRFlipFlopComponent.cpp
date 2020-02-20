@@ -1,0 +1,31 @@
+/*
+** EPITECH PROJECT, 2020
+** OOP_nanotekspice_2019
+** File description:
+** SRFlipFlopComponent
+*/
+
+#include "Components/SRFlipFlopComponent.hpp"
+#include "Components/HEF4001BComponent.hpp"
+#include "Exceptions/WrongPinException.hpp"
+
+nts::Components::SRFlipFlopComponent::SRFlipFlopComponent()
+    : Component("SRFlipFlopComponent", 4)
+{
+    std::shared_ptr<IComponent> cHEF4001B = std::make_shared<HEF4001BComponent>();
+
+    this->pins[0] = cHEF4001B->getPin(1);
+    cHEF4001B->setLink(2, *cHEF4001B, 4);
+    this->pins[1] = cHEF4001B->getPin(6);
+    cHEF4001B->setLink(5, *cHEF4001B, 3);
+    this->pins[2] = cHEF4001B->getPin(3);
+    this->pins[3] = cHEF4001B->getPin(4);
+    this->innerComponents.push_back(cHEF4001B);
+}
+
+nts::Tristate nts::Components::SRFlipFlopComponent::compute(size_t pin) const
+{
+    if (pin == 0 || pin > this->pin_nb)
+        throw nts::Exception::WrongPinException("Pin is out of range.", "SRFlipFlopComponent");
+    return this->pins[pin - 1]->compute();
+}

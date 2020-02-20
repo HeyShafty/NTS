@@ -11,8 +11,8 @@
 nts::Components::AndComponent::AndComponent()
     : Component("AndComponent", 3)
 {
-    this->pins[0]->compute = std::bind(&AndComponent::computeInPin, this, 0);
-    this->pins[1]->compute = std::bind(&AndComponent::computeInPin, this, 1);
+    BIND_IN_PIN(0, AndComponent);
+    BIND_IN_PIN(1, AndComponent);
     this->pins[2]->type = PinType::OUT;
     this->pins[2]->compute = std::bind(&AndComponent::computeComponent, this);
 }

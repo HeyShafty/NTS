@@ -11,7 +11,8 @@
 #include "Components/FalseComponent.hpp"
 #include "Components/DFlipFlopComponent.hpp"
 #include "Components/AndComponent.hpp"
-#include "Components/N4081Component.hpp"
+#include "Components/HCF4081BComponent.hpp"
+#include "Components/SRFlipFlopComponent.hpp"
 
 // int toto(int argc, char *argv[])
 // {
@@ -51,12 +52,27 @@
 //     printf("%d\n", dFlipFlop->compute(1));
 // }
 
+// int toto3(void)
+// {
+//     std::unique_ptr<nts::IComponent> set(new nts::Components::TrueComponent);
+//     std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent);
+
+//     dFlipFlop->setLink(6, *set, 1);
+//     printf("%d\n", dFlipFlop->compute(1));
+//     return 0;
+// }
+
 int main(void)
 {
-    std::unique_ptr<nts::IComponent> set(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent);
+    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent);
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
 
-    dFlipFlop->setLink(6, *set, 1);
-    printf("%d\n", dFlipFlop->compute(1));
-    return 0;
+    srFlipFlop->setLink(1, *cTrue, 1);
+    srFlipFlop->setLink(2, *cFalse, 1);
+    printf("%d\n", srFlipFlop->compute(3)); // FALSE
+    printf("%d\n", srFlipFlop->compute(4)); // TRUE
+    srFlipFlop->setLink(1, *cFalse, 1);
+    printf("%d\n", srFlipFlop->compute(3)); // FALSE
+    printf("%d\n", srFlipFlop->compute(4)); // TRUE
 }

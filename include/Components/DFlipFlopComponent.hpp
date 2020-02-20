@@ -15,7 +15,6 @@
 
 namespace nts::Components
 {
-
     class DFlipFlopComponent : public Component
     {
         public:
@@ -37,8 +36,8 @@ namespace nts::Components
 
             Tristate currClock;
             void computeComponent();
-            Tristate computeQPin(const Tristate * const states);
-            Tristate computeNotQPin(const Tristate * const states);
+            Tristate computeQPin(const Tristate * const states) const;
+            Tristate computeNotQPin(const Tristate * const states) const;
     };
 } // namespace nts::Components
 

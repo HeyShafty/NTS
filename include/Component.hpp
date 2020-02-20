@@ -8,8 +8,12 @@
 #ifndef COMPONENT_HPP_
 #define COMPONENT_HPP_
 
+#include <unordered_set>
 #include <vector>
 #include "IComponent.hpp"
+
+#define BIND_IN_PIN(idx, o) this->pins[idx]->compute = std::bind(&o::computeInPin, this, idx)
+#define BIND_PIN(idx, f)
 
 namespace nts
 {
@@ -30,6 +34,10 @@ namespace nts
             std::vector<std::shared_ptr<Pin>> pins;
 
             Tristate computeInPin(size_t pin_index) const;
+
+        private:
+            static std::unordered_set<Pin *> callHistory;
+            static Pin *callingPin;
     };
 }
 
