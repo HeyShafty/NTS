@@ -50,6 +50,7 @@ nts::Tristate nts::AComponent::compute(size_t pin) const
 
 void nts::AComponent::dump() const
 {
+    // TODEV
 }
 
 nts::Tristate nts::AComponent::computeInPin(size_t pin_index) const
