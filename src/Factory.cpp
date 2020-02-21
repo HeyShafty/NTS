@@ -24,7 +24,7 @@
 #include "Components/NotComponent.hpp"
 #include "Components/OrComponent.hpp"
 #include "Components/OutputComponent.hpp"
-#include "Components/QuadNotComponent.hpp"
+#include "Components/CD4069UBCComponent.hpp"
 #include "Components/QuadSRFlipFlopComponent.hpp"
 #include "Components/QuadTripleNandComponent.hpp"
 #include "Components/SRFlipFlopComponent.hpp"
@@ -52,7 +52,7 @@ const std::map<const std::string, std::function<std::unique_ptr<nts::IComponent>
     {"not", [](const std::string &) {return std::make_unique<nts::Components::NotComponent>();}},
     {"or", [](const std::string &) {return std::make_unique<nts::Components::OrComponent>();}},
     {"output", [](const std::string &) {return std::make_unique<nts::Components::OutputComponent>();}},
-    {"quadNot", [](const std::string &) {return std::make_unique<nts::Components::QuadNotComponent>();}},
+    {"4069", [](const std::string &) {return std::make_unique<nts::Components::CD4069UBCComponent>();}},
     {"quadSRFlipFlop", [](const std::string &) {return std::make_unique<nts::Components::QuadSRFlipFlopComponent>();}},
     {"quadTripleNand", [](const std::string &) {return std::make_unique<nts::Components::QuadTripleNandComponent>();}},
     {"sRFlipFlop", [](const std::string &) {return std::make_unique<nts::Components::SRFlipFlopComponent>();}},
