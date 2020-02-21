@@ -15,57 +15,55 @@
 Test(OrComponent, false_false)
 {
     std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent);
-    std::unique_ptr<nts::IComponent> cFalse1(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> cFalse2(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
 
-    cOr->setLink(1, *cFalse1, 1);
-    cOr->setLink(2, *cFalse2, 1);
+    cOr->setLink(1, *cFalse, 1);
+    cOr->setLink(2, *cFalse, 1);
     cr_assert_eq(cOr->compute(3), nts::Tristate::FALSE);
 }
 
 Test(OrComponent, false_true)
 {
     std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent);
-    std::unique_ptr<nts::IComponent> cFalse1(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> cFalse2(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
 
-    cOr->setLink(1, *cFalse1, 1);
-    cOr->setLink(2, *cFalse2, 1);
+    cOr->setLink(1, *cFalse, 1);
+    cOr->setLink(2, *cTrue, 1);
     cr_assert_eq(cOr->compute(3), nts::Tristate::TRUE);
 }
 
 Test(OrComponent, true_false)
 {
     std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent);
-    std::unique_ptr<nts::IComponent> cFalse1(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse2(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
 
-    cOr->setLink(1, *cFalse1, 1);
-    cOr->setLink(2, *cFalse2, 1);
+    cOr->setLink(1, *cTrue, 1);
+    cOr->setLink(2, *cFalse, 1);
     cr_assert_eq(cOr->compute(3), nts::Tristate::TRUE);
 }
 
 Test(OrComponent, true_true)
 {
     std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent);
-    std::unique_ptr<nts::IComponent> cFalse1(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse2(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
 
-    cOr->setLink(1, *cFalse1, 1);
-    cOr->setLink(2, *cFalse2, 1);
+    cOr->setLink(1, *cTrue, 1);
+    cOr->setLink(2, *cTrue, 1);
     cr_assert_eq(cOr->compute(3), nts::Tristate::TRUE);
 }
 
 Test(OrComponent, bad_linking)
 {
     std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
     size_t vals[] = { 0, 10, 1000, 3 };
 
     for (size_t val : vals) {
         try
         {
-            cOr->setLink(val, *cFalse, 1);
+            cOr->setLink(val, *cTrue, 1);
             cr_assert_fail("No exception thrown.");
         }
         catch (nts::Exception::WrongPinException &ex)

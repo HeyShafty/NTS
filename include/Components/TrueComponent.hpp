@@ -8,17 +8,15 @@
 #ifndef TRUECOMPONENT_HPP_
 #define TRUECOMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class TrueComponent : public Component
+    class TrueComponent : public AComponent
     {
         public:
             TrueComponent();
             ~TrueComponent() = default;
-
-            Tristate compute(size_t pin = 1) const override;
 
         private:
             Tristate computeComponent() const;

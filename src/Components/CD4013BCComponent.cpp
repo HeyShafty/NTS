@@ -10,7 +10,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::CD4013BCComponent::CD4013BCComponent()
-    : Component("4011", 14)
+    : AComponent("CD4013BCComponent", 14)
 {
     std::shared_ptr<IComponent> dFlipFlop1 = std::make_shared<DFlipFlopComponent>();
     std::shared_ptr<IComponent> dFlipFlop2 = std::make_shared<DFlipFlopComponent>();
@@ -31,13 +31,4 @@ nts::Components::CD4013BCComponent::CD4013BCComponent()
     this->pins[13]->type = PinType::ELECTRICAL;
     this->innerComponents.push_back(dFlipFlop1);
     this->innerComponents.push_back(dFlipFlop2);
-}
-
-nts::Tristate nts::Components::CD4013BCComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "CD4013BCComponent");
-    if (this->pins[pin - 1]->type == PinType::ELECTRICAL)
-        throw nts::Exception::WrongPinException("Pin cannot be computed (electrical)", "CD4013BCComponent");
-    return this->pins[pin - 1]->compute();
 }

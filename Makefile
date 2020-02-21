@@ -35,10 +35,19 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/SumComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/InputComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/OutputComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/NorComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/NotComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/TripleNandComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/HCF4081BComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/HEF4001BComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/SRFlipFlopComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/CD4011BComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/CD4030CComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/HEF4071BComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/CD4514BCComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/QuadNotComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/QuadSRFlipFlopComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/QuadTripleNandComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/DFlipFlopComponent.cpp \
 		$(COMPONENTS_SRC_PATH)/CD4013BCComponent.cpp \
 		$(COMPONENTS_SRC_PATH)/CD4008BMSComponent.cpp \
@@ -51,7 +60,7 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/OutputException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/UnknownComponentException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/WrongPinException.cpp	\
-		Component.cpp \
+		AComponent.cpp \
 		Factory.cpp	\
 		Tristate.cpp \
 		Pin.cpp \

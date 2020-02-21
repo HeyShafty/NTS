@@ -8,16 +8,14 @@
 #ifndef NANDCOMPONENT_HPP_
 #define NANDCOMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class NandComponent : public Component {
+    class NandComponent : public AComponent {
         public:
             NandComponent();
             ~NandComponent() = default;
-
-            nts::Tristate compute(size_t pin = 1) const override;
 
         private:
             Tristate computeComponent(void) const;

@@ -11,18 +11,15 @@
 #define IS_ASCENDANT(pc, cc) (pc == nts::Tristate::FALSE && cc == nts::Tristate::TRUE)
 #define IS_DESCENDANT(pc, cc) (pc == nts::Tristate::TRUE && cc == nts::Tristate::FALSE)
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-
-    class DFlipFlopComponent : public Component
+    class DFlipFlopComponent : public AComponent
     {
         public:
             DFlipFlopComponent();
             ~DFlipFlopComponent() = default;
-
-            nts::Tristate compute(size_t pin) const override;
 
         private:
             enum PinDesc
@@ -37,8 +34,8 @@ namespace nts::Components
 
             Tristate currClock;
             void computeComponent();
-            Tristate computeQPin(const Tristate * const states);
-            Tristate computeNotQPin(const Tristate * const states);
+            Tristate computeQPin(const Tristate * const states) const;
+            Tristate computeNotQPin(const Tristate * const states) const;
     };
 } // namespace nts::Components
 

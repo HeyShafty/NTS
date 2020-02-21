@@ -8,17 +8,15 @@
 #ifndef OUTPUTCOMPONENT_HPP_
 #define OUTPUTCOMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class OutputComponent : public Component
+    class OutputComponent : public AComponent
     {
         public:
             OutputComponent();
             ~OutputComponent() = default;
-
-            nts::Tristate compute(size_t pin = 1) const override;
     };
 }
 

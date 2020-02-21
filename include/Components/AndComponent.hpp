@@ -8,17 +8,15 @@
 #ifndef ANDCOMPONENT_HPP_
 #define ANDCOMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class AndComponent : public Component
+    class AndComponent : public AComponent
     {
         public:
             AndComponent();
             ~AndComponent() = default;
-
-            Tristate compute(size_t pin = 1) const override;
 
         private:
             Tristate computeComponent() const;

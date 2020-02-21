@@ -10,7 +10,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::HCF4081BComponent::HCF4081BComponent()
-    : Component("4081Component", 14)
+    : AComponent("HCF4081BComponent", 14)
 {
     std::unique_ptr<IComponent> cAnd1 = std::make_unique<AndComponent>();
     std::unique_ptr<IComponent> cAnd2 = std::make_unique<AndComponent>();
@@ -35,13 +35,4 @@ nts::Components::HCF4081BComponent::HCF4081BComponent()
     this->innerComponents.push_back(std::move(cAnd2));
     this->innerComponents.push_back(std::move(cAnd3));
     this->innerComponents.push_back(std::move(cAnd4));
-}
-
-nts::Tristate nts::Components::HCF4081BComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Given pin is out of range", "HCF4081BComponent");
-    if (this->pins[pin - 1]->type == PinType::ELECTRICAL)
-        throw nts::Exception::WrongPinException("Pin cannot be computed (electrical)", "HCF4081BComponent");
-    return this->pins[pin - 1]->compute();
 }

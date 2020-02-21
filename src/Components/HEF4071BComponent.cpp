@@ -10,7 +10,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::HEF4071BComponent::HEF4071BComponent()
-    : Component("4071", 14)
+    : AComponent("HEF4071BComponent", 14)
 {
     std::shared_ptr<IComponent> cOr1 = std::make_shared<OrComponent>();
     std::shared_ptr<IComponent> cOr2 = std::make_shared<OrComponent>();
@@ -35,13 +35,4 @@ nts::Components::HEF4071BComponent::HEF4071BComponent()
     this->innerComponents.push_back(cOr2);
     this->innerComponents.push_back(cOr3);
     this->innerComponents.push_back(cOr4);
-}
-
-nts::Tristate nts::Components::HEF4071BComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "CD4030CComponent");
-    if (this->pins[pin - 1]->type == PinType::ELECTRICAL)
-        throw nts::Exception::WrongPinException("Pin cannot be computed (electrical)", "HCF4081BComponent");
-    return this->pins[pin - 1]->compute();
 }

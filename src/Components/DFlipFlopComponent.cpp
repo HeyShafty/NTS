@@ -9,7 +9,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::DFlipFlopComponent::DFlipFlopComponent()
-    : Component("DFlipFlopComponent", 6), currClock(Tristate::UNDEFINED)
+    : AComponent("DFlipFlopComponent", 6), currClock(Tristate::UNDEFINED)
 {
     this->pins[Q]->type = PinType::OUT;
     this->pins[Q]->compute = [this]() {
@@ -21,17 +21,10 @@ nts::Components::DFlipFlopComponent::DFlipFlopComponent()
         this->computeComponent();
         return this->pins[NQ]->value;
     };
-    this->pins[2]->compute = std::bind(&DFlipFlopComponent::computeInPin, this, 2);
-    this->pins[3]->compute = std::bind(&DFlipFlopComponent::computeInPin, this, 3);
-    this->pins[4]->compute = std::bind(&DFlipFlopComponent::computeInPin, this, 4);
-    this->pins[5]->compute = std::bind(&DFlipFlopComponent::computeInPin, this, 5);
-}
-
-nts::Tristate nts::Components::DFlipFlopComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "DFlipFlopComponent");
-    return this->pins[pin - 1]->compute();
+    BIND_IN_PIN(2, DFlipFlopComponent);
+    BIND_IN_PIN(3, DFlipFlopComponent);
+    BIND_IN_PIN(4, DFlipFlopComponent);
+    BIND_IN_PIN(5, DFlipFlopComponent);
 }
 
 void nts::Components::DFlipFlopComponent::computeComponent()
@@ -48,7 +41,7 @@ void nts::Components::DFlipFlopComponent::computeComponent()
     this->pins[NQ]->value = this->computeNotQPin(states);
 }
 
-nts::Tristate nts::Components::DFlipFlopComponent::computeQPin(const Tristate * const states)
+nts::Tristate nts::Components::DFlipFlopComponent::computeQPin(const Tristate * const states) const
 {
     if ((states[RESET] && states[SET]) == Tristate::UNDEFINED)
         return Tristate::UNDEFINED;
@@ -63,7 +56,7 @@ nts::Tristate nts::Components::DFlipFlopComponent::computeQPin(const Tristate * 
     return Tristate::UNDEFINED;
 }
 
-nts::Tristate nts::Components::DFlipFlopComponent::computeNotQPin(const Tristate * const states)
+nts::Tristate nts::Components::DFlipFlopComponent::computeNotQPin(const Tristate * const states) const
 {
     if ((states[RESET] && states[SET]) == Tristate::UNDEFINED)
         return Tristate::UNDEFINED;
@@ -72,7 +65,7 @@ nts::Tristate nts::Components::DFlipFlopComponent::computeNotQPin(const Tristate
     else if (states[SET] == Tristate::TRUE)
         return Tristate::FALSE;
     else if (IS_ASCENDANT(states[1], this->currClock))
-        return ~states[DATA];
+        return !states[DATA];
     else if (IS_DESCENDANT(states[1], this->currClock))
         return this->pins[NQ]->value;
     return Tristate::UNDEFINED;

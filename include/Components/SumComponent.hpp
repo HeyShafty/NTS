@@ -8,17 +8,15 @@
 #ifndef SUMCOMPONENT_HPP_
 #define SUMCOMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class SumComponent : public Component
+    class SumComponent : public AComponent
     {
         public:
             SumComponent();
             ~SumComponent() = default;
-
-            nts::Tristate compute(size_t pin = 1) const override;
 
         private:
             nts::Tristate computeComponent() const;

@@ -8,21 +8,18 @@
 #ifndef INPUTCOMPONENT_HPP_
 #define INPUTCOMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class InputComponent : public Component
+    class InputComponent : public AComponent
     {
         public:
             InputComponent(nts::Tristate pinValue);
             ~InputComponent() = default;
 
-            nts::Tristate compute(size_t pin = 1) const override;
-            nts::Tristate computeComponent(void) const;
-
-        protected:
         private:
+            nts::Tristate computeComponent(void) const;
     };
 }
 

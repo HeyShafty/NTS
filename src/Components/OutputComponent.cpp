@@ -9,15 +9,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::OutputComponent::OutputComponent()
-    : Component("output", 1)
+    : AComponent("OutputComponent", 1)
 {
-    this->pins[0]->type = nts::PinType::IN;
-    this->pins[0]->compute = std::bind(&nts::Components::OutputComponent::computeInPin, this, 0);
-}
-
-nts::Tristate nts::Components::OutputComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "NAndComponent");
-    return this->pins[pin - 1]->compute();
+    BIND_IN_PIN(0, OutputComponent);
 }

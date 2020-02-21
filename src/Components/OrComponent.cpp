@@ -9,19 +9,12 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::OrComponent::OrComponent()
-    : Component("OrComponent", 3)
+    : AComponent("OrComponent", 3)
 {
-    this->pins[0]->compute = std::bind(&OrComponent::computeInPin, this, 0);
-    this->pins[1]->compute = std::bind(&OrComponent::computeInPin, this, 1);
+    BIND_IN_PIN(0, OrComponent);
+    BIND_IN_PIN(1, OrComponent);
     this->pins[2]->type = PinType::OUT;
     this->pins[2]->compute = std::bind(&OrComponent::computeComponent, this);
-}
-
-nts::Tristate nts::Components::OrComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "OrComponent");
-    return this->pins[pin - 1]->compute();
 }
 
 nts::Tristate nts::Components::OrComponent::computeComponent() const

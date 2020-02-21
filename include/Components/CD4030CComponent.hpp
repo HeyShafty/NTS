@@ -8,16 +8,14 @@
 #ifndef CD4030C_HPP_
 #define CD4030C_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class CD4030CComponent : public Component {
+    class CD4030CComponent : public AComponent {
         public:
             CD4030CComponent();
             ~CD4030CComponent() = default;
-
-            nts::Tristate compute(size_t pin = 1) const override;
 
         private:
             std::vector<std::shared_ptr<IComponent>> innerComponents;

@@ -8,17 +8,15 @@
 #ifndef FALSECOMPONENT_HPP_
 #define FALSECOMPONENT_HPP_
 
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class FalseComponent : public Component
+    class FalseComponent : public AComponent
     {
         public:
             FalseComponent();
             ~FalseComponent() = default;
-
-            Tristate compute(size_t pin = 1) const override;
 
         private:
             Tristate computeComponent() const;

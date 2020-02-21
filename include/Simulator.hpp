@@ -9,7 +9,7 @@
 #define SIMULATOR_HPP_
 
 #include <map>
-#include "Component.hpp"
+#include "AComponent.hpp"
 
 namespace nts
 {

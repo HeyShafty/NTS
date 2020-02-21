@@ -9,19 +9,12 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::XorComponent::XorComponent()
-    : Component("XorComponent", 3)
+    : AComponent("XorComponent", 3)
 {
-    this->pins[0]->compute = std::bind(&XorComponent::computeInPin, this, 0);
-    this->pins[1]->compute = std::bind(&XorComponent::computeInPin, this, 1);
+    BIND_IN_PIN(0, XorComponent);
+    BIND_IN_PIN(1, XorComponent);
     this->pins[2]->type = PinType::OUT;
     this->pins[2]->compute = std::bind(&XorComponent::computeComponent, this);
-}
-
-nts::Tristate nts::Components::XorComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "XorComponent");
-    return this->pins[pin - 1]->compute();
 }
 
 nts::Tristate nts::Components::XorComponent::computeComponent() const

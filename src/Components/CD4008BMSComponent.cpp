@@ -10,7 +10,7 @@
 #include "Exceptions/WrongPinException.hpp"
 
 nts::Components::CD4008BMSComponent::CD4008BMSComponent()
-    : Component("4008", 16)
+    : AComponent("CD4008BMSComponent", 16)
 {
     std::shared_ptr<IComponent> cSum1 = std::make_shared<SumComponent>();
     std::shared_ptr<IComponent> cSum2 = std::make_shared<SumComponent>();
@@ -44,13 +44,4 @@ nts::Components::CD4008BMSComponent::CD4008BMSComponent()
     this->innerComponents.push_back(cSum2);
     this->innerComponents.push_back(cSum3);
     this->innerComponents.push_back(cSum4);
-}
-
-nts::Tristate nts::Components::CD4008BMSComponent::compute(size_t pin) const
-{
-    if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Pin is out of range.", "CD4008BMSComponent");
-    if (this->pins[pin - 1]->type == PinType::ELECTRICAL)
-        throw nts::Exception::WrongPinException("Pin cannot be computed (electrical)", "CD4008BMSComponent");
-    return this->pins[pin - 1]->compute();
 }
