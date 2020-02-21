@@ -84,10 +84,10 @@ int main(void)
     std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
     std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
 
-    decoder->setLink(1, *cTrue, 1);
-    decoder->setLink(2, *cTrue, 1);
-    decoder->setLink(21, *cTrue, 1);
-    decoder->setLink(22, *cTrue, 1);
+    decoder->setLink(1, *cFalse, 1);
+    decoder->setLink(2, *cFalse, 1);
+    decoder->setLink(21, *cFalse, 1);
+    decoder->setLink(22, *cFalse, 1);
     decoder->setLink(23, *cFalse, 1);
     printf("%d\n", decoder->compute(11));
     printf("%d\n", decoder->compute(9));

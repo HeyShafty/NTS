@@ -130,25 +130,25 @@ nts::Components::CD4514BCComponent::CD4514BCComponent()
     decoder_QuadTripleNand_4->setLink(14, *latchOut_4001_1, 11);
     decoder_QuadTripleNand_4->setLink(15, *inhibitorNot, 2);
 
-    decoder_QuadNot_1->setLink(1, *decoder_QuadTripleNand_1, 3);
     decoder_QuadNot_1->setLink(1, *decoder_QuadTripleNand_1, 4);
-    decoder_QuadNot_1->setLink(1, *decoder_QuadTripleNand_1, 10);
-    decoder_QuadNot_1->setLink(1, *decoder_QuadTripleNand_1, 11);
+    decoder_QuadNot_1->setLink(3, *decoder_QuadTripleNand_1, 8);
+    decoder_QuadNot_1->setLink(5, *decoder_QuadTripleNand_1, 12);
+    decoder_QuadNot_1->setLink(7, *decoder_QuadTripleNand_1, 16);
 
-    decoder_QuadNot_2->setLink(1, *decoder_QuadTripleNand_2, 3);
     decoder_QuadNot_2->setLink(1, *decoder_QuadTripleNand_2, 4);
-    decoder_QuadNot_2->setLink(1, *decoder_QuadTripleNand_2, 10);
-    decoder_QuadNot_2->setLink(1, *decoder_QuadTripleNand_2, 11);
+    decoder_QuadNot_2->setLink(3, *decoder_QuadTripleNand_2, 8);
+    decoder_QuadNot_2->setLink(5, *decoder_QuadTripleNand_2, 12);
+    decoder_QuadNot_2->setLink(7, *decoder_QuadTripleNand_2, 16);
 
-    decoder_QuadNot_3->setLink(1, *decoder_QuadTripleNand_3, 3);
     decoder_QuadNot_3->setLink(1, *decoder_QuadTripleNand_3, 4);
-    decoder_QuadNot_3->setLink(1, *decoder_QuadTripleNand_3, 10);
-    decoder_QuadNot_3->setLink(1, *decoder_QuadTripleNand_3, 11);
+    decoder_QuadNot_3->setLink(3, *decoder_QuadTripleNand_3, 8);
+    decoder_QuadNot_3->setLink(5, *decoder_QuadTripleNand_3, 12);
+    decoder_QuadNot_3->setLink(7, *decoder_QuadTripleNand_3, 16);
 
-    decoder_QuadNot_4->setLink(1, *decoder_QuadTripleNand_4, 3);
     decoder_QuadNot_4->setLink(1, *decoder_QuadTripleNand_4, 4);
-    decoder_QuadNot_4->setLink(1, *decoder_QuadTripleNand_4, 10);
-    decoder_QuadNot_4->setLink(1, *decoder_QuadTripleNand_4, 11);
+    decoder_QuadNot_4->setLink(3, *decoder_QuadTripleNand_4, 8);
+    decoder_QuadNot_4->setLink(5, *decoder_QuadTripleNand_4, 12);
+    decoder_QuadNot_4->setLink(7, *decoder_QuadTripleNand_4, 16);
 
     this->pins[0] = strobeNot->getPin(1);
     this->pins[1] = latchIn_QuadNot->getPin(1);
