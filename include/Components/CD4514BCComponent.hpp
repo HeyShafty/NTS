@@ -18,9 +18,6 @@ namespace nts::Components
             ~CD4514BCComponent() = default;
 
         private:
-            // Tristate computeComponent(size_t bit_index) const;
-            // int getBitValue(Tristate bit1, Tristate bit2, Tristate bit3, Tristate bit4) const;
-
             std::vector<std::shared_ptr<IComponent>> innerComponents;
     };
 
