@@ -11,9 +11,8 @@
 #include "IComponent.hpp"
 #include "Simulator.hpp"
 #include "Factory.hpp"
-#include "Parser.hpp"
 
-const std::map<std::string, int (nts::Simulator::*)(void)> nts::Simulator::functionnalitiesMap = {
+const std::map<std::string, int (nts::Simulator::*)(void) const> nts::Simulator::functionnalitiesMap = {
     {"display", &nts::Simulator::displayOutputs},
     {"exit", &nts::Simulator::exitSimulation},
     {"simulate", &nts::Simulator::simulate},
@@ -26,7 +25,7 @@ bool nts::Simulator::isLooping = true;
 nts::Simulator::Simulator()
 {}
 
-nts::IComponent *nts::Simulator::findComponent(std::string toFind)
+nts::IComponent *nts::Simulator::findComponent(std::string toFind) const
 {
     auto found = this->outputComponents.find(toFind);
 
@@ -35,31 +34,35 @@ nts::IComponent *nts::Simulator::findComponent(std::string toFind)
     found = this->inputComponents.find(toFind);
     if (found != this->inputComponents.end())
         return found->second.get();
+    found = this->clockComponents.find(toFind);
+    if (found != this->clockComponents.end())
+        return found->second.get();
     found = this->otherComponents.find(toFind);
     return found->second.get();
 }
 
-void nts::Simulator::initSimulation(int ac, char **av)
+void nts::Simulator::initChipsets(nts::Parser::ChipsetsMap &chipsetsMap, nts::Parser &parser, const std::vector<std::string> args)
 {
-    std::vector<std::string> args(av + 1, av + ac);
-    nts::Parser parser(av[1]);
-    nts::Parser::ChipsetsMap chipsetMap;
-    nts::Parser::LinksVector linksVector;
-
-    chipsetMap = parser.parseChipsets(args);
-    for (auto it = chipsetMap.begin(); it != chipsetMap.end(); ++it) {
+    chipsetsMap = parser.parseChipsets(args);
+    for (auto it = chipsetsMap.begin(); it != chipsetsMap.end(); ++it) {
         if (it->second.at(0).compare("output") == 0) {
             this->outputComponents.insert({it->first, nts::Factory::createComponent(it->second.at(0), it->second.at(1))});
         } else if (it->second.at(0).compare("input") == 0) {
             this->inputComponents.insert({it->first, nts::Factory::createComponent(it->second.at(0), it->second.at(1))});
+        } else if (it->second.at(0).compare("clock") == 0) {
+            this->clockComponents.insert({it->first, nts::Factory::createComponent(it->second.at(0), it->second.at(1))});
         } else {
             this->otherComponents.insert({it->first, nts::Factory::createComponent(it->second.at(0), it->second.at(1))});
         }
     }
-    if (chipsetMap.size() == 0) {
+    if (chipsetsMap.size() == 0) {
         throw nts::Exception::CircuitFileException("There is no component to link.", "Simulator");
     }
-    linksVector = parser.parseLinks(chipsetMap);
+}
+
+void nts::Simulator::initLinks(nts::Parser::ChipsetsMap &chipsetsMap, nts::Parser &parser) const
+{
+    nts::Parser::LinksVector linksVector = parser.parseLinks(chipsetsMap);
     for (auto it = linksVector.begin(); it != linksVector.end(); ++it) {
         IComponent *toBeLink = this->findComponent(std::get<0>(*it).componentName);
         IComponent *toLink = this->findComponent(std::get<1>(*it).componentName);
@@ -74,13 +77,22 @@ void nts::Simulator::initSimulation(int ac, char **av)
     }
 }
 
-void nts::Simulator::runSimulation(void)
+void nts::Simulator::initSimulation(int ac, char **av)
+{
+    std::vector<std::string> args(av + 1, av + ac);
+    nts::Parser parser(av[1]);
+    nts::Parser::ChipsetsMap chipsetMap;
+
+    this->initChipsets(chipsetMap, parser, args);
+    this->initLinks(chipsetMap, parser);
+}
+
+void nts::Simulator::runSimulation(void) const
 {
     std::string input;
 
-    for (auto it = this->outputComponents.begin(); it != this->outputComponents.end(); ++it) {
-        std::cout << it->first << "=" << it->second->compute(1) << std::endl;
-    }
+    this->simulate();
+    this->displayOutputs();
     while (42) {
         std::cout << "> ";
         std::flush(std::cout);
@@ -107,7 +119,7 @@ void nts::Simulator::runSimulation(void)
     }
 }
 
-int nts::Simulator::displayOutputs(void)
+int nts::Simulator::displayOutputs(void) const
 {
     for (auto it = this->outputComponents.begin(); it != this->outputComponents.end(); ++it) {
         std::cout << it->first << "=" << it->second->compute(1) << std::endl;
@@ -115,15 +127,15 @@ int nts::Simulator::displayOutputs(void)
     return 0;
 }
 
-int nts::Simulator::exitSimulation(void)
+int nts::Simulator::exitSimulation(void) const
 {
     return 1;
 }
 
-int nts::Simulator::simulate(void)
+int nts::Simulator::simulate(void) const
 {
-    for (auto it = this->outputComponents.begin(); it != this->outputComponents.end(); ++it) {
-        it->second->compute(1);
+    for (auto it = this->clockComponents.begin(); it != this->clockComponents.end(); ++it) {
+        it->second->getPin(1)->value = !it->second->getPin(1)->value;
     }
     return 0;
 }
@@ -133,7 +145,7 @@ void nts::Simulator::signalHandler(int)
     isLooping = false;
 }
 
-int nts::Simulator::loop(void)
+int nts::Simulator::loop(void) const
 {
     struct sigaction sa;
 
@@ -147,12 +159,15 @@ int nts::Simulator::loop(void)
     return 0;
 }
 
-int nts::Simulator::dump(void)
+int nts::Simulator::dump(void) const
 {
     for (auto it = this->outputComponents.begin(); it != this->outputComponents.end(); ++it) {
         it->second->dump();
     }
     for (auto it = this->inputComponents.begin(); it != this->inputComponents.end(); ++it) {
+        it->second->dump();
+    }
+    for (auto it = this->clockComponents.begin(); it != this->clockComponents.end(); ++it) {
         it->second->dump();
     }
     for (auto it = this->otherComponents.begin(); it != this->otherComponents.end(); ++it) {

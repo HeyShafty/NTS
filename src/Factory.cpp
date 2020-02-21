@@ -13,6 +13,7 @@
 #include "Components/CD4013BCComponent.hpp"
 #include "Components/CD4030CComponent.hpp"
 #include "Components/CD4514BCComponent.hpp"
+#include "Components/ClockComponent.hpp"
 #include "Components/DFlipFlopComponent.hpp"
 #include "Components/FalseComponent.hpp"
 #include "Components/HCF4081BComponent.hpp"
@@ -41,6 +42,7 @@ const std::map<const std::string, std::function<std::unique_ptr<nts::IComponent>
     {"4013", [](const std::string &) {return std::make_unique<nts::Components::CD4013BCComponent>();}},
     {"4030", [](const std::string &) {return std::make_unique<nts::Components::CD4030CComponent>();}},
     {"4514", [](const std::string &) {return std::make_unique<nts::Components::CD4514BCComponent>();}},
+    {"clock", [](const std::string &value) {return std::make_unique<nts::Components::ClockComponent>((nts::Tristate)std::stoi(value));}},
     {"dFlipFlop", [](const std::string &) {return std::make_unique<nts::Components::DFlipFlopComponent>();}},
     {"false", [](const std::string &) {return std::make_unique<nts::Components::FalseComponent>();}},
     {"4081", [](const std::string &) {return std::make_unique<nts::Components::HCF4081BComponent>();}},

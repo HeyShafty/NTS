@@ -10,6 +10,7 @@
 
 #include <map>
 #include "AComponent.hpp"
+#include "Parser.hpp"
 
 namespace nts
 {
@@ -19,22 +20,26 @@ namespace nts
             Simulator();
             ~Simulator() = default;
 
-            IComponent *findComponent(std::string toFind);
-
             void initSimulation(int ac, char **av);
-            void runSimulation(void);
-            int displayOutputs(void);
-            int exitSimulation(void);
-            int simulate(void);
-            int loop(void);
-            static void signalHandler(int sig);
-            int dump(void);
+            void runSimulation(void) const;
+            int displayOutputs(void) const;
+            int exitSimulation(void) const;
+            int simulate(void) const;
+            int loop(void) const;
+            int dump(void) const;
 
-            static const std::map<std::string, int (nts::Simulator::*)(void)> functionnalitiesMap;
+            static void signalHandler(int sig);
+
             static bool isLooping;
         private:
+            IComponent *findComponent(std::string toFind) const;
+            void initChipsets(nts::Parser::ChipsetsMap &chipsetsMap, nts::Parser &parser, const std::vector<std::string> args);
+            void initLinks(nts::Parser::ChipsetsMap &chipsetsMap, nts::Parser &parser) const;
+            static const std::map<std::string, int (nts::Simulator::*)(void) const> functionnalitiesMap;
+
             std::map<std::string, std::unique_ptr<IComponent>> outputComponents;
             std::map<std::string, std::unique_ptr<IComponent>> inputComponents;
+            std::map<std::string, std::unique_ptr<IComponent>> clockComponents;
             std::map<std::string, std::unique_ptr<IComponent>> otherComponents;
     };
 }
