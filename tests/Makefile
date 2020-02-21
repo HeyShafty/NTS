@@ -27,6 +27,7 @@ SRC_TESTS	=	test_Tristate.cpp \
 				test_HEF4001BComponent.cpp \
 				test_SRFlipFlopComponent.cpp \
 				test_QuadSRFlipFlopComponent.cpp \
+				test_CD4514BCComponent.cpp \
 				test_parser.cpp
 
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_TESTS)

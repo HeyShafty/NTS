@@ -192,34 +192,3 @@ nts::Components::CD4514BCComponent::CD4514BCComponent()
     this->innerComponents.push_back(decoder_QuadNot_3);
     this->innerComponents.push_back(decoder_QuadNot_4);
 }
-
-// nts::Tristate nts::Components::CD4514BCComponent::computeComponent(size_t bit_index) const
-// {
-//     Tristate strobe = this->pins[0]->compute();
-//     Tristate bit1 = this->pins[1]->compute();
-//     Tristate bit2 = this->pins[2]->compute();
-//     Tristate bit3 = this->pins[20]->compute();
-//     Tristate bit4 = this->pins[21]->compute();
-//     Tristate inhibit = this->pins[22]->compute();
-//     Tristate newValue;
-
-//     if (inhibit == Tristate::TRUE) {
-
-//     } else /* if (strobe == Tristate::TRUE) */ {
-
-//     }
-//     return this->pins[bit_index]->value;
-// }
-
-// int nts::Components::CD4514BCComponent::getBitValue(Tristate bit1,
-//                                                     Tristate bit2,
-//                                                     Tristate bit3,
-//                                                     Tristate bit4) const
-// {
-//     int bit = 0;
-
-//     if ((bit1 && bit2 && bit3 && bit4) == Tristate::UNDEFINED)
-//         return -1;
-//     bit += (bit1 << 3) | (bit2 << 2) | (bit3 << 1) | bit4;
-//     return bit;
-// }
