@@ -42,8 +42,8 @@ Test(QuadSRFlipFlopComponent, true_false)
 
     quadSRFlipFlop->setLink(1, *cTrue, 1);
     quadSRFlipFlop->setLink(2, *cFalse, 1);
-    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::FALSE);
-    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::FALSE);
 }
 
 Test(QuadSRFlipFlopComponent, true_false_then_false_false)
@@ -54,11 +54,11 @@ Test(QuadSRFlipFlopComponent, true_false_then_false_false)
 
     quadSRFlipFlop->setLink(1, *cTrue, 1);
     quadSRFlipFlop->setLink(2, *cFalse, 1);
-    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::FALSE);
-    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::FALSE);
     quadSRFlipFlop->setLink(1, *cFalse, 1);
-    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::FALSE);
-    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::FALSE);
 }
 
 Test(QuadSRFlipFlopComponent, true_false_then_false_false_then_true_false)
@@ -69,14 +69,14 @@ Test(QuadSRFlipFlopComponent, true_false_then_false_false_then_true_false)
 
     quadSRFlipFlop->setLink(1, *cTrue, 1);
     quadSRFlipFlop->setLink(2, *cFalse, 1);
-    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::FALSE);
-    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::FALSE);
     quadSRFlipFlop->setLink(1, *cFalse, 1);
-    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::FALSE);
-    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::FALSE);
     quadSRFlipFlop->setLink(1, *cTrue, 1);
-    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::FALSE);
-    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::FALSE);
 }
 
 Test(QuadSRFlipFlopComponent, true_false_then_false_false_then_false_true)
@@ -87,14 +87,14 @@ Test(QuadSRFlipFlopComponent, true_false_then_false_false_then_false_true)
 
     quadSRFlipFlop->setLink(1, *cTrue, 1);
     quadSRFlipFlop->setLink(2, *cFalse, 1);
-    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::FALSE);
-    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::TRUE);
-    quadSRFlipFlop->setLink(1, *cFalse, 1);
-    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::FALSE);
-    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::TRUE);
-    quadSRFlipFlop->setLink(2, *cTrue, 1);
     cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::TRUE);
     cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::FALSE);
+    quadSRFlipFlop->setLink(1, *cFalse, 1);
+    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::FALSE);
+    quadSRFlipFlop->setLink(2, *cTrue, 1);
+    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::FALSE);
+    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::TRUE);
 }
 
 Test(QuadSRFlipFlopComponent, true_false_then_false_false_then_false_true_then_false_false)
@@ -105,15 +105,15 @@ Test(QuadSRFlipFlopComponent, true_false_then_false_false_then_false_true_then_f
 
     quadSRFlipFlop->setLink(1, *cTrue, 1);
     quadSRFlipFlop->setLink(2, *cFalse, 1);
-    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::FALSE);
-    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::FALSE);
     quadSRFlipFlop->setLink(1, *cFalse, 1);
+    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::TRUE);
+    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::FALSE);
+    quadSRFlipFlop->setLink(2, *cTrue, 1);
     cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::FALSE);
     cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::TRUE);
-    quadSRFlipFlop->setLink(2, *cTrue, 1);
-    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::TRUE);
-    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::FALSE);
     quadSRFlipFlop->setLink(2, *cFalse, 1);
-    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::TRUE);
-    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::FALSE);
+    cr_assert_eq(quadSRFlipFlop->compute(3), nts::Tristate::FALSE);
+    cr_assert_eq(quadSRFlipFlop->compute(4), nts::Tristate::TRUE);
 }

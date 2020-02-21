@@ -18,7 +18,7 @@ nts::Components::SRFlipFlopComponent::SRFlipFlopComponent()
     cHEF4001B->setLink(5, *cHEF4001B, 3);
     this->pins[0] = cHEF4001B->getPin(1);
     this->pins[1] = cHEF4001B->getPin(6);
-    this->pins[2] = cHEF4001B->getPin(3);
-    this->pins[3] = cHEF4001B->getPin(4);
+    this->pins[2] = cHEF4001B->getPin(4);
+    this->pins[3] = cHEF4001B->getPin(3);
     this->innerComponents.push_back(cHEF4001B);
 }
