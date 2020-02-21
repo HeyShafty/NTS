@@ -63,7 +63,11 @@ void nts::Simulator::initSimulation(int ac, char **av)
     for (auto it = linksVector.begin(); it != linksVector.end(); ++it) {
         IComponent *toBeLink = this->findComponent(std::get<0>(*it).componentName);
         IComponent *toLink = this->findComponent(std::get<1>(*it).componentName);
-        toLink->setLink(std::get<1>(*it).pinNumber, *toBeLink, std::get<0>(*it).pinNumber);
+        if (toBeLink->getPin(std::get<0>(*it).pinNumber)->type == nts::PinType::IN) {
+            toBeLink->setLink(std::get<0>(*it).pinNumber, *toLink, std::get<1>(*it).pinNumber);
+        } else {
+            toLink->setLink(std::get<1>(*it).pinNumber, *toBeLink, std::get<0>(*it).pinNumber);
+        }
     }
     if (linksVector.size() == 0) {
         throw nts::Exception::CircuitFileException("No link is specify.", "Simulator");
@@ -84,6 +88,8 @@ void nts::Simulator::runSimulation(void)
             std::cout << "exit" << std::endl;
             break;
         }
+        if (input.size() == 0)
+            continue;
         auto found = this->functionnalitiesMap.find(input);
         if (found != this->functionnalitiesMap.end()) {
             if ((this->*(found->second))() == 1)
