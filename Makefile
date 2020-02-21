@@ -29,6 +29,7 @@ EXCEPTIONS_SRC_PATH = $(EXCEPTIONS_INCL_NAME)
 SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/FalseComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/AndComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/ClockComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/NandComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/OrComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/XorComponent.cpp	\
