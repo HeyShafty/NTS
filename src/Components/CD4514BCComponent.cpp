@@ -9,7 +9,7 @@
 #include "Components/HEF4001BComponent.hpp"
 #include "Components/QuadSRFlipFlopComponent.hpp"
 #include "Components/CD4011BComponent.hpp"
-#include "Components/QuadNotComponent.hpp"
+#include "Components/CD4069UBCComponent.hpp"
 #include "Components/NotComponent.hpp"
 #include "Components/QuadTripleNandComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
@@ -18,9 +18,7 @@
 nts::Components::CD4514BCComponent::CD4514BCComponent()
     : AComponent("CD4514BCComponent", 24)
 {
-    std::shared_ptr<IComponent> latchIn_QuadNot = nts::Factory::createComponent("quadNot");
-    std::shared_ptr<IComponent> strobeNot = nts::Factory::createComponent("not");
-    std::shared_ptr<IComponent> inhibitorNot = nts::Factory::createComponent("not");
+    std::shared_ptr<IComponent> latchIn_4069 = nts::Factory::createComponent("4069");
     std::shared_ptr<IComponent> latchIn_4001_1 = nts::Factory::createComponent("4001");
     std::shared_ptr<IComponent> latchIn_4001_2 = nts::Factory::createComponent("4001");
     std::shared_ptr<IComponent> quadSRFlipFlop = nts::Factory::createComponent("quadSRFlipFlop");
@@ -30,28 +28,27 @@ nts::Components::CD4514BCComponent::CD4514BCComponent()
     std::shared_ptr<IComponent> decoder_QuadTripleNand_2 = nts::Factory::createComponent("quadTripleNand");
     std::shared_ptr<IComponent> decoder_QuadTripleNand_3 = nts::Factory::createComponent("quadTripleNand");
     std::shared_ptr<IComponent> decoder_QuadTripleNand_4 = nts::Factory::createComponent("quadTripleNand");
-    std::shared_ptr<IComponent> decoder_QuadNot_1 = nts::Factory::createComponent("quadNot");
-    std::shared_ptr<IComponent> decoder_QuadNot_2 = nts::Factory::createComponent("quadNot");
-    std::shared_ptr<IComponent> decoder_QuadNot_3 = nts::Factory::createComponent("quadNot");
-    std::shared_ptr<IComponent> decoder_QuadNot_4 = nts::Factory::createComponent("quadNot");
+    std::shared_ptr<IComponent> decoder_4069_1 = nts::Factory::createComponent("4069");
+    std::shared_ptr<IComponent> decoder_4069_2 = nts::Factory::createComponent("4069");
+    std::shared_ptr<IComponent> decoder_4069_3 = nts::Factory::createComponent("4069");
 
-    latchIn_4001_1->setLink(1, *latchIn_QuadNot, 2);
-    latchIn_4001_1->setLink(2, *strobeNot, 2);
-    latchIn_4001_1->setLink(5, *latchIn_QuadNot, 4);
-    latchIn_4001_1->setLink(6, *strobeNot, 2);
-    latchIn_4001_1->setLink(8, *latchIn_QuadNot, 6);
-    latchIn_4001_1->setLink(9, *strobeNot, 2);
-    latchIn_4001_1->setLink(12, *latchIn_QuadNot, 8);
-    latchIn_4001_1->setLink(13, *strobeNot, 2);
+    latchIn_4001_1->setLink(1, *latchIn_4069, 2);
+    latchIn_4001_1->setLink(2, *latchIn_4069, 10);
+    latchIn_4001_1->setLink(5, *latchIn_4069, 4);
+    latchIn_4001_1->setLink(6, *latchIn_4069, 10);
+    latchIn_4001_1->setLink(8, *latchIn_4069, 6);
+    latchIn_4001_1->setLink(9, *latchIn_4069, 10);
+    latchIn_4001_1->setLink(12, *latchIn_4069, 8);
+    latchIn_4001_1->setLink(13, *latchIn_4069, 10);
 
     latchIn_4001_2->setLink(1, *latchIn_4001_1, 3);
-    latchIn_4001_2->setLink(2, *strobeNot, 2);
+    latchIn_4001_2->setLink(2, *latchIn_4069, 10);
     latchIn_4001_2->setLink(5, *latchIn_4001_1, 4);
-    latchIn_4001_2->setLink(6, *strobeNot, 2);
+    latchIn_4001_2->setLink(6, *latchIn_4069, 10);
     latchIn_4001_2->setLink(8, *latchIn_4001_1, 10);
-    latchIn_4001_2->setLink(9, *strobeNot, 2);
+    latchIn_4001_2->setLink(9, *latchIn_4069, 10);
     latchIn_4001_2->setLink(12, *latchIn_4001_1, 11);
-    latchIn_4001_2->setLink(13, *strobeNot, 2);
+    latchIn_4001_2->setLink(13, *latchIn_4069, 10);
 
     quadSRFlipFlop->setLink(1, *latchIn_4001_1, 3);
     quadSRFlipFlop->setLink(2, *latchIn_4001_2, 3);
@@ -81,103 +78,100 @@ nts::Components::CD4514BCComponent::CD4514BCComponent()
 
     decoder_QuadTripleNand_1->setLink(1, *latchOut_4001_2, 3);
     decoder_QuadTripleNand_1->setLink(2, *latchOut_4001_1, 3);
-    decoder_QuadTripleNand_1->setLink(3, *inhibitorNot, 2);
+    decoder_QuadTripleNand_1->setLink(3, *latchIn_4069, 12);
     decoder_QuadTripleNand_1->setLink(5, *latchOut_4001_2, 3);
     decoder_QuadTripleNand_1->setLink(6, *latchOut_4001_1, 4);
-    decoder_QuadTripleNand_1->setLink(7, *inhibitorNot, 2);
+    decoder_QuadTripleNand_1->setLink(7, *latchIn_4069, 12);
     decoder_QuadTripleNand_1->setLink(9, *latchOut_4001_2, 3);
     decoder_QuadTripleNand_1->setLink(10, *latchOut_4001_1, 10);
-    decoder_QuadTripleNand_1->setLink(11, *inhibitorNot, 2);
+    decoder_QuadTripleNand_1->setLink(11, *latchIn_4069, 12);
     decoder_QuadTripleNand_1->setLink(13, *latchOut_4001_2, 3);
     decoder_QuadTripleNand_1->setLink(14, *latchOut_4001_1, 11);
-    decoder_QuadTripleNand_1->setLink(15, *inhibitorNot, 2);
+    decoder_QuadTripleNand_1->setLink(15, *latchIn_4069, 12);
 
     decoder_QuadTripleNand_2->setLink(1, *latchOut_4001_2, 4);
     decoder_QuadTripleNand_2->setLink(2, *latchOut_4001_1, 3);
-    decoder_QuadTripleNand_2->setLink(3, *inhibitorNot, 2);
+    decoder_QuadTripleNand_2->setLink(3, *latchIn_4069, 12);
     decoder_QuadTripleNand_2->setLink(5, *latchOut_4001_2, 4);
     decoder_QuadTripleNand_2->setLink(6, *latchOut_4001_1, 4);
-    decoder_QuadTripleNand_2->setLink(7, *inhibitorNot, 2);
+    decoder_QuadTripleNand_2->setLink(7, *latchIn_4069, 12);
     decoder_QuadTripleNand_2->setLink(9, *latchOut_4001_2, 4);
     decoder_QuadTripleNand_2->setLink(10, *latchOut_4001_1, 10);
-    decoder_QuadTripleNand_2->setLink(11, *inhibitorNot, 2);
+    decoder_QuadTripleNand_2->setLink(11, *latchIn_4069, 12);
     decoder_QuadTripleNand_2->setLink(13, *latchOut_4001_2, 4);
     decoder_QuadTripleNand_2->setLink(14, *latchOut_4001_1, 11);
-    decoder_QuadTripleNand_2->setLink(15, *inhibitorNot, 2);
+    decoder_QuadTripleNand_2->setLink(15, *latchIn_4069, 12);
 
     decoder_QuadTripleNand_3->setLink(1, *latchOut_4001_2, 10);
     decoder_QuadTripleNand_3->setLink(2, *latchOut_4001_1, 3);
-    decoder_QuadTripleNand_3->setLink(3, *inhibitorNot, 2);
+    decoder_QuadTripleNand_3->setLink(3, *latchIn_4069, 12);
     decoder_QuadTripleNand_3->setLink(5, *latchOut_4001_2, 10);
     decoder_QuadTripleNand_3->setLink(6, *latchOut_4001_1, 4);
-    decoder_QuadTripleNand_3->setLink(7, *inhibitorNot, 2);
+    decoder_QuadTripleNand_3->setLink(7, *latchIn_4069, 12);
     decoder_QuadTripleNand_3->setLink(9, *latchOut_4001_2, 10);
     decoder_QuadTripleNand_3->setLink(10, *latchOut_4001_1, 10);
-    decoder_QuadTripleNand_3->setLink(11, *inhibitorNot, 2);
+    decoder_QuadTripleNand_3->setLink(11, *latchIn_4069, 12);
     decoder_QuadTripleNand_3->setLink(13, *latchOut_4001_2, 10);
     decoder_QuadTripleNand_3->setLink(14, *latchOut_4001_1, 11);
-    decoder_QuadTripleNand_3->setLink(15, *inhibitorNot, 2);
+    decoder_QuadTripleNand_3->setLink(15, *latchIn_4069, 12);
 
     decoder_QuadTripleNand_4->setLink(1, *latchOut_4001_2, 11);
     decoder_QuadTripleNand_4->setLink(2, *latchOut_4001_1, 3);
-    decoder_QuadTripleNand_4->setLink(3, *inhibitorNot, 2);
+    decoder_QuadTripleNand_4->setLink(3, *latchIn_4069, 12);
     decoder_QuadTripleNand_4->setLink(5, *latchOut_4001_2, 11);
     decoder_QuadTripleNand_4->setLink(6, *latchOut_4001_1, 4);
-    decoder_QuadTripleNand_4->setLink(7, *inhibitorNot, 2);
+    decoder_QuadTripleNand_4->setLink(7, *latchIn_4069, 12);
     decoder_QuadTripleNand_4->setLink(9, *latchOut_4001_2, 11);
     decoder_QuadTripleNand_4->setLink(10, *latchOut_4001_1, 10);
-    decoder_QuadTripleNand_4->setLink(11, *inhibitorNot, 2);
+    decoder_QuadTripleNand_4->setLink(11, *latchIn_4069, 12);
     decoder_QuadTripleNand_4->setLink(13, *latchOut_4001_2, 11);
     decoder_QuadTripleNand_4->setLink(14, *latchOut_4001_1, 11);
-    decoder_QuadTripleNand_4->setLink(15, *inhibitorNot, 2);
+    decoder_QuadTripleNand_4->setLink(15, *latchIn_4069, 12);
 
-    decoder_QuadNot_1->setLink(1, *decoder_QuadTripleNand_1, 4);
-    decoder_QuadNot_1->setLink(3, *decoder_QuadTripleNand_1, 8);
-    decoder_QuadNot_1->setLink(5, *decoder_QuadTripleNand_1, 12);
-    decoder_QuadNot_1->setLink(7, *decoder_QuadTripleNand_1, 16);
+    decoder_4069_1->setLink(1, *decoder_QuadTripleNand_1, 4);
+    decoder_4069_1->setLink(3, *decoder_QuadTripleNand_1, 8);
+    decoder_4069_1->setLink(5, *decoder_QuadTripleNand_1, 12);
+    decoder_4069_1->setLink(9, *decoder_QuadTripleNand_1, 16);
+    decoder_4069_1->setLink(11, *decoder_QuadTripleNand_2, 4);
+    decoder_4069_1->setLink(13, *decoder_QuadTripleNand_2, 8);
 
-    decoder_QuadNot_2->setLink(1, *decoder_QuadTripleNand_2, 4);
-    decoder_QuadNot_2->setLink(3, *decoder_QuadTripleNand_2, 8);
-    decoder_QuadNot_2->setLink(5, *decoder_QuadTripleNand_2, 12);
-    decoder_QuadNot_2->setLink(7, *decoder_QuadTripleNand_2, 16);
+    decoder_4069_2->setLink(1, *decoder_QuadTripleNand_2, 12);
+    decoder_4069_2->setLink(3, *decoder_QuadTripleNand_2, 16);
+    decoder_4069_2->setLink(5, *decoder_QuadTripleNand_3, 4);
+    decoder_4069_2->setLink(9, *decoder_QuadTripleNand_3, 8);
+    decoder_4069_2->setLink(11, *decoder_QuadTripleNand_3, 12);
+    decoder_4069_2->setLink(13, *decoder_QuadTripleNand_3, 16);
 
-    decoder_QuadNot_3->setLink(1, *decoder_QuadTripleNand_3, 4);
-    decoder_QuadNot_3->setLink(3, *decoder_QuadTripleNand_3, 8);
-    decoder_QuadNot_3->setLink(5, *decoder_QuadTripleNand_3, 12);
-    decoder_QuadNot_3->setLink(7, *decoder_QuadTripleNand_3, 16);
+    decoder_4069_3->setLink(1, *decoder_QuadTripleNand_4, 4);
+    decoder_4069_3->setLink(3, *decoder_QuadTripleNand_4, 8);
+    decoder_4069_3->setLink(5, *decoder_QuadTripleNand_4, 12);
+    decoder_4069_3->setLink(9, *decoder_QuadTripleNand_4, 16);
 
-    decoder_QuadNot_4->setLink(1, *decoder_QuadTripleNand_4, 4);
-    decoder_QuadNot_4->setLink(3, *decoder_QuadTripleNand_4, 8);
-    decoder_QuadNot_4->setLink(5, *decoder_QuadTripleNand_4, 12);
-    decoder_QuadNot_4->setLink(7, *decoder_QuadTripleNand_4, 16);
-
-    this->pins[0] = strobeNot->getPin(1);
-    this->pins[1] = latchIn_QuadNot->getPin(1);
-    this->pins[2] = latchIn_QuadNot->getPin(3);
-    this->pins[3] = decoder_QuadNot_2->getPin(8);
-    this->pins[4] = decoder_QuadNot_2->getPin(6);
-    this->pins[5] = decoder_QuadNot_2->getPin(4);
-    this->pins[6] = decoder_QuadNot_2->getPin(2);
-    this->pins[7] = decoder_QuadNot_1->getPin(8);
-    this->pins[8] = decoder_QuadNot_1->getPin(4);
-    this->pins[9] = decoder_QuadNot_1->getPin(6);
-    this->pins[10] = decoder_QuadNot_1->getPin(2);
+    this->pins[0] = latchIn_4069->getPin(11);
+    this->pins[1] = latchIn_4069->getPin(1);
+    this->pins[2] = latchIn_4069->getPin(3);
+    this->pins[3] = decoder_4069_2->getPin(4);
+    this->pins[4] = decoder_4069_2->getPin(2);
+    this->pins[5] = decoder_4069_1->getPin(12);
+    this->pins[6] = decoder_4069_1->getPin(10);
+    this->pins[7] = decoder_4069_1->getPin(8);
+    this->pins[8] = decoder_4069_1->getPin(4);
+    this->pins[9] = decoder_4069_1->getPin(6);
+    this->pins[10] = decoder_4069_1->getPin(2);
     this->pins[11]->type = PinType::ELECTRICAL;
-    this->pins[12] = decoder_QuadNot_4->getPin(4);
-    this->pins[13] = decoder_QuadNot_4->getPin(2);
-    this->pins[14] = decoder_QuadNot_4->getPin(8);
-    this->pins[15] = decoder_QuadNot_4->getPin(6);
-    this->pins[16] = decoder_QuadNot_3->getPin(4);
-    this->pins[17] = decoder_QuadNot_3->getPin(2);
-    this->pins[18] = decoder_QuadNot_3->getPin(8);
-    this->pins[19] = decoder_QuadNot_3->getPin(6);
-    this->pins[20] = latchIn_QuadNot->getPin(5);
-    this->pins[21] = latchIn_QuadNot->getPin(7);
-    this->pins[22] = inhibitorNot->getPin(1);
+    this->pins[12] = decoder_4069_3->getPin(4);
+    this->pins[13] = decoder_4069_3->getPin(2);
+    this->pins[14] = decoder_4069_3->getPin(8);
+    this->pins[15] = decoder_4069_3->getPin(6);
+    this->pins[16] = decoder_4069_2->getPin(8);
+    this->pins[17] = decoder_4069_2->getPin(6);
+    this->pins[18] = decoder_4069_2->getPin(12);
+    this->pins[19] = decoder_4069_2->getPin(10);
+    this->pins[20] = latchIn_4069->getPin(5);
+    this->pins[21] = latchIn_4069->getPin(9);
+    this->pins[22] = latchIn_4069->getPin(13);
     this->pins[23]->type = PinType::ELECTRICAL;
-    this->innerComponents.push_back(latchIn_QuadNot);
-    this->innerComponents.push_back(strobeNot);
-    this->innerComponents.push_back(inhibitorNot);
+    this->innerComponents.push_back(latchIn_4069);
     this->innerComponents.push_back(latchIn_4001_1);
     this->innerComponents.push_back(latchIn_4001_2);
     this->innerComponents.push_back(quadSRFlipFlop);
@@ -187,8 +181,7 @@ nts::Components::CD4514BCComponent::CD4514BCComponent()
     this->innerComponents.push_back(decoder_QuadTripleNand_2);
     this->innerComponents.push_back(decoder_QuadTripleNand_3);
     this->innerComponents.push_back(decoder_QuadTripleNand_4);
-    this->innerComponents.push_back(decoder_QuadNot_1);
-    this->innerComponents.push_back(decoder_QuadNot_2);
-    this->innerComponents.push_back(decoder_QuadNot_3);
-    this->innerComponents.push_back(decoder_QuadNot_4);
+    this->innerComponents.push_back(decoder_4069_1);
+    this->innerComponents.push_back(decoder_4069_2);
+    this->innerComponents.push_back(decoder_4069_3);
 }
