@@ -35,7 +35,7 @@ SRC_TESTS	=	test_Tristate.cpp \
 SRCS	=	$(SRC:%=$(SRC_PATH)/%) $(SRC_TESTS)
 OBJ	=	$(SRCS:.cpp=.test_o)
 
-CXXFLAGS	=	-Wall -Wextra -Werror --coverage -I $(INCL_PATH) -std=c++17
+CXXFLAGS	=	-Wall -Wextra -Werror --coverage -I $(INCL_PATH)
 LDFLAGS	=	-lcriterion
 
 all:	message $(NAME)

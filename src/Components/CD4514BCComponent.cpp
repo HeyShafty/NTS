@@ -18,22 +18,22 @@
 nts::Components::CD4514BCComponent::CD4514BCComponent()
     : AComponent("CD4514BCComponent", 24)
 {
-    std::shared_ptr<IComponent> latchIn_QuadNot = std::make_shared<QuadNotComponent>();
-    std::shared_ptr<IComponent> strobeNot = std::make_shared<NotComponent>();
-    std::shared_ptr<IComponent> inhibitorNot = std::make_shared<NotComponent>();
-    std::shared_ptr<IComponent> latchIn_4001_1 = std::make_shared<HEF4001BComponent>();
-    std::shared_ptr<IComponent> latchIn_4001_2 = std::make_shared<HEF4001BComponent>();
-    std::shared_ptr<IComponent> quadSRFlipFlop = std::make_shared<QuadSRFlipFlopComponent>();
-    std::shared_ptr<IComponent> latchOut_4001_1 = std::make_shared<HEF4001BComponent>();
-    std::shared_ptr<IComponent> latchOut_4001_2 = std::make_shared<HEF4001BComponent>();
-    std::shared_ptr<IComponent> decoder_QuadTripleNand_1 = std::make_shared<QuadTripleNandComponent>();
-    std::shared_ptr<IComponent> decoder_QuadTripleNand_2 = std::make_shared<QuadTripleNandComponent>();
-    std::shared_ptr<IComponent> decoder_QuadTripleNand_3 = std::make_shared<QuadTripleNandComponent>();
-    std::shared_ptr<IComponent> decoder_QuadTripleNand_4 = std::make_shared<QuadTripleNandComponent>();
-    std::shared_ptr<IComponent> decoder_QuadNot_1 = std::make_shared<QuadNotComponent>();
-    std::shared_ptr<IComponent> decoder_QuadNot_2 = std::make_shared<QuadNotComponent>();
-    std::shared_ptr<IComponent> decoder_QuadNot_3 = std::make_shared<QuadNotComponent>();
-    std::shared_ptr<IComponent> decoder_QuadNot_4 = std::make_shared<QuadNotComponent>();
+    std::shared_ptr<IComponent> latchIn_QuadNot = nts::Factory::createComponent("quadNot");
+    std::shared_ptr<IComponent> strobeNot = nts::Factory::createComponent("not");
+    std::shared_ptr<IComponent> inhibitorNot = nts::Factory::createComponent("not");
+    std::shared_ptr<IComponent> latchIn_4001_1 = nts::Factory::createComponent("4001");
+    std::shared_ptr<IComponent> latchIn_4001_2 = nts::Factory::createComponent("4001");
+    std::shared_ptr<IComponent> quadSRFlipFlop = nts::Factory::createComponent("quadSRFlipFlop");
+    std::shared_ptr<IComponent> latchOut_4001_1 = nts::Factory::createComponent("4001");
+    std::shared_ptr<IComponent> latchOut_4001_2 = nts::Factory::createComponent("4001");
+    std::shared_ptr<IComponent> decoder_QuadTripleNand_1 = nts::Factory::createComponent("quadTripleNand");
+    std::shared_ptr<IComponent> decoder_QuadTripleNand_2 = nts::Factory::createComponent("quadTripleNand");
+    std::shared_ptr<IComponent> decoder_QuadTripleNand_3 = nts::Factory::createComponent("quadTripleNand");
+    std::shared_ptr<IComponent> decoder_QuadTripleNand_4 = nts::Factory::createComponent("quadTripleNand");
+    std::shared_ptr<IComponent> decoder_QuadNot_1 = nts::Factory::createComponent("quadNot");
+    std::shared_ptr<IComponent> decoder_QuadNot_2 = nts::Factory::createComponent("quadNot");
+    std::shared_ptr<IComponent> decoder_QuadNot_3 = nts::Factory::createComponent("quadNot");
+    std::shared_ptr<IComponent> decoder_QuadNot_4 = nts::Factory::createComponent("quadNot");
 
     latchIn_4001_1->setLink(1, *latchIn_QuadNot, 2);
     latchIn_4001_1->setLink(2, *strobeNot, 2);
