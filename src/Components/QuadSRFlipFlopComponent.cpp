@@ -8,14 +8,15 @@
 #include "Components/QuadSRFlipFlopComponent.hpp"
 #include "Components/SRFlipFlopComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
+#include "Factory.hpp"
 
 nts::Components::QuadSRFlipFlopComponent::QuadSRFlipFlopComponent()
     : AComponent("QuadSRFlipFlopComponent", 16)
 {
-    std::shared_ptr<IComponent> cSRFlipFlop1 = std::make_shared<SRFlipFlopComponent>();
-    std::shared_ptr<IComponent> cSRFlipFlop2 = std::make_shared<SRFlipFlopComponent>();
-    std::shared_ptr<IComponent> cSRFlipFlop3 = std::make_shared<SRFlipFlopComponent>();
-    std::shared_ptr<IComponent> cSRFlipFlop4 = std::make_shared<SRFlipFlopComponent>();
+    std::shared_ptr<IComponent> cSRFlipFlop1 = nts::Factory::createComponent("sRFlipFlop");
+    std::shared_ptr<IComponent> cSRFlipFlop2 = nts::Factory::createComponent("sRFlipFlop");
+    std::shared_ptr<IComponent> cSRFlipFlop3 = nts::Factory::createComponent("sRFlipFlop");
+    std::shared_ptr<IComponent> cSRFlipFlop4 = nts::Factory::createComponent("sRFlipFlop");
 
     this->pins[0] = cSRFlipFlop1->getPin(1);
     this->pins[1] = cSRFlipFlop1->getPin(2);

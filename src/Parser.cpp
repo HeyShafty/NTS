@@ -30,11 +30,6 @@ nts::Parser::Parser(const std::string &filename)
 nts::Parser::~Parser()
 {}
 
-void nts::Parser::setFilename(const std::string &filename)
-{
-    this->_filename = filename;
-}
-
 void nts::Parser::addLinkToMap(LinksVector &linksVector, ChipsetsMap &chipsetMap, std::string line) const
 {
     std::vector<std::string> words;
@@ -44,8 +39,6 @@ void nts::Parser::addLinkToMap(LinksVector &linksVector, ChipsetsMap &chipsetMap
     }
     std::istringstream iss(line);
     for (std::string word; iss >> word; words.push_back(word));
-    if (words.size() != 2)
-        throw nts::Exception::CircuitFileException("One given line is missed formatted", "Parser");
     std::string c1 = words[0].substr(0, words[0].find(":"));
     std::string c2 = words[1].substr(0, words[1].find_last_of(":"));
     int p1 = std::stoi(words[0].substr(words[0].find(":") + 1));
@@ -58,7 +51,6 @@ void nts::Parser::addLinkToMap(LinksVector &linksVector, ChipsetsMap &chipsetMap
 
 void nts::Parser::addComponentToMap(ChipsetsMap &chipsetsMap, std::string line, std::vector<std::string> args) const
 {
-    std::vector<std::string> words;
     std::string chipsetName;
     std::string chipsetArg;
 
@@ -66,6 +58,7 @@ void nts::Parser::addComponentToMap(ChipsetsMap &chipsetsMap, std::string line, 
         line = line.substr(0, line.find("#"));
     }
     std::istringstream iss(line);
+    std::vector<std::string> words;
     for (std::string word; iss >> word; words.push_back(word));
     if (words.size() != 2)
         throw nts::Exception::CircuitFileException("One given line is missed formatted", "Parser");

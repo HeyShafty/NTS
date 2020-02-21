@@ -8,14 +8,15 @@
 #include "Components/CD4030CComponent.hpp"
 #include "Components/XorComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
+#include "Factory.hpp"
 
 nts::Components::CD4030CComponent::CD4030CComponent()
     : AComponent("CD4030CComponent", 14)
 {
-    std::shared_ptr<IComponent> cXor1 = std::make_shared<XorComponent>();
-    std::shared_ptr<IComponent> cXor2 = std::make_shared<XorComponent>();
-    std::shared_ptr<IComponent> cXor3 = std::make_shared<XorComponent>();
-    std::shared_ptr<IComponent> cXor4 = std::make_shared<XorComponent>();
+    std::shared_ptr<IComponent> cXor1 = nts::Factory::createComponent("xor");
+    std::shared_ptr<IComponent> cXor2 = nts::Factory::createComponent("xor");
+    std::shared_ptr<IComponent> cXor3 = nts::Factory::createComponent("xor");
+    std::shared_ptr<IComponent> cXor4 = nts::Factory::createComponent("xor");
 
     this->pins[0] = cXor1->getPin(1);
     this->pins[1] = cXor1->getPin(2);

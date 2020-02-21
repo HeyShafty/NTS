@@ -8,14 +8,15 @@
 #include "Components/CD4011BComponent.hpp"
 #include "Components/NandComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
+#include "Factory.hpp"
 
 nts::Components::CD4011BComponent::CD4011BComponent()
     : AComponent("CD4011BComponent", 14)
 {
-    std::shared_ptr<IComponent> cNand1 = std::make_shared<NandComponent>();
-    std::shared_ptr<IComponent> cNand2 = std::make_shared<NandComponent>();
-    std::shared_ptr<IComponent> cNand3 = std::make_shared<NandComponent>();
-    std::shared_ptr<IComponent> cNand4 = std::make_shared<NandComponent>();
+    std::shared_ptr<IComponent> cNand1 = nts::Factory::createComponent("nand");
+    std::shared_ptr<IComponent> cNand2 = nts::Factory::createComponent("nand");
+    std::shared_ptr<IComponent> cNand3 = nts::Factory::createComponent("nand");
+    std::shared_ptr<IComponent> cNand4 = nts::Factory::createComponent("nand");
 
     this->pins[0] = cNand1->getPin(1);
     this->pins[1] = cNand1->getPin(2);

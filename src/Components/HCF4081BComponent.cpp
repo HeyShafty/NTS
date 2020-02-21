@@ -8,14 +8,15 @@
 #include "Components/HCF4081BComponent.hpp"
 #include "Components/AndComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
+#include "Factory.hpp"
 
 nts::Components::HCF4081BComponent::HCF4081BComponent()
     : AComponent("HCF4081BComponent", 14)
 {
-    std::unique_ptr<IComponent> cAnd1 = std::make_unique<AndComponent>();
-    std::unique_ptr<IComponent> cAnd2 = std::make_unique<AndComponent>();
-    std::unique_ptr<IComponent> cAnd3 = std::make_unique<AndComponent>();
-    std::unique_ptr<IComponent> cAnd4 = std::make_unique<AndComponent>();
+    std::unique_ptr<IComponent> cAnd1 = nts::Factory::createComponent("and");
+    std::unique_ptr<IComponent> cAnd2 = nts::Factory::createComponent("and");
+    std::unique_ptr<IComponent> cAnd3 = nts::Factory::createComponent("and");
+    std::unique_ptr<IComponent> cAnd4 = nts::Factory::createComponent("and");
 
     this->pins[0] = cAnd1->getPin(1);
     this->pins[1] = cAnd1->getPin(2);

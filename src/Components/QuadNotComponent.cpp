@@ -8,14 +8,15 @@
 #include "Components/QuadNotComponent.hpp"
 #include "Components/NotComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
+#include "Factory.hpp"
 
 nts::Components::QuadNotComponent::QuadNotComponent()
     : AComponent("QuadNotComponent", 8)
 {
-    std::shared_ptr<IComponent> cNot1 = std::make_shared<NotComponent>();
-    std::shared_ptr<IComponent> cNot2 = std::make_shared<NotComponent>();
-    std::shared_ptr<IComponent> cNot3 = std::make_shared<NotComponent>();
-    std::shared_ptr<IComponent> cNot4 = std::make_shared<NotComponent>();
+    std::shared_ptr<IComponent> cNot1 = nts::Factory::createComponent("not");
+    std::shared_ptr<IComponent> cNot2 = nts::Factory::createComponent("not");
+    std::shared_ptr<IComponent> cNot3 = nts::Factory::createComponent("not");
+    std::shared_ptr<IComponent> cNot4 = nts::Factory::createComponent("not");
 
     this->pins[0] = cNot1->getPin(1);
     this->pins[1] = cNot1->getPin(2);

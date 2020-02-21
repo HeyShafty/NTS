@@ -8,14 +8,15 @@
 #include "Components/QuadTripleNandComponent.hpp"
 #include "Components/TripleNandComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
+#include "Factory.hpp"
 
 nts::Components::QuadTripleNandComponent::QuadTripleNandComponent()
     : AComponent("QuadTripleNandComponent", 16)
 {
-    std::shared_ptr<IComponent> cTripleNand1 = std::make_shared<TripleNandComponent>();
-    std::shared_ptr<IComponent> cTripleNand2 = std::make_shared<TripleNandComponent>();
-    std::shared_ptr<IComponent> cTripleNand3 = std::make_shared<TripleNandComponent>();
-    std::shared_ptr<IComponent> cTripleNand4 = std::make_shared<TripleNandComponent>();
+    std::shared_ptr<IComponent> cTripleNand1 = nts::Factory::createComponent("tripleNand");
+    std::shared_ptr<IComponent> cTripleNand2 = nts::Factory::createComponent("tripleNand");
+    std::shared_ptr<IComponent> cTripleNand3 = nts::Factory::createComponent("tripleNand");
+    std::shared_ptr<IComponent> cTripleNand4 = nts::Factory::createComponent("tripleNand");
 
     this->pins[0] = cTripleNand1->getPin(1);
     this->pins[1] = cTripleNand1->getPin(2);

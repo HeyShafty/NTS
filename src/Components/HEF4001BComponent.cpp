@@ -8,14 +8,15 @@
 #include "Components/HEF4001BComponent.hpp"
 #include "Components/NorComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
+#include "Factory.hpp"
 
 nts::Components::HEF4001BComponent::HEF4001BComponent()
     : AComponent("HEF4001BComponent", 14)
 {
-    std::shared_ptr<IComponent> cNor1 = std::make_shared<NorComponent>();
-    std::shared_ptr<IComponent> cNor2 = std::make_shared<NorComponent>();
-    std::shared_ptr<IComponent> cNor3 = std::make_shared<NorComponent>();
-    std::shared_ptr<IComponent> cNor4 = std::make_shared<NorComponent>();
+    std::shared_ptr<IComponent> cNor1 = nts::Factory::createComponent("nor");
+    std::shared_ptr<IComponent> cNor2 = nts::Factory::createComponent("nor");
+    std::shared_ptr<IComponent> cNor3 = nts::Factory::createComponent("nor");
+    std::shared_ptr<IComponent> cNor4 = nts::Factory::createComponent("nor");
 
     this->pins[0] = cNor1->getPin(1);
     this->pins[1] = cNor1->getPin(2);

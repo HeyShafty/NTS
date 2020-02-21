@@ -8,11 +8,12 @@
 #include "Components/SRFlipFlopComponent.hpp"
 #include "Components/HEF4001BComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
+#include "Factory.hpp"
 
 nts::Components::SRFlipFlopComponent::SRFlipFlopComponent()
     : AComponent("SRFlipFlopComponent", 4)
 {
-    std::shared_ptr<IComponent> cHEF4001B = std::make_shared<HEF4001BComponent>();
+    std::shared_ptr<IComponent> cHEF4001B = nts::Factory::createComponent("4001");
 
     cHEF4001B->setLink(2, *cHEF4001B, 4);
     cHEF4001B->setLink(5, *cHEF4001B, 3);

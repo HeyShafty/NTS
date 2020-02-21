@@ -8,14 +8,15 @@
 #include "Components/CD4008BMSComponent.hpp"
 #include "Components/SumComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
+#include "Factory.hpp"
 
 nts::Components::CD4008BMSComponent::CD4008BMSComponent()
     : AComponent("CD4008BMSComponent", 16)
 {
-    std::shared_ptr<IComponent> cSum1 = std::make_shared<SumComponent>();
-    std::shared_ptr<IComponent> cSum2 = std::make_shared<SumComponent>();
-    std::shared_ptr<IComponent> cSum3 = std::make_shared<SumComponent>();
-    std::shared_ptr<IComponent> cSum4 = std::make_shared<SumComponent>();
+    std::shared_ptr<IComponent> cSum1 = nts::Factory::createComponent("sum");
+    std::shared_ptr<IComponent> cSum2 = nts::Factory::createComponent("sum");
+    std::shared_ptr<IComponent> cSum3 = nts::Factory::createComponent("sum");
+    std::shared_ptr<IComponent> cSum4 = nts::Factory::createComponent("sum");
 
     this->pins[5] = cSum1->getPin(1); // input
     this->pins[6] = cSum1->getPin(2); // input

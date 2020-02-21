@@ -13,6 +13,7 @@
 #include "Components/NotComponent.hpp"
 #include "Components/QuadTripleNandComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
+#include "Factory.hpp"
 
 nts::Components::CD4514BCComponent::CD4514BCComponent()
     : AComponent("CD4514BCComponent", 24)

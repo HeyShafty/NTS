@@ -8,14 +8,15 @@
 #include "Components/HEF4071BComponent.hpp"
 #include "Components/OrComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
+#include "Factory.hpp"
 
 nts::Components::HEF4071BComponent::HEF4071BComponent()
     : AComponent("HEF4071BComponent", 14)
 {
-    std::shared_ptr<IComponent> cOr1 = std::make_shared<OrComponent>();
-    std::shared_ptr<IComponent> cOr2 = std::make_shared<OrComponent>();
-    std::shared_ptr<IComponent> cOr3 = std::make_shared<OrComponent>();
-    std::shared_ptr<IComponent> cOr4 = std::make_shared<OrComponent>();
+    std::shared_ptr<IComponent> cOr1 = nts::Factory::createComponent("or");
+    std::shared_ptr<IComponent> cOr2 = nts::Factory::createComponent("or");
+    std::shared_ptr<IComponent> cOr3 = nts::Factory::createComponent("or");
+    std::shared_ptr<IComponent> cOr4 = nts::Factory::createComponent("or");
 
     this->pins[0] = cOr1->getPin(1);
     this->pins[1] = cOr1->getPin(2);

@@ -35,8 +35,6 @@ namespace nts
             ChipsetsMap parseChipsets(std::vector<std::string> args) const;
             LinksVector parseLinks(ChipsetsMap &chipsetMap) const;
 
-            void setFilename(const std::string &filename);
-
             static const std::regex commentLine;
             static const std::regex chipsetRegex;
             static const std::regex validChipsetLine;

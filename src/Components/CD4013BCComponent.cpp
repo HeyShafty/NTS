@@ -8,12 +8,13 @@
 #include "Components/CD4013BCComponent.hpp"
 #include "Components/DFlipFlopComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
+#include "Factory.hpp"
 
 nts::Components::CD4013BCComponent::CD4013BCComponent()
     : AComponent("CD4013BCComponent", 14)
 {
-    std::shared_ptr<IComponent> dFlipFlop1 = std::make_shared<DFlipFlopComponent>();
-    std::shared_ptr<IComponent> dFlipFlop2 = std::make_shared<DFlipFlopComponent>();
+    std::shared_ptr<IComponent> dFlipFlop1 = nts::Factory::createComponent("dFlipFlop");
+    std::shared_ptr<IComponent> dFlipFlop2 = nts::Factory::createComponent("dFlipFlop");
 
     this->pins[0] = dFlipFlop1->getPin(1);
     this->pins[1] = dFlipFlop1->getPin(2);
