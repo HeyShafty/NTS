@@ -18,9 +18,11 @@ SRC_TESTS	=	test_Tristate.cpp \
 				test_OrComponent.cpp \
 				test_XorComponent.cpp	\
 				test_AndComponent.cpp	\
+				test_Sum.cpp	\
 				test_HCF4081BComponent.cpp \
 				test_DFlipFlopComponent.cpp \
 				test_CD4013BCComponent.cpp \
+				test_CD4008BMSComponent.cpp \
 				test_NotComponent.cpp \
 				test_TripleAndComponent.cpp \
 				test_NorComponent.cpp \

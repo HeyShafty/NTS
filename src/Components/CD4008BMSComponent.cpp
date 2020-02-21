@@ -33,8 +33,8 @@ nts::Components::CD4008BMSComponent::CD4008BMSComponent()
     cSum3->setLink(3, *cSum2, 5);
     this->pins[11] = cSum3->getPin(4);
 
-    this->pins[14] = cSum4->getPin(1);
-    this->pins[0] = cSum4->getPin(2);
+    this->pins[0] = cSum4->getPin(1);
+    this->pins[14] = cSum4->getPin(2);
     cSum4->setLink(3, *cSum3, 5);
     this->pins[12] = cSum4->getPin(4);
 
