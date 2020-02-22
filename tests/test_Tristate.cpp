@@ -11,9 +11,9 @@
 Test(Tristate, and)
 {
     cr_assert_eq(nts::Tristate::UNDEFINED && nts::Tristate::UNDEFINED, nts::Tristate::UNDEFINED);
-    cr_assert_eq(nts::Tristate::UNDEFINED && nts::Tristate::FALSE, nts::Tristate::UNDEFINED);
+    cr_assert_eq(nts::Tristate::UNDEFINED && nts::Tristate::FALSE, nts::Tristate::FALSE);
     cr_assert_eq(nts::Tristate::UNDEFINED && nts::Tristate::TRUE, nts::Tristate::UNDEFINED);
-    cr_assert_eq(nts::Tristate::FALSE && nts::Tristate::UNDEFINED, nts::Tristate::UNDEFINED);
+    cr_assert_eq(nts::Tristate::FALSE && nts::Tristate::UNDEFINED, nts::Tristate::FALSE);
     cr_assert_eq(nts::Tristate::TRUE && nts::Tristate::UNDEFINED, nts::Tristate::UNDEFINED);
 
     cr_assert_eq(nts::Tristate::FALSE && nts::Tristate::FALSE, nts::Tristate::FALSE);

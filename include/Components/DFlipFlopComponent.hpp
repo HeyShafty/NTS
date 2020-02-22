@@ -8,9 +8,6 @@
 #ifndef DFLIPFLOPCOMPONENT_HPP_
 #define DFLIPFLOPCOMPONENT_HPP_
 
-#define IS_ASCENDANT(pc, cc) (pc == nts::Tristate::FALSE && cc == nts::Tristate::TRUE)
-#define IS_DESCENDANT(pc, cc) (pc == nts::Tristate::TRUE && cc == nts::Tristate::FALSE)
-
 #include "AComponent.hpp"
 
 namespace nts::Components
@@ -22,20 +19,7 @@ namespace nts::Components
             ~DFlipFlopComponent() = default;
 
         private:
-            enum PinDesc
-            {
-                    Q = 0,
-                    NQ = 1,
-                    CLOCK = 2,
-                    RESET = 3,
-                    DATA = 4,
-                    SET = 5
-            };
-
-            Tristate currClock;
-            void computeComponent();
-            Tristate computeQPin(const Tristate * const states) const;
-            Tristate computeNotQPin(const Tristate * const states) const;
+            std::vector<std::shared_ptr<IComponent>> innerComponents;
     };
 } // namespace nts::Components
 

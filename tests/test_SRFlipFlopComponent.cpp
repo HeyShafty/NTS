@@ -34,6 +34,21 @@ Test(SRFlipFlopComponent, false_false_first_compute)
     cr_assert_eq(srFlipFlop->compute(4), nts::Tristate::UNDEFINED);
 }
 
+Test(SRFlipFlopComponent, false_false_then_true_false)
+{
+    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent);
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+
+    srFlipFlop->setLink(1, *cFalse, 1);
+    srFlipFlop->setLink(2, *cFalse, 1);
+    cr_assert_eq(srFlipFlop->compute(3), nts::Tristate::UNDEFINED);
+    cr_assert_eq(srFlipFlop->compute(4), nts::Tristate::UNDEFINED);
+    srFlipFlop->setLink(1, *cTrue, 1);
+    cr_assert_eq(srFlipFlop->compute(3), nts::Tristate::TRUE);
+    cr_assert_eq(srFlipFlop->compute(4), nts::Tristate::FALSE);
+}
+
 Test(SRFlipFlopComponent, true_false)
 {
     std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent);

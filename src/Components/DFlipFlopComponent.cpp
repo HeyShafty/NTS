@@ -7,66 +7,47 @@
 
 #include "Components/DFlipFlopComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
+#include "Factory.hpp"
 
 nts::Components::DFlipFlopComponent::DFlipFlopComponent()
-    : AComponent("DFlipFlopComponent", 6), currClock(Tristate::UNDEFINED)
+    : AComponent("DFlipFlopComponent", 6)
 {
-    this->pins[Q]->type = PinType::OUT;
-    this->pins[Q]->compute = [this]() {
-        this->computeComponent();
-        return this->pins[Q]->value;
-    };
-    this->pins[NQ]->type = PinType::OUT;
-    this->pins[NQ]->compute = [this]() {
-        this->computeComponent();
-        return this->pins[NQ]->value;
-    };
+    std::shared_ptr<IComponent> cNot1 = nts::Factory::createComponent("not");
+    std::shared_ptr<IComponent> cNot2 = nts::Factory::createComponent("not");
+    std::shared_ptr<IComponent> cNot3 = nts::Factory::createComponent("not");
+    std::shared_ptr<IComponent> cNand1 = nts::Factory::createComponent("nand");
+    std::shared_ptr<IComponent> cNand2 = nts::Factory::createComponent("nand");
+    std::shared_ptr<IComponent> cNand3 = nts::Factory::createComponent("nand");
+    std::shared_ptr<IComponent> cNand4 = nts::Factory::createComponent("nand");
+    std::shared_ptr<IComponent> cNor1 = nts::Factory::createComponent("nor");
+    std::shared_ptr<IComponent> cNor2 = nts::Factory::createComponent("nor");
+
+    this->pins[0] = cNand3->getPin(3);
+    this->pins[1] = cNand4->getPin(3);
     BIND_IN_PIN(2, DFlipFlopComponent);
-    BIND_IN_PIN(3, DFlipFlopComponent);
+    this->pins[3] = cNor2->getPin(2);
     BIND_IN_PIN(4, DFlipFlopComponent);
-    BIND_IN_PIN(5, DFlipFlopComponent);
-}
-
-void nts::Components::DFlipFlopComponent::computeComponent()
-{
-    Tristate clock = this->pins[CLOCK]->compute();
-    Tristate reset = this->pins[RESET]->compute();
-    Tristate data = this->pins[DATA]->compute();
-    Tristate set = this->pins[SET]->compute();
-    Tristate prevClock = this->currClock;
-    Tristate states[6] = {UNDEFINED, prevClock, clock, reset, data, set};
-
-    this->currClock = clock;
-    this->pins[Q]->value = this->computeQPin(states);
-    this->pins[NQ]->value = this->computeNotQPin(states);
-}
-
-nts::Tristate nts::Components::DFlipFlopComponent::computeQPin(const Tristate * const states) const
-{
-    if ((states[RESET] && states[SET]) == Tristate::UNDEFINED)
-        return Tristate::UNDEFINED;
-    else if (states[SET] == Tristate::TRUE)
-        return Tristate::TRUE;
-    else if (states[RESET] == Tristate::TRUE)
-        return Tristate::FALSE;
-    else if (IS_ASCENDANT(states[1], this->currClock))
-        return states[DATA];
-    else if (IS_DESCENDANT(states[1], this->currClock))
-        return this->pins[Q]->value;
-    return Tristate::UNDEFINED;
-}
-
-nts::Tristate nts::Components::DFlipFlopComponent::computeNotQPin(const Tristate * const states) const
-{
-    if ((states[RESET] && states[SET]) == Tristate::UNDEFINED)
-        return Tristate::UNDEFINED;
-    else if (states[RESET] == Tristate::TRUE)
-        return Tristate::TRUE;
-    else if (states[SET] == Tristate::TRUE)
-        return Tristate::FALSE;
-    else if (IS_ASCENDANT(states[1], this->currClock))
-        return !states[DATA];
-    else if (IS_DESCENDANT(states[1], this->currClock))
-        return this->pins[NQ]->value;
-    return Tristate::UNDEFINED;
+    this->pins[5] = cNor1->getPin(1);
+    cNot1->setLink(1, *this, 5);
+    cNand1->setLink(1, *this, 5);
+    cNand1->setLink(2, *this, 3);
+    cNand2->setLink(1, *this, 3);
+    cNand2->setLink(2, *cNot1, 2);
+    cNot2->setLink(1, *cNand1, 3);
+    cNot3->setLink(1, *cNand2, 3);
+    cNor1->setLink(2, *cNot2, 2);
+    cNor2->setLink(1, *cNot3, 2);
+    cNand3->setLink(1, *cNor1, 3);
+    cNand3->setLink(2, *cNand4, 3);
+    cNand4->setLink(1, *cNand3, 3);
+    cNand4->setLink(2, *cNor2, 3);
+    this->innerComponents.push_back(cNot1);
+    this->innerComponents.push_back(cNot2);
+    this->innerComponents.push_back(cNot3);
+    this->innerComponents.push_back(cNand1);
+    this->innerComponents.push_back(cNand2);
+    this->innerComponents.push_back(cNand3);
+    this->innerComponents.push_back(cNand4);
+    this->innerComponents.push_back(cNor1);
+    this->innerComponents.push_back(cNor2);
 }
