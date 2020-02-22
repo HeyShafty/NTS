@@ -30,6 +30,7 @@
 #include "Components/QuadTripleNandComponent.hpp"
 #include "Components/SRFlipFlopComponent.hpp"
 #include "Components/SumComponent.hpp"
+#include "Components/TerminalComponent.hpp"
 #include "Components/TripleNandComponent.hpp"
 #include "Components/TrueComponent.hpp"
 #include "Components/XorComponent.hpp"
@@ -59,6 +60,7 @@ const std::map<const std::string, std::function<std::unique_ptr<nts::IComponent>
     {"quadTripleNand", [](const std::string &) {return std::make_unique<nts::Components::QuadTripleNandComponent>();}},
     {"sRFlipFlop", [](const std::string &) {return std::make_unique<nts::Components::SRFlipFlopComponent>();}},
     {"sum", [](const std::string &) {return std::make_unique<nts::Components::SumComponent>();}},
+    {"terminal", [](const std::string &) {return std::make_unique<nts::Components::TerminalComponent>();}},
     {"tripleNand", [](const std::string &) {return std::make_unique<nts::Components::TripleNandComponent>();}},
     {"true", [](const std::string &) {return std::make_unique<nts::Components::TrueComponent>();}},
     {"xor", [](const std::string &) {return std::make_unique<nts::Components::XorComponent>();}}
