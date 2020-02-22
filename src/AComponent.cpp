@@ -43,8 +43,7 @@ nts::Tristate nts::AComponent::compute(size_t pin) const
     if (this->pins[pin - 1]->type == PinType::ELECTRICAL)
         throw nts::Exception::WrongPinException("Cannot compute pin: electrical pin.", this->name);
     Tristate result = this->pins[pin - 1]->compute();
-    if (this->pins[pin - 1]->type == PinType::OUT)
-        this->pins[pin - 1]->value = result;
+    this->pins[pin - 1]->value = result;
     return result;
 }
 

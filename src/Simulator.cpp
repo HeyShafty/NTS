@@ -121,8 +121,15 @@ void nts::Simulator::runSimulation(void) const
 
 int nts::Simulator::displayOutputs(void) const
 {
+    nts::Tristate result;
+
     for (auto it = this->outputComponents.begin(); it != this->outputComponents.end(); ++it) {
-        std::cout << it->first << "=" << it->second->compute(1) << std::endl;
+        result = it->second->getPin(1)->value;
+        if (result == nts::Tristate::UNDEFINED) {
+            std::cout << it->first << "=U" << std::endl;
+        } else {
+            std::cout << it->first << "=" << result << std::endl;
+        }
     }
     return 0;
 }
@@ -134,6 +141,9 @@ int nts::Simulator::exitSimulation(void) const
 
 int nts::Simulator::simulate(void) const
 {
+    for (auto it = this->outputComponents.begin(); it != this->outputComponents.end(); ++it) {
+        it->second->compute(1);
+    }
     for (auto it = this->clockComponents.begin(); it != this->clockComponents.end(); ++it) {
         it->second->getPin(1)->value = !it->second->getPin(1)->value;
     }
