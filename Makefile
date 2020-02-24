@@ -53,6 +53,8 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/DFlipFlopComponent.cpp \
 		$(COMPONENTS_SRC_PATH)/CD4013BCComponent.cpp \
 		$(COMPONENTS_SRC_PATH)/CD4008BMSComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/J74HC4017Component.cpp \
+		$(COMPONENTS_SRC_PATH)/MC14040BComponent.cpp \
 		$(EXCEPTIONS_SRC_PATH)/BadFileException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/CircuitFileException.cpp	\
 		$(EXCEPTIONS_SRC_PATH)/InputException.cpp	\

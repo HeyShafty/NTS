@@ -161,6 +161,7 @@ int nts::Simulator::loop(void) const
 
     sa.sa_flags = 0;
     sa.sa_handler = &nts::Simulator::signalHandler;
+    sa.sa_mask = {0};
     sigaction(SIGINT, &sa, NULL);
     while (isLooping == true) {
         this->simulate();

@@ -2,25 +2,25 @@
 ** EPITECH PROJECT, 2020
 ** OOP_nanotekspice_2019
 ** File description:
-** HCF4081BComponent
+** MC14040B
 */
 
-#ifndef HCF4081BCOMPONENT_HPP_
-#define HCF4081BCOMPONENT_HPP_
+#ifndef MC14040B_HPP_
+#define MC14040B_HPP_
 
 #include "AComponent.hpp"
 
 namespace nts::Components
 {
-    class HCF4081BComponent : public AComponent
+    class MC14040BComponent : public AComponent
     {
         public:
-            HCF4081BComponent();
-            ~HCF4081BComponent() = default;
+            MC14040BComponent();
+            ~MC14040BComponent() = default;
 
         private:
             std::vector<std::shared_ptr<IComponent>> innerComponents;
     };
 }
 
-#endif /* !HCF4081BCOMPONENT_HPP_ */
+#endif /* !MC14040B_HPP_ */

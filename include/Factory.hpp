@@ -19,11 +19,11 @@ namespace nts
         public:
             Factory() = default;
             ~Factory() = default;
-            static std::unique_ptr<IComponent> createComponent(const std::string &type, const std::string &value = "");
+            static std::shared_ptr<IComponent> createComponent(const std::string &type, const std::string &value = "");
 
         protected:
         private:
-            static const std::map<const std::string, std::function<std::unique_ptr<nts::IComponent>(const std::string &value)>> componentMap;
+            static const std::map<const std::string, std::function<std::shared_ptr<nts::IComponent>(const std::string &value)>> componentMap;
     };
 }
 

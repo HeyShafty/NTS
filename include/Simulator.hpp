@@ -37,10 +37,10 @@ namespace nts
             void initLinks(nts::Parser::ChipsetsMap &chipsetsMap, nts::Parser &parser) const;
             static const std::map<std::string, int (nts::Simulator::*)(void) const> functionnalitiesMap;
 
-            std::map<std::string, std::unique_ptr<IComponent>> outputComponents;
-            std::map<std::string, std::unique_ptr<IComponent>> inputComponents;
-            std::map<std::string, std::unique_ptr<IComponent>> clockComponents;
-            std::map<std::string, std::unique_ptr<IComponent>> otherComponents;
+            std::map<std::string, std::shared_ptr<IComponent>> outputComponents;
+            std::map<std::string, std::shared_ptr<IComponent>> inputComponents;
+            std::map<std::string, std::shared_ptr<IComponent>> clockComponents;
+            std::map<std::string, std::shared_ptr<IComponent>> otherComponents;
     };
 }
 
