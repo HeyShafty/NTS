@@ -90,7 +90,6 @@ void nts::Simulator::initSimulation(int ac, char **av)
 void nts::Simulator::runSimulation(void) const
 {
     std::string input;
-    size_t nbSimulation = 0;
 
     this->simulate();
     this->displayOutputs();

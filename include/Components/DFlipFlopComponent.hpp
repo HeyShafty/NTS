@@ -19,7 +19,11 @@ namespace nts::Components
             ~DFlipFlopComponent() = default;
 
         private:
+            Tristate computeComponent();
+
             std::vector<std::shared_ptr<IComponent>> innerComponents;
+            Tristate clockPrev;
+            Tristate firstComputed;
     };
 } // namespace nts::Components
 
