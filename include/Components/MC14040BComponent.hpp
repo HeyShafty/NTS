@@ -18,7 +18,11 @@ namespace nts::Components
             MC14040BComponent();
             ~MC14040BComponent() = default;
 
+            nts::Tristate computeComponent(size_t pin_idx);
+
         private:
+            short _value;
+            nts::Tristate oldClockValue;
             std::vector<std::shared_ptr<IComponent>> innerComponents;
     };
 }

@@ -11,7 +11,7 @@
 const std::vector<size_t> nts::Components::J74HC4017Component::indexes = {3, 2, 4, 7, 10, 1, 5, 6, 9, 11, 42};
 
 nts::Components::J74HC4017Component::J74HC4017Component()
-    : AComponent("4017Component", 15), i(3), _hasIncreased(false)
+    : AComponent("4017Component", 15), i(3), _oldClockValue(nts::Tristate::UNDEFINED)
 {
     BIND_IN_PIN(12, J74HC4017Component);
     BIND_IN_PIN(13, J74HC4017Component);
@@ -58,17 +58,21 @@ nts::Tristate nts::Components::J74HC4017Component::computeComponent(size_t pin_i
     nts::Tristate clock = this->pins[13]->compute();
     nts::Tristate reset = this->pins[14]->compute();
 
-    if (clock == 0)
-        this->_hasIncreased = false;
+    if (clock == nts::Tristate::UNDEFINED || reset == nts::Tristate::UNDEFINED)
+        return nts::Tristate::UNDEFINED;
+    if (_oldClockValue == nts::Tristate::UNDEFINED) {
+        _oldClockValue = clock;
+        return nts::TRUE;
+    }
     if (reset == 1)
         this->i = indexes[0];
-    else if (clock == 1 && this->i != 42 && this->_hasIncreased == false) {
-        auto oui = std::find(indexes.begin(), indexes.end(), this->i);
-        this->_hasIncreased = true;
-        this->i = *(oui + 1);
+    else if (clock == 1 && _oldClockValue == 0) {
+        auto currentCounter = std::find(indexes.begin(), indexes.end(), this->i);
+        this->i = *(currentCounter + 1);
         if (this->i == 42)
             this->i = indexes[0];
     }
+    _oldClockValue = clock;
     if (pin_index == this->i)
         return nts::Tristate::TRUE;
     else

@@ -24,7 +24,7 @@ namespace nts::Components
         private:
             static const std::vector<size_t> indexes;
             size_t i = 0;
-            bool _hasIncreased;
+            nts::Tristate _oldClockValue;
     };
 }
 
