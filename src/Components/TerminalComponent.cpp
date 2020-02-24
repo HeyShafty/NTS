@@ -39,6 +39,6 @@ void nts::Components::TerminalComponent::dump() const
     || bit5 == UNDEFINED || bit6 == UNDEFINED || bit7 == UNDEFINED || bit8 == UNDEFINED)
         return;
     char bit = 0;
-    bit = bit8 << 7 | bit7 << 6 | bit6 << 5 | bit5 << 4 | bit4 << 3 | bit3 << 2 | bit2 << 1 | bit1;
+    bit += bit8 << 7 | bit7 << 6 | bit6 << 5 | bit5 << 4 | bit4 << 3 | bit3 << 2 | bit2 << 1 | bit1;
     std::cout << bit << std::endl;
 }

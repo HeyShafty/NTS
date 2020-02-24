@@ -37,9 +37,11 @@
 #include "Components/TripleNandComponent.hpp"
 #include "Components/TrueComponent.hpp"
 #include "Components/XorComponent.hpp"
+#include "Components/MM2716EComponent.hpp"
 #include "Exceptions/UnknownComponentException.hpp"
 
 const std::map<const std::string, std::function<std::shared_ptr<nts::IComponent>(const std::string &value)>> nts::Factory::componentMap = {
+    {"2716", [](const std::string &value) {return std::make_unique<nts::Components::MM2716EComponent>(value);}},
     {"and", [](const std::string &) {return std::make_shared<nts::Components::AndComponent>();}},
     {"4008", [](const std::string &) {return std::make_shared<nts::Components::CD4008BMSComponent>();}},
     {"4011", [](const std::string &) {return std::make_shared<nts::Components::CD4011BComponent>();}},

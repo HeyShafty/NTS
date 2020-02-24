@@ -48,6 +48,7 @@ SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/TerminalComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/CD4514BCComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/CD4069UBCComponent.cpp	\
+		$(COMPONENTS_SRC_PATH)/MM2716EComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/QuadSRFlipFlopComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/QuadTripleNandComponent.cpp	\
 		$(COMPONENTS_SRC_PATH)/DFlipFlopComponent.cpp \
