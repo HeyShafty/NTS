@@ -13,10 +13,10 @@
 
 Test(sum, simple_sum_1)
 {
-    std::unique_ptr<nts::IComponent> cSum = nts::Factory::createComponent("sum");
-    std::unique_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cFalse = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cSum = nts::Factory::createComponent("sum");
+    std::shared_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cFalse = nts::Factory::createComponent("false");
 
     cSum->setLink(1, *cTrue1, 1);
     cSum->setLink(2, *cTrue2, 1);
@@ -27,10 +27,10 @@ Test(sum, simple_sum_1)
 
 Test(sum, simple_sum_2)
 {
-    std::unique_ptr<nts::IComponent> cSum = nts::Factory::createComponent("sum");
-    std::unique_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cFalse = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cSum = nts::Factory::createComponent("sum");
+    std::shared_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cFalse = nts::Factory::createComponent("false");
 
     cSum->setLink(1, *cTrue1, 1);
     cSum->setLink(2, *cTrue2, 1);
@@ -41,10 +41,10 @@ Test(sum, simple_sum_2)
 
 Test(sum, simple_sum_3)
 {
-    std::unique_ptr<nts::IComponent> cSum = nts::Factory::createComponent("sum");
-    std::unique_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cSum = nts::Factory::createComponent("sum");
+    std::shared_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
 
     cSum->setLink(1, *cTrue1, 1);
     cSum->setLink(2, *cFalse1, 1);

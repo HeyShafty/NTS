@@ -25,7 +25,7 @@ namespace nts::Components
             int xDecode() const;
             int yDecode() const;
 
-            char mem[16384] = {0};
+            char mem[2048] = {0};
     };
 }
 

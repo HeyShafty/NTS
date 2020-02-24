@@ -11,7 +11,7 @@
 #include "Exceptions/BadFileException.hpp"
 
 nts::Components::MM2716EComponent::MM2716EComponent(const std::string &filepath)
-    : AComponent("MM2716EComponent", 24), mem()
+    : AComponent("MM2716EComponent", 24)
 {
     std::ifstream infile(filepath);
 
@@ -46,8 +46,8 @@ nts::Components::MM2716EComponent::MM2716EComponent(const std::string &filepath)
 
 nts::Tristate nts::Components::MM2716EComponent::computeComponent(size_t pin_index) const
 {
-    if (this->pins[17]->compute() != Tristate::TRUE || this->pins[19]->compute() != Tristate::TRUE)
-        return Tristate::UNDEFINED;
+    // if (this->pins[17]->compute() != Tristate::TRUE || this->pins[19]->compute() != Tristate::TRUE)
+    //     return Tristate::FALSE;
     int x = this->xDecode();
     int y = this->yDecode();
     unsigned char byte;

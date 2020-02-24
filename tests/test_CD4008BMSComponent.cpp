@@ -12,10 +12,10 @@
 
 Test(c4008, simple_test_1)
 {
-    std::unique_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
-    std::unique_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue3 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
+    std::shared_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue3 = nts::Factory::createComponent("true");
 
     c4008->setLink(6, *cTrue1, 1);
     c4008->setLink(7, *cTrue2, 1);
@@ -25,10 +25,10 @@ Test(c4008, simple_test_1)
 
 Test(c4008, simple_test_2)
 {
-    std::unique_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
-    std::unique_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cFalse = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
+    std::shared_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cFalse = nts::Factory::createComponent("false");
 
     c4008->setLink(6, *cTrue1, 1);
     c4008->setLink(7, *cTrue2, 1);
@@ -38,10 +38,10 @@ Test(c4008, simple_test_2)
 
 Test(c4008, simple_test_3)
 {
-    std::unique_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
-    std::unique_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
+    std::shared_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
 
     c4008->setLink(6, *cTrue1, 1);
     c4008->setLink(7, *cFalse1, 1);
@@ -51,10 +51,10 @@ Test(c4008, simple_test_3)
 
 Test(c4008, simple_test_4)
 {
-    std::unique_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
-    std::unique_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse3 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
+    std::shared_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse3 = nts::Factory::createComponent("false");
 
     c4008->setLink(6, *cFalse1, 1);
     c4008->setLink(7, *cFalse2, 1);
@@ -64,12 +64,12 @@ Test(c4008, simple_test_4)
 
 Test(c4008, simple_test_5)
 {
-    std::unique_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
-    std::unique_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse3 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
+    std::shared_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse3 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
 
     c4008->setLink(6, *cFalse1, 1);
     c4008->setLink(7, *cFalse2, 1);
@@ -81,12 +81,12 @@ Test(c4008, simple_test_5)
 
 Test(c4008, simple_test_6)
 {
-    std::unique_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
-    std::unique_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse3 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse4 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
+    std::shared_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse3 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse4 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
 
     c4008->setLink(6, *cFalse1, 1);
     c4008->setLink(7, *cFalse2, 1);
@@ -98,12 +98,12 @@ Test(c4008, simple_test_6)
 
 Test(c4008, test_carry_in_1)
 {
-    std::unique_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
-    std::unique_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue3 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue4 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
+    std::shared_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue3 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue4 = nts::Factory::createComponent("true");
 
     c4008->setLink(6, *cFalse1, 1);
     c4008->setLink(7, *cTrue1, 1);
@@ -116,12 +116,12 @@ Test(c4008, test_carry_in_1)
 
 Test(c4008, test_carry_in_2)
 {
-    std::unique_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
-    std::unique_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue3 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue4 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
+    std::shared_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue3 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue4 = nts::Factory::createComponent("true");
 
     c4008->setLink(6, *cTrue1, 1);
     c4008->setLink(7, *cFalse1, 1);
@@ -134,14 +134,14 @@ Test(c4008, test_carry_in_2)
 
 Test(c4008, test_carry_in_3)
 {
-    std::unique_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
-    std::unique_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse3 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue3 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue4 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
+    std::shared_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse3 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue3 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue4 = nts::Factory::createComponent("true");
 
     c4008->setLink(6, *cTrue1, 1);
     c4008->setLink(7, *cFalse1, 1);
@@ -157,15 +157,15 @@ Test(c4008, test_carry_in_3)
 
 Test(c4008, test_carry_in_4)
 {
-    std::unique_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
-    std::unique_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse3 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue3 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue4 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue5 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
+    std::shared_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse3 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue3 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue4 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue5 = nts::Factory::createComponent("true");
 
     c4008->setLink(6, *cTrue1, 1);
     c4008->setLink(7, *cFalse1, 1);
@@ -184,15 +184,15 @@ Test(c4008, test_carry_in_4)
 
 Test(c4008, test_carry_out_1)
 {
-    std::unique_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
-    std::unique_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse3 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue3 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue4 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue5 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
+    std::shared_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse3 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue3 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue4 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue5 = nts::Factory::createComponent("true");
 
     c4008->setLink(6, *cTrue1, 1);
     c4008->setLink(7, *cFalse1, 1);
@@ -212,16 +212,16 @@ Test(c4008, test_carry_out_1)
 
 Test(c4008, test_carry_out_2)
 {
-    std::unique_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
-    std::unique_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cFalse3 = nts::Factory::createComponent("false");
-    std::unique_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue3 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue4 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue5 = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cTrue6 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> c4008 = nts::Factory::createComponent("4008");
+    std::shared_ptr<nts::IComponent> cFalse1 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse2 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cFalse3 = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> cTrue1 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue2 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue3 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue4 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue5 = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cTrue6 = nts::Factory::createComponent("true");
 
     c4008->setLink(6, *cTrue1, 1);
     c4008->setLink(7, *cFalse1, 1);

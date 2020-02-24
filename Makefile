@@ -26,50 +26,52 @@ EXCEPTIONS_INCL_PATH = $(INCL_PATH)/$(EXCEPTIONS_INCL_NAME)
 COMPONENTS_SRC_PATH = $(COMPONENTS_INCL_NAME)
 EXCEPTIONS_SRC_PATH = $(EXCEPTIONS_INCL_NAME)
 
-SRC	= 	$(COMPONENTS_SRC_PATH)/TrueComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/FalseComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/AndComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/ClockComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/NandComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/OrComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/XorComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/SumComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/InputComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/OutputComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/NorComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/NotComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/TripleNandComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/HCF4081BComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/HEF4001BComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/SRFlipFlopComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/CD4011BComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/CD4030CComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/HEF4071BComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/TerminalComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/CD4514BCComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/CD4069UBCComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/MM2716EComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/QuadSRFlipFlopComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/QuadTripleNandComponent.cpp	\
-		$(COMPONENTS_SRC_PATH)/DFlipFlopComponent.cpp \
-		$(COMPONENTS_SRC_PATH)/CD4013BCComponent.cpp \
+SRC	= 	\
+		$(COMPONENTS_SRC_PATH)/AndComponent.cpp \
 		$(COMPONENTS_SRC_PATH)/CD4008BMSComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/CD4011BComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/CD4013BCComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/CD4030CComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/CD4069UBCComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/CD4514BCComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/ClockComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/DFlipFlopComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/FalseComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/HCF4081BComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/HEF4001BComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/HEF4071BComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/InputComponent.cpp \
 		$(COMPONENTS_SRC_PATH)/J74HC4017Component.cpp \
 		$(COMPONENTS_SRC_PATH)/MC14040BComponent.cpp \
-		$(EXCEPTIONS_SRC_PATH)/BadFileException.cpp	\
-		$(EXCEPTIONS_SRC_PATH)/CircuitFileException.cpp	\
-		$(EXCEPTIONS_SRC_PATH)/InputException.cpp	\
-		$(EXCEPTIONS_SRC_PATH)/NoChipsetSectionException.cpp	\
-		$(EXCEPTIONS_SRC_PATH)/NoLinksSectionException.cpp	\
-		$(EXCEPTIONS_SRC_PATH)/NtsException.cpp	\
-		$(EXCEPTIONS_SRC_PATH)/OutputException.cpp	\
-		$(EXCEPTIONS_SRC_PATH)/UnknownComponentException.cpp	\
-		$(EXCEPTIONS_SRC_PATH)/WrongPinException.cpp	\
+		$(COMPONENTS_SRC_PATH)/MK4801AComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/MM2716EComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/NandComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/NorComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/NotComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/OrComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/OutputComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/QuadSRFlipFlopComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/QuadTripleNandComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/SRFlipFlopComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/SumComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/TerminalComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/TripleNandComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/TrueComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/XorComponent.cpp \
+		$(EXCEPTIONS_SRC_PATH)/BadFileException.cpp \
+		$(EXCEPTIONS_SRC_PATH)/CircuitFileException.cpp \
+		$(EXCEPTIONS_SRC_PATH)/InputException.cpp \
+		$(EXCEPTIONS_SRC_PATH)/NoChipsetSectionException.cpp \
+		$(EXCEPTIONS_SRC_PATH)/NoLinksSectionException.cpp \
+		$(EXCEPTIONS_SRC_PATH)/NtsException.cpp \
+		$(EXCEPTIONS_SRC_PATH)/OutputException.cpp \
+		$(EXCEPTIONS_SRC_PATH)/UnknownComponentException.cpp \
+		$(EXCEPTIONS_SRC_PATH)/WrongPinException.cpp \
 		AComponent.cpp \
-		Factory.cpp	\
+		Factory.cpp \
 		Tristate.cpp \
 		Pin.cpp \
-		Parser.cpp	\
+		Parser.cpp \
 		Simulator.cpp
 
 CXX	= 	clang++

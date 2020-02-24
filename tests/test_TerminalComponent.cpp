@@ -12,9 +12,9 @@
 
 Test(TerminalComponent, no_display)
 {
-    std::unique_ptr<nts::IComponent> terminal = nts::Factory::createComponent("terminal");
-    std::unique_ptr<nts::IComponent> cTrue = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cFalse = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> terminal = nts::Factory::createComponent("terminal");
+    std::shared_ptr<nts::IComponent> cTrue = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cFalse = nts::Factory::createComponent("false");
     std::string got;
 
     terminal->setLink(1, *cFalse, 1);
@@ -37,9 +37,9 @@ Test(TerminalComponent, no_display)
 
 Test(TerminalComponent, display_ascii_1)
 {
-    std::unique_ptr<nts::IComponent> terminal = nts::Factory::createComponent("terminal");
-    std::unique_ptr<nts::IComponent> cTrue = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cFalse = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> terminal = nts::Factory::createComponent("terminal");
+    std::shared_ptr<nts::IComponent> cTrue = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cFalse = nts::Factory::createComponent("false");
     std::string got;
 
     terminal->setLink(1, *cFalse, 1);
@@ -62,9 +62,9 @@ Test(TerminalComponent, display_ascii_1)
 
 Test(TerminalComponent, display_ascii_2)
 {
-    std::unique_ptr<nts::IComponent> terminal = nts::Factory::createComponent("terminal");
-    std::unique_ptr<nts::IComponent> cTrue = nts::Factory::createComponent("true");
-    std::unique_ptr<nts::IComponent> cFalse = nts::Factory::createComponent("false");
+    std::shared_ptr<nts::IComponent> terminal = nts::Factory::createComponent("terminal");
+    std::shared_ptr<nts::IComponent> cTrue = nts::Factory::createComponent("true");
+    std::shared_ptr<nts::IComponent> cFalse = nts::Factory::createComponent("false");
     std::string got;
 
     terminal->setLink(1, *cFalse, 1);

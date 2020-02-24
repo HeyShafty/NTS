@@ -5,8 +5,9 @@
 ** J74HC4017Component
 */
 
-#include "Components/J74HC4017Component.hpp"
+#include <algorithm>
 #include "Factory.hpp"
+#include "Components/J74HC4017Component.hpp"
 
 const std::vector<size_t> nts::Components::J74HC4017Component::indexes = {3, 2, 4, 7, 10, 1, 5, 6, 9, 11, 42};
 
