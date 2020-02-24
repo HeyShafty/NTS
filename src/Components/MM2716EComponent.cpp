@@ -46,6 +46,8 @@ nts::Components::MM2716EComponent::MM2716EComponent(const std::string &filepath)
 
 nts::Tristate nts::Components::MM2716EComponent::computeComponent(size_t pin_index) const
 {
+    if (this->pins[17]->compute() != Tristate::TRUE || this->pins[19]->compute() != Tristate::TRUE)
+        return Tristate::UNDEFINED;
     int x = this->xDecode();
     int y = this->yDecode();
     unsigned char byte;
