@@ -87,27 +87,12 @@ void nts::Simulator::initSimulation(int ac, char **av)
     this->initLinks(chipsetMap, parser);
 }
 
-void nts::Simulator::initClocks() const
-{
-    size_t i = 0;
-    std::vector<nts::Tristate> oldClockStates;
-
-    for (auto it = this->clockComponents.begin(); it != this->clockComponents.end(); ++it) {
-        oldClockStates.push_back(it->second->getPin(1)->value);
-        it->second->getPin(1)->value = nts::Tristate::UNDEFINED;
-    }
-    this->simulate();
-    for (auto it = this->clockComponents.begin(); it != this->clockComponents.end(); ++it, ++i) {
-        it->second->getPin(1)->value = oldClockStates.at(i);
-    }
-}
-
 void nts::Simulator::runSimulation(void) const
 {
     std::string input;
     size_t nbSimulation = 0;
 
-    this->initClocks();
+    this->simulate();
     this->displayOutputs();
     while (42) {
         std::cout << "> ";
@@ -118,10 +103,6 @@ void nts::Simulator::runSimulation(void) const
         }
         if (input.size() == 0)
             continue;
-        if (input.compare("simulate") == 0 && nbSimulation == 0) {
-            this->simulate();
-            nbSimulation++;
-        }
         auto found = this->functionnalitiesMap.find(input);
         if (found != this->functionnalitiesMap.end()) {
             if ((this->*(found->second))() == 1)

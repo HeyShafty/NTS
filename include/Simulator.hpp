@@ -21,7 +21,6 @@ namespace nts
             ~Simulator() = default;
 
             void initSimulation(int ac, char **av);
-            void initClocks() const;
             void runSimulation(void) const;
             int displayOutputs(void) const;
             int exitSimulation(void) const;
