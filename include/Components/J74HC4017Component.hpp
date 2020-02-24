@@ -18,9 +18,13 @@ namespace nts::Components
             J74HC4017Component();
             ~J74HC4017Component() = default;
 
-        protected:
+            nts::Tristate computeComponent(size_t pin_index);
+            nts::Tristate compute12Pin(void);
+
         private:
-            std::vector<std::shared_ptr<IComponent>> innerComponents;
+            static const std::vector<size_t> indexes;
+            size_t i = 0;
+            bool _hasIncreased;
     };
 }
 
