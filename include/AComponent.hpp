@@ -13,7 +13,6 @@
 #include "IComponent.hpp"
 
 #define BIND_IN_PIN(idx, o) this->pins[idx]->compute = std::bind(&o::computeInPin, this, idx)
-#define BIND_PIN(idx, f)
 
 namespace nts
 {
