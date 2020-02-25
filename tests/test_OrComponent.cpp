@@ -14,8 +14,8 @@
 
 Test(OrComponent, false_false)
 {
-    std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     cOr->setLink(1, *cFalse, 1);
     cOr->setLink(2, *cFalse, 1);
@@ -24,9 +24,9 @@ Test(OrComponent, false_false)
 
 Test(OrComponent, false_true)
 {
-    std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     cOr->setLink(1, *cFalse, 1);
     cOr->setLink(2, *cTrue, 1);
@@ -35,9 +35,9 @@ Test(OrComponent, false_true)
 
 Test(OrComponent, true_false)
 {
-    std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     cOr->setLink(1, *cTrue, 1);
     cOr->setLink(2, *cFalse, 1);
@@ -46,8 +46,8 @@ Test(OrComponent, true_false)
 
 Test(OrComponent, true_true)
 {
-    std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     cOr->setLink(1, *cTrue, 1);
     cOr->setLink(2, *cTrue, 1);
@@ -56,8 +56,8 @@ Test(OrComponent, true_true)
 
 Test(OrComponent, bad_linking)
 {
-    std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cOr(new nts::Components::OrComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
     size_t vals[] = { 0, 10, 1000, 3 };
 
     for (size_t val : vals) {

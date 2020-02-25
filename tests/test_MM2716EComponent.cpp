@@ -13,7 +13,7 @@
 
 Test(MM2716EComponent, onefile)
 {
-    std::shared_ptr<nts::IComponent> rom = nts::Factory::createComponent("2716", "advanced/rom.bin");
+    std::shared_ptr<nts::IComponent> rom = nts::Factory::createComponent("2716", "", "advanced/rom.bin");
     std::shared_ptr<nts::IComponent> cTrue = nts::Factory::createComponent("true");
     std::shared_ptr<nts::IComponent> cFalse = nts::Factory::createComponent("false");
     char expected = 0x20;

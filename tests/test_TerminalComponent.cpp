@@ -9,6 +9,7 @@
 #include <criterion/redirect.h>
 #include "Factory.hpp"
 #include "OSRedirector.hpp"
+#include "ISimulable.hpp"
 
 Test(TerminalComponent, no_display)
 {
@@ -27,9 +28,10 @@ Test(TerminalComponent, no_display)
     terminal->setLink(8, *cFalse, 1);
     terminal->setLink(9, *cFalse, 1);
     {
+        std::shared_ptr<nts::ISimulable> sTerminal = std::dynamic_pointer_cast<nts::ISimulable>(terminal);
         OSRedirector oss(std::cout);
 
-        terminal->dump();
+        sTerminal->simulate();
         got = oss.getContent();
     }
     cr_assert_str_eq(got.c_str(), "");
@@ -52,9 +54,10 @@ Test(TerminalComponent, display_ascii_1)
     terminal->setLink(8, *cFalse, 1);
     terminal->setLink(9, *cTrue, 1);
     {
+        std::shared_ptr<nts::ISimulable> sTerminal = std::dynamic_pointer_cast<nts::ISimulable>(terminal);
         OSRedirector oss(std::cout);
 
-        terminal->dump();
+        sTerminal->simulate();
         got = oss.getContent();
     }
     cr_assert_str_eq(got.c_str(), "0\n");
@@ -77,9 +80,10 @@ Test(TerminalComponent, display_ascii_2)
     terminal->setLink(8, *cFalse, 1);
     terminal->setLink(9, *cTrue, 1);
     {
+        std::shared_ptr<nts::ISimulable> sTerminal = std::dynamic_pointer_cast<nts::ISimulable>(terminal);
         OSRedirector oss(std::cout);
 
-        terminal->dump();
+        sTerminal->simulate();
         got = oss.getContent();
     }
     cr_assert_str_eq(got.c_str(), "@\n");

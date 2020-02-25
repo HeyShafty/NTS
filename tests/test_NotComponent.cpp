@@ -14,8 +14,8 @@
 
 Test(NotComponent, false_to_true)
 {
-    std::unique_ptr<nts::IComponent> cNot(new nts::Components::NotComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cNot(new nts::Components::NotComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     cNot->setLink(1, *cFalse, 1);
     cr_assert_eq(cNot->compute(2), nts::Tristate::TRUE);
@@ -23,8 +23,8 @@ Test(NotComponent, false_to_true)
 
 Test(NotComponent, true_to_false)
 {
-    std::unique_ptr<nts::IComponent> cNot(new nts::Components::NotComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cNot(new nts::Components::NotComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     cNot->setLink(1, *cTrue, 1);
     cr_assert_eq(cNot->compute(2), nts::Tristate::FALSE);
@@ -32,7 +32,7 @@ Test(NotComponent, true_to_false)
 
 Test(NotComponent, undefined)
 {
-    std::unique_ptr<nts::IComponent> cNot(new nts::Components::NotComponent);
+    std::unique_ptr<nts::IComponent> cNot(new nts::Components::NotComponent(""));
 
     cr_assert_eq(cNot->compute(2), nts::Tristate::UNDEFINED);
 }

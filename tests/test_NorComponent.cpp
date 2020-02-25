@@ -14,8 +14,8 @@
 
 Test(NorComponent, false_false)
 {
-    std::unique_ptr<nts::IComponent> cNor(new nts::Components::NorComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cNor(new nts::Components::NorComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     cNor->setLink(1, *cFalse, 1);
     cNor->setLink(2, *cFalse, 1);
@@ -24,9 +24,9 @@ Test(NorComponent, false_false)
 
 Test(NorComponent, false_true)
 {
-    std::unique_ptr<nts::IComponent> cNor(new nts::Components::NorComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cNor(new nts::Components::NorComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     cNor->setLink(1, *cFalse, 1);
     cNor->setLink(2, *cTrue, 1);
@@ -35,9 +35,9 @@ Test(NorComponent, false_true)
 
 Test(NorComponent, true_false)
 {
-    std::unique_ptr<nts::IComponent> cNor(new nts::Components::NorComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cNor(new nts::Components::NorComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     cNor->setLink(1, *cTrue, 1);
     cNor->setLink(2, *cFalse, 1);
@@ -46,8 +46,8 @@ Test(NorComponent, true_false)
 
 Test(NorComponent, true_true)
 {
-    std::unique_ptr<nts::IComponent> cNor(new nts::Components::NorComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cNor(new nts::Components::NorComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     cNor->setLink(1, *cTrue, 1);
     cNor->setLink(2, *cTrue, 1);

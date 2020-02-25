@@ -14,8 +14,8 @@
 
 Test(TripleNandComponent, false_false_false)
 {
-    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     cAnd->setLink(1, *cFalse, 1);
     cAnd->setLink(2, *cFalse, 1);
@@ -25,9 +25,9 @@ Test(TripleNandComponent, false_false_false)
 
 Test(TripleNandComponent, false_false_true)
 {
-    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     cAnd->setLink(1, *cFalse, 1);
     cAnd->setLink(2, *cFalse, 1);
@@ -37,9 +37,9 @@ Test(TripleNandComponent, false_false_true)
 
 Test(TripleNandComponent, false_true_false)
 {
-    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     cAnd->setLink(1, *cFalse, 1);
     cAnd->setLink(2, *cTrue, 1);
@@ -49,9 +49,9 @@ Test(TripleNandComponent, false_true_false)
 
 Test(TripleNandComponent, false_true_true)
 {
-    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     cAnd->setLink(1, *cFalse, 1);
     cAnd->setLink(2, *cTrue, 1);
@@ -61,9 +61,9 @@ Test(TripleNandComponent, false_true_true)
 
 Test(TripleNandComponent, true_false_false)
 {
-    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     cAnd->setLink(1, *cTrue, 1);
     cAnd->setLink(2, *cFalse, 1);
@@ -73,9 +73,9 @@ Test(TripleNandComponent, true_false_false)
 
 Test(TripleNandComponent, true_false_true)
 {
-    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     cAnd->setLink(1, *cTrue, 1);
     cAnd->setLink(2, *cFalse, 1);
@@ -85,9 +85,9 @@ Test(TripleNandComponent, true_false_true)
 
 Test(TripleNandComponent, true_true_false)
 {
-    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     cAnd->setLink(1, *cTrue, 1);
     cAnd->setLink(2, *cTrue, 1);
@@ -97,8 +97,8 @@ Test(TripleNandComponent, true_true_false)
 
 Test(TripleNandComponent, true_true_true)
 {
-    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::TripleNandComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     cAnd->setLink(1, *cTrue, 1);
     cAnd->setLink(2, *cTrue, 1);

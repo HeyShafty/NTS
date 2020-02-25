@@ -14,8 +14,8 @@
 
 Test(QuadSRFlipFlopComponent, illegal_case)
 {
-    std::unique_ptr<nts::IComponent> quadSRFlipFlop(new nts::Components::QuadSRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> quadSRFlipFlop(new nts::Components::QuadSRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     quadSRFlipFlop->setLink(1, *cTrue, 1);
     quadSRFlipFlop->setLink(2, *cTrue, 1);
@@ -25,8 +25,8 @@ Test(QuadSRFlipFlopComponent, illegal_case)
 
 Test(QuadSRFlipFlopComponent, false_false_first_compute)
 {
-    std::unique_ptr<nts::IComponent> quadSRFlipFlop(new nts::Components::QuadSRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> quadSRFlipFlop(new nts::Components::QuadSRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     quadSRFlipFlop->setLink(1, *cFalse, 1);
     quadSRFlipFlop->setLink(2, *cFalse, 1);
@@ -36,9 +36,9 @@ Test(QuadSRFlipFlopComponent, false_false_first_compute)
 
 Test(QuadSRFlipFlopComponent, true_false)
 {
-    std::unique_ptr<nts::IComponent> quadSRFlipFlop(new nts::Components::QuadSRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> quadSRFlipFlop(new nts::Components::QuadSRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     quadSRFlipFlop->setLink(1, *cTrue, 1);
     quadSRFlipFlop->setLink(2, *cFalse, 1);
@@ -48,9 +48,9 @@ Test(QuadSRFlipFlopComponent, true_false)
 
 Test(QuadSRFlipFlopComponent, true_false_then_false_false)
 {
-    std::unique_ptr<nts::IComponent> quadSRFlipFlop(new nts::Components::QuadSRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> quadSRFlipFlop(new nts::Components::QuadSRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     quadSRFlipFlop->setLink(1, *cTrue, 1);
     quadSRFlipFlop->setLink(2, *cFalse, 1);
@@ -63,9 +63,9 @@ Test(QuadSRFlipFlopComponent, true_false_then_false_false)
 
 Test(QuadSRFlipFlopComponent, true_false_then_false_false_then_true_false)
 {
-    std::unique_ptr<nts::IComponent> quadSRFlipFlop(new nts::Components::QuadSRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> quadSRFlipFlop(new nts::Components::QuadSRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     quadSRFlipFlop->setLink(1, *cTrue, 1);
     quadSRFlipFlop->setLink(2, *cFalse, 1);
@@ -81,9 +81,9 @@ Test(QuadSRFlipFlopComponent, true_false_then_false_false_then_true_false)
 
 Test(QuadSRFlipFlopComponent, true_false_then_false_false_then_false_true)
 {
-    std::unique_ptr<nts::IComponent> quadSRFlipFlop(new nts::Components::QuadSRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> quadSRFlipFlop(new nts::Components::QuadSRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     quadSRFlipFlop->setLink(1, *cTrue, 1);
     quadSRFlipFlop->setLink(2, *cFalse, 1);
@@ -99,9 +99,9 @@ Test(QuadSRFlipFlopComponent, true_false_then_false_false_then_false_true)
 
 Test(QuadSRFlipFlopComponent, true_false_then_false_false_then_false_true_then_false_false)
 {
-    std::unique_ptr<nts::IComponent> quadSRFlipFlop(new nts::Components::QuadSRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> quadSRFlipFlop(new nts::Components::QuadSRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     quadSRFlipFlop->setLink(1, *cTrue, 1);
     quadSRFlipFlop->setLink(2, *cFalse, 1);

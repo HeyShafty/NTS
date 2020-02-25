@@ -12,9 +12,9 @@
 
 Test(CD4514BCComponent, undefined)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cFalse, 1);
     decoder->setLink(3, *cFalse, 1);
@@ -42,9 +42,9 @@ Test(CD4514BCComponent, undefined)
 
 Test(CD4514BCComponent, zero)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cFalse, 1);
     decoder->setLink(3, *cFalse, 1);
@@ -72,9 +72,9 @@ Test(CD4514BCComponent, zero)
 
 Test(CD4514BCComponent, one)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cTrue, 1);
     decoder->setLink(3, *cFalse, 1);
@@ -102,9 +102,9 @@ Test(CD4514BCComponent, one)
 
 Test(CD4514BCComponent, two)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cFalse, 1);
     decoder->setLink(3, *cTrue, 1);
@@ -132,9 +132,9 @@ Test(CD4514BCComponent, two)
 
 Test(CD4514BCComponent, three)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cTrue, 1);
     decoder->setLink(3, *cTrue, 1);
@@ -162,9 +162,9 @@ Test(CD4514BCComponent, three)
 
 Test(CD4514BCComponent, four)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cFalse, 1);
     decoder->setLink(3, *cFalse, 1);
@@ -192,9 +192,9 @@ Test(CD4514BCComponent, four)
 
 Test(CD4514BCComponent, five)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cTrue, 1);
     decoder->setLink(3, *cFalse, 1);
@@ -222,9 +222,9 @@ Test(CD4514BCComponent, five)
 
 Test(CD4514BCComponent, six)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cFalse, 1);
     decoder->setLink(3, *cTrue, 1);
@@ -252,9 +252,9 @@ Test(CD4514BCComponent, six)
 
 Test(CD4514BCComponent, seven)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cTrue, 1);
     decoder->setLink(3, *cTrue, 1);
@@ -282,9 +282,9 @@ Test(CD4514BCComponent, seven)
 
 Test(CD4514BCComponent, eight)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cFalse, 1);
     decoder->setLink(3, *cFalse, 1);
@@ -312,9 +312,9 @@ Test(CD4514BCComponent, eight)
 
 Test(CD4514BCComponent, nine)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cTrue, 1);
     decoder->setLink(3, *cFalse, 1);
@@ -342,9 +342,9 @@ Test(CD4514BCComponent, nine)
 
 Test(CD4514BCComponent, ten)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cFalse, 1);
     decoder->setLink(3, *cTrue, 1);
@@ -372,9 +372,9 @@ Test(CD4514BCComponent, ten)
 
 Test(CD4514BCComponent, eleven)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cTrue, 1);
     decoder->setLink(3, *cTrue, 1);
@@ -402,9 +402,9 @@ Test(CD4514BCComponent, eleven)
 
 Test(CD4514BCComponent, twelve)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cFalse, 1);
     decoder->setLink(3, *cFalse, 1);
@@ -432,9 +432,9 @@ Test(CD4514BCComponent, twelve)
 
 Test(CD4514BCComponent, thirteen)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cTrue, 1);
     decoder->setLink(3, *cFalse, 1);
@@ -462,9 +462,9 @@ Test(CD4514BCComponent, thirteen)
 
 Test(CD4514BCComponent, forteen)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cFalse, 1);
     decoder->setLink(3, *cTrue, 1);
@@ -492,9 +492,9 @@ Test(CD4514BCComponent, forteen)
 
 Test(CD4514BCComponent, fifteen)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cTrue, 1);
     decoder->setLink(3, *cTrue, 1);
@@ -522,9 +522,9 @@ Test(CD4514BCComponent, fifteen)
 
 Test(CD4514BCComponent, inhibitor1)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cFalse, 1);
     decoder->setLink(3, *cFalse, 1);
@@ -552,9 +552,9 @@ Test(CD4514BCComponent, inhibitor1)
 
 Test(CD4514BCComponent, inhibitor2)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cTrue, 1);
     decoder->setLink(3, *cTrue, 1);
@@ -582,9 +582,9 @@ Test(CD4514BCComponent, inhibitor2)
 
 Test(CD4514BCComponent, inhibitor3)
 {
-    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> decoder(new nts::Components::CD4514BCComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     decoder->setLink(2, *cFalse, 1);
     decoder->setLink(3, *cFalse, 1);

@@ -14,8 +14,8 @@
 
 Test(XorComponent, false_false)
 {
-    std::unique_ptr<nts::IComponent> cXor(new nts::Components::XorComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cXor(new nts::Components::XorComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     cXor->setLink(1, *cFalse, 1);
     cXor->setLink(2, *cFalse, 1);
@@ -24,9 +24,9 @@ Test(XorComponent, false_false)
 
 Test(XorComponent, false_true)
 {
-    std::unique_ptr<nts::IComponent> cXor(new nts::Components::XorComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cXor(new nts::Components::XorComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     cXor->setLink(1, *cFalse, 1);
     cXor->setLink(2, *cTrue, 1);
@@ -35,9 +35,9 @@ Test(XorComponent, false_true)
 
 Test(XorComponent, true_false)
 {
-    std::unique_ptr<nts::IComponent> cXor(new nts::Components::XorComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cXor(new nts::Components::XorComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     cXor->setLink(1, *cTrue, 1);
     cXor->setLink(2, *cFalse, 1);
@@ -46,8 +46,8 @@ Test(XorComponent, true_false)
 
 Test(XorComponent, true_true)
 {
-    std::unique_ptr<nts::IComponent> cXor(new nts::Components::XorComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cXor(new nts::Components::XorComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     cXor->setLink(1, *cTrue, 1);
     cXor->setLink(2, *cTrue, 1);
@@ -56,8 +56,8 @@ Test(XorComponent, true_true)
 
 Test(XorComponent, bad_linking)
 {
-    std::unique_ptr<nts::IComponent> cXor(new nts::Components::XorComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cXor(new nts::Components::XorComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
     size_t vals[] = { 0, 10, 1000, 3 };
 
     for (size_t val : vals) {

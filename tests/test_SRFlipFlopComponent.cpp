@@ -14,8 +14,8 @@
 
 Test(SRFlipFlopComponent, illegal_case)
 {
-    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     srFlipFlop->setLink(1, *cTrue, 1);
     srFlipFlop->setLink(2, *cTrue, 1);
@@ -25,8 +25,8 @@ Test(SRFlipFlopComponent, illegal_case)
 
 Test(SRFlipFlopComponent, false_false_first_compute)
 {
-    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     srFlipFlop->setLink(1, *cFalse, 1);
     srFlipFlop->setLink(2, *cFalse, 1);
@@ -36,9 +36,9 @@ Test(SRFlipFlopComponent, false_false_first_compute)
 
 Test(SRFlipFlopComponent, false_false_then_true_false)
 {
-    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     srFlipFlop->setLink(1, *cFalse, 1);
     srFlipFlop->setLink(2, *cFalse, 1);
@@ -51,9 +51,9 @@ Test(SRFlipFlopComponent, false_false_then_true_false)
 
 Test(SRFlipFlopComponent, true_false)
 {
-    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     srFlipFlop->setLink(1, *cTrue, 1);
     srFlipFlop->setLink(2, *cFalse, 1);
@@ -63,9 +63,9 @@ Test(SRFlipFlopComponent, true_false)
 
 Test(SRFlipFlopComponent, true_false_then_false_false)
 {
-    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     srFlipFlop->setLink(1, *cTrue, 1);
     srFlipFlop->setLink(2, *cFalse, 1);
@@ -78,9 +78,9 @@ Test(SRFlipFlopComponent, true_false_then_false_false)
 
 Test(SRFlipFlopComponent, true_false_then_false_false_then_true_false)
 {
-    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     srFlipFlop->setLink(1, *cTrue, 1);
     srFlipFlop->setLink(2, *cFalse, 1);
@@ -96,9 +96,9 @@ Test(SRFlipFlopComponent, true_false_then_false_false_then_true_false)
 
 Test(SRFlipFlopComponent, true_false_then_false_false_then_false_true)
 {
-    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     srFlipFlop->setLink(1, *cTrue, 1);
     srFlipFlop->setLink(2, *cFalse, 1);
@@ -114,9 +114,9 @@ Test(SRFlipFlopComponent, true_false_then_false_false_then_false_true)
 
 Test(SRFlipFlopComponent, true_false_then_false_false_then_false_true_then_false_false)
 {
-    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> srFlipFlop(new nts::Components::SRFlipFlopComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     srFlipFlop->setLink(1, *cTrue, 1);
     srFlipFlop->setLink(2, *cFalse, 1);

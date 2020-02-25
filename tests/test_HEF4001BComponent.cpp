@@ -14,9 +14,9 @@
 
 Test(HEF4001BComponent, false_false)
 {
-    std::unique_ptr<nts::IComponent> HEF4001B(new nts::Components::HEF4001BComponent);
-    std::unique_ptr<nts::IComponent> cFalse1(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> cFalse2(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> HEF4001B(new nts::Components::HEF4001BComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse1(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse2(new nts::Components::FalseComponent(""));
 
     HEF4001B->setLink(1, *cFalse1, 1);
     HEF4001B->setLink(2, *cFalse2, 1);
@@ -25,9 +25,9 @@ Test(HEF4001BComponent, false_false)
 
 Test(HEF4001BComponent, false_true)
 {
-    std::unique_ptr<nts::IComponent> HEF4001B(new nts::Components::HEF4001BComponent);
-    std::unique_ptr<nts::IComponent> cFalse1(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> cFalse2(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> HEF4001B(new nts::Components::HEF4001BComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse1(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse2(new nts::Components::TrueComponent(""));
 
     HEF4001B->setLink(1, *cFalse1, 1);
     HEF4001B->setLink(2, *cFalse2, 1);
@@ -36,9 +36,9 @@ Test(HEF4001BComponent, false_true)
 
 Test(HEF4001BComponent, true_false)
 {
-    std::unique_ptr<nts::IComponent> HEF4001B(new nts::Components::HEF4001BComponent);
-    std::unique_ptr<nts::IComponent> cFalse1(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse2(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> HEF4001B(new nts::Components::HEF4001BComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse1(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse2(new nts::Components::FalseComponent(""));
 
     HEF4001B->setLink(1, *cFalse1, 1);
     HEF4001B->setLink(2, *cFalse2, 1);
@@ -47,9 +47,9 @@ Test(HEF4001BComponent, true_false)
 
 Test(HEF4001BComponent, true_true)
 {
-    std::unique_ptr<nts::IComponent> HEF4001B(new nts::Components::HEF4001BComponent);
-    std::unique_ptr<nts::IComponent> cFalse1(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse2(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> HEF4001B(new nts::Components::HEF4001BComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse1(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse2(new nts::Components::TrueComponent(""));
 
     HEF4001B->setLink(1, *cFalse1, 1);
     HEF4001B->setLink(2, *cFalse2, 1);

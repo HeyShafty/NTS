@@ -8,12 +8,15 @@
 #ifndef ISIMULABLE_HPP_
 #define ISIMULABLE_HPP_
 
-class ISimulable
+namespace nts
 {
-    public:
-        virtual ~ISimulable() = default;
+    class ISimulable
+    {
+        public:
+            virtual ~ISimulable() = default;
 
-        virtual void simulate() const = 0;
-};
+            virtual void simulate() const = 0;
+    };
+}
 
 #endif /* !ISIMULABLE_HPP_ */

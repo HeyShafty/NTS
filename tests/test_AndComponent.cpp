@@ -14,8 +14,8 @@
 
 Test(AndComponent, false_false)
 {
-    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::AndComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::AndComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     cAnd->setLink(1, *cFalse, 1);
     cAnd->setLink(2, *cFalse, 1);
@@ -24,9 +24,9 @@ Test(AndComponent, false_false)
 
 Test(AndComponent, false_true)
 {
-    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::AndComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::AndComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     cAnd->setLink(1, *cFalse, 1);
     cAnd->setLink(2, *cTrue, 1);
@@ -35,9 +35,9 @@ Test(AndComponent, false_true)
 
 Test(AndComponent, true_false)
 {
-    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::AndComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::AndComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     cAnd->setLink(1, *cFalse, 1);
     cAnd->setLink(2, *cTrue, 1);
@@ -46,8 +46,8 @@ Test(AndComponent, true_false)
 
 Test(AndComponent, true_true)
 {
-    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::AndComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::AndComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     cAnd->setLink(1, *cTrue, 1);
     cAnd->setLink(2, *cTrue, 1);
@@ -56,8 +56,8 @@ Test(AndComponent, true_true)
 
 Test(AndComponent, bad_linking)
 {
-    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::AndComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> cAnd(new nts::Components::AndComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
     size_t vals[] = { 0, 10, 1000, 3 };
 
     for (size_t val : vals) {

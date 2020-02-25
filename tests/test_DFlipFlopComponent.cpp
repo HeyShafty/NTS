@@ -12,12 +12,12 @@
 
 Test(DFlipFlopComponent, zyzy)
 {
-    std::unique_ptr<nts::IComponent> clockFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> clockTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> reset(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> data(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> set(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent);
+    std::unique_ptr<nts::IComponent> clockFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> clockTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> reset(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> data(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> set(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent(""));
 
     dFlipFlop->setLink(3, *clockFalse, 1);
     dFlipFlop->setLink(4, *reset, 1);
@@ -34,12 +34,12 @@ Test(DFlipFlopComponent, zyzy)
 
 Test(DFlipFlopComponent, q_row1)
 {
-    std::unique_ptr<nts::IComponent> clockFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> clockTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> reset(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> data(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> set(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent);
+    std::unique_ptr<nts::IComponent> clockFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> clockTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> reset(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> data(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> set(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent(""));
 
     dFlipFlop->setLink(3, *clockFalse, 1);
     dFlipFlop->setLink(4, *reset, 1);
@@ -56,12 +56,12 @@ Test(DFlipFlopComponent, q_row1)
 
 Test(DFlipFlopComponent, q_row2)
 {
-    std::unique_ptr<nts::IComponent> clockFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> clockTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> reset(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> data(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> set(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent);
+    std::unique_ptr<nts::IComponent> clockFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> clockTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> reset(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> data(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> set(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent(""));
 
     dFlipFlop->setLink(3, *clockFalse, 1);
     dFlipFlop->setLink(4, *reset, 1);
@@ -78,12 +78,12 @@ Test(DFlipFlopComponent, q_row2)
 
 Test(DFlipFlopComponent, q_row3)
 {
-    std::unique_ptr<nts::IComponent> clockFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> clockTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> reset(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> data(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> set(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent);
+    std::unique_ptr<nts::IComponent> clockFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> clockTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> reset(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> data(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> set(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent(""));
 
     dFlipFlop->setLink(3, *clockFalse, 1);
     dFlipFlop->setLink(4, *reset, 1);
@@ -103,11 +103,11 @@ Test(DFlipFlopComponent, q_row3)
 
 Test(DFlipFlopComponent, q_row4)
 {
-    std::unique_ptr<nts::IComponent> clockFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> reset(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> data(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> set(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent);
+    std::unique_ptr<nts::IComponent> clockFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> reset(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> data(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> set(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent(""));
 
     dFlipFlop->setLink(3, *clockFalse, 1);
     dFlipFlop->setLink(4, *reset, 1);
@@ -119,12 +119,12 @@ Test(DFlipFlopComponent, q_row4)
 
 Test(DFlipFlopComponent, q_row5)
 {
-    std::unique_ptr<nts::IComponent> clockFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> clockTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> reset(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> data(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> set(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent);
+    std::unique_ptr<nts::IComponent> clockFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> clockTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> reset(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> data(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> set(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent(""));
 
     dFlipFlop->setLink(3, *clockFalse, 1);
     dFlipFlop->setLink(4, *reset, 1);
@@ -136,12 +136,12 @@ Test(DFlipFlopComponent, q_row5)
 
 Test(DFlipFlopComponent, q_row6)
 {
-    std::unique_ptr<nts::IComponent> clockFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> clockTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> reset(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> data(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> set(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent);
+    std::unique_ptr<nts::IComponent> clockFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> clockTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> reset(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> data(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> set(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent(""));
 
     dFlipFlop->setLink(3, *clockFalse, 1);
     dFlipFlop->setLink(4, *reset, 1);
@@ -153,8 +153,8 @@ Test(DFlipFlopComponent, q_row6)
 
 Test(DFlipFlopComponent, q_undefined1)
 {
-    std::unique_ptr<nts::IComponent> data(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent);
+    std::unique_ptr<nts::IComponent> data(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent(""));
 
     dFlipFlop->setLink(5, *data, 1);
     cr_assert_eq(dFlipFlop->compute(1), nts::Tristate::UNDEFINED);
@@ -163,8 +163,8 @@ Test(DFlipFlopComponent, q_undefined1)
 
 Test(DFlipFlopComponent, q_undefined2)
 {
-    std::unique_ptr<nts::IComponent> data(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent);
+    std::unique_ptr<nts::IComponent> data(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> dFlipFlop(new nts::Components::DFlipFlopComponent(""));
 
     dFlipFlop->setLink(5, *data, 1);
     cr_assert_eq(dFlipFlop->compute(1), nts::Tristate::UNDEFINED);

@@ -14,8 +14,8 @@
 
 Test(HCF4081BComponent, false_false)
 {
-    std::unique_ptr<nts::IComponent> c4081(new nts::Components::HCF4081BComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> c4081(new nts::Components::HCF4081BComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     c4081->setLink(1, *cFalse, 1);
     c4081->setLink(2, *cFalse, 1);
@@ -24,9 +24,9 @@ Test(HCF4081BComponent, false_false)
 
 Test(HCF4081BComponent, false_true)
 {
-    std::unique_ptr<nts::IComponent> c4081(new nts::Components::HCF4081BComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> c4081(new nts::Components::HCF4081BComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     c4081->setLink(1, *cFalse, 1);
     c4081->setLink(2, *cTrue, 1);
@@ -35,9 +35,9 @@ Test(HCF4081BComponent, false_true)
 
 Test(HCF4081BComponent, true_false)
 {
-    std::unique_ptr<nts::IComponent> c4081(new nts::Components::HCF4081BComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
-    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent);
+    std::unique_ptr<nts::IComponent> c4081(new nts::Components::HCF4081BComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
+    std::unique_ptr<nts::IComponent> cFalse(new nts::Components::FalseComponent(""));
 
     c4081->setLink(1, *cTrue, 1);
     c4081->setLink(2, *cFalse, 1);
@@ -46,8 +46,8 @@ Test(HCF4081BComponent, true_false)
 
 Test(HCF4081BComponent, true_true)
 {
-    std::unique_ptr<nts::IComponent> c4081(new nts::Components::HCF4081BComponent);
-    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent);
+    std::unique_ptr<nts::IComponent> c4081(new nts::Components::HCF4081BComponent(""));
+    std::unique_ptr<nts::IComponent> cTrue(new nts::Components::TrueComponent(""));
 
     c4081->setLink(1, *cTrue, 1);
     c4081->setLink(2, *cTrue, 1);
