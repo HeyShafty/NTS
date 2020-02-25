@@ -43,10 +43,11 @@ void nts::Simulator::initChipsets(nts::Parser::ChipsetsMap &chipsetsMap, nts::Pa
             this->inputComponents.insert({it->first, newComponent});
         } else if (it->second.at(0).compare("output") == 0) {
             this->outputComponents.insert({it->first, newComponent});
+        } else if (it->second.at(0).compare("clock") == 0) {
+            this->clockComponents.insert({it->first, std::dynamic_pointer_cast<ISimulable>(newComponent)});
         }
-        if (it->second.at(0) == "output" || it->second.at(0) == "clock"
-        || it->second.at(0) == "terminal" || it->second.at(0) == "4801") {
-            this->simulableComponents.push_back(std::dynamic_pointer_cast<ISimulable>(newComponent));
+        if (it->second.at(0) == "output" || it->second.at(0) == "terminal" || it->second.at(0) == "4801") {
+            this->simulableComponents.insert({it->first, std::dynamic_pointer_cast<ISimulable>(newComponent)});
         }
     }
     if (chipsetsMap.size() == 0) {
@@ -141,7 +142,10 @@ int nts::Simulator::exitSimulation(void) const
 int nts::Simulator::simulate(void) const
 {
     for (auto it = this->simulableComponents.begin(); it != this->simulableComponents.end(); ++it) {
-        (*it)->simulate();
+        (*it).second->simulate();
+    }
+    for (auto it = this->clockComponents.begin(); it != this->clockComponents.end(); ++it) {
+        (*it).second->simulate();
     }
     return 0;
 }

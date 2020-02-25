@@ -41,7 +41,8 @@ namespace nts
             std::map<std::string, std::shared_ptr<IComponent>> components;
             std::map<std::string, std::shared_ptr<IComponent>> outputComponents;
             std::map<std::string, std::shared_ptr<IComponent>> inputComponents;
-            std::vector<std::shared_ptr<ISimulable>> simulableComponents;
+            std::map<std::string, std::shared_ptr<ISimulable>> clockComponents;
+            std::map<std::string, std::shared_ptr<ISimulable>> simulableComponents;
     };
 }
 

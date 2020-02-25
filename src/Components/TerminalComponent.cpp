@@ -41,6 +41,5 @@ void nts::Components::TerminalComponent::simulate() const
         return;
     bit += bit8 << 7 | bit7 << 6 | bit6 << 5 | bit5 << 4
          | bit4 << 3 | bit3 << 2 | bit2 << 1 | bit1;
-    if (false) // Askip on doit rien afficher (mdr)
-        std::cout << bit << std::endl;
+    std::cerr << bit << std::endl;
 }
