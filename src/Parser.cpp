@@ -12,6 +12,7 @@
 #include "Factory.hpp"
 #include "IComponent.hpp"
 #include "Exceptions/CircuitFileException.hpp"
+#include "Exceptions/InputException.hpp"
 #include "Exceptions/NoChipsetSectionException.hpp"
 #include "Exceptions/NoLinksSectionException.hpp"
 
@@ -80,7 +81,7 @@ void nts::Parser::addComponentToMap(ChipsetsMap &chipsetsMap, std::string line, 
             }
             chipsetArg = chipsetArg.substr(chipsetArg.find("=") + 1);
         } else {
-            throw nts::Exception::CircuitFileException("One given component need an argument given from command line", "Parser");
+            throw nts::Exception::InputException("One given component need an argument given from command line", "Parser");
         }
     }
     if (chipsetsMap.find(chipsetName) != chipsetsMap.end()) {

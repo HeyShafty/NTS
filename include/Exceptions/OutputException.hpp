@@ -16,7 +16,7 @@ namespace nts::Exception
      * @brief
      * To be raised when one or several outputs are not linked
      */
-    class OutputException : NtsException
+    class OutputException : public NtsException
     {
         public:
             OutputException(std::string const &message, std::string const &component = "Unknown");

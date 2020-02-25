@@ -8,6 +8,7 @@
 #include <iostream>
 #include <signal.h>
 #include "Exceptions/CircuitFileException.hpp"
+#include "Exceptions/OutputException.hpp"
 #include "IComponent.hpp"
 #include "Simulator.hpp"
 #include "Factory.hpp"
@@ -78,6 +79,11 @@ void nts::Simulator::initSimulation(int ac, char **av)
 
     this->initChipsets(chipsetMap, parser, args);
     this->initLinks(chipsetMap, parser);
+    for (auto it = this->outputComponents.begin(); it != this->outputComponents.end(); ++it) {
+        if (it->second->getPin(1)->link == nullptr) {
+            throw nts::Exception::OutputException("One output component isn't linked.", "Simulator");
+        }
+    }
 }
 
 void nts::Simulator::runSimulation(void) const

@@ -16,7 +16,7 @@ namespace nts::Exception
      * @brief
      * To be raised when one or several input values were not provided on the command line
      */
-    class InputException : NtsException
+    class InputException : public NtsException
     {
         public:
             InputException(std::string const &message, std::string const &component = "Unknown");
