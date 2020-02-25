@@ -23,6 +23,7 @@ namespace nts::Components
 
         private:
             nts::Tristate computeComponent(void);
+            std::unique_ptr<bool> init;
     };
 }
 
