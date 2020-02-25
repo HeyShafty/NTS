@@ -19,7 +19,14 @@ namespace nts
         public:
             Factory() = default;
             ~Factory() = default;
+
             static std::shared_ptr<IComponent> createComponent(const std::string &type, const std::string &value = "");
+
+            template<class T, typename ...Args>
+            static std::shared_ptr<IComponent> createBasicComponent(Args &&...args)
+            {
+                return std::make_shared<T>(std::forward<Args>(args)...);
+            }
 
         protected:
         private:
