@@ -13,3 +13,8 @@ nts::Components::OutputComponent::OutputComponent()
 {
     BIND_IN_PIN(0, OutputComponent);
 }
+
+void nts::Components::OutputComponent::simulate() const
+{
+    this->pins[0]->value = this->pins[0]->compute();
+}

@@ -9,19 +9,20 @@
 #define CLOCKCOMPONENT_HPP_
 
 #include "AComponent.hpp"
+#include "ISimulable.hpp"
 
 namespace nts::Components
 {
-    class ClockComponent : public AComponent
+    class ClockComponent : public AComponent, public ISimulable
     {
         public:
             ClockComponent(nts::Tristate pinValue);
             ~ClockComponent() = default;
 
-            nts::Tristate computeCompoent(void);
+            void simulate() const override;
 
-        protected:
         private:
+            nts::Tristate computeComponent(void);
     };
 }
 

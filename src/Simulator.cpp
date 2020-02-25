@@ -27,17 +27,8 @@ nts::Simulator::Simulator()
 
 nts::IComponent *nts::Simulator::findComponent(std::string toFind) const
 {
-    auto found = this->outputComponents.find(toFind);
+    auto found = this->components.find(toFind);
 
-    if (found != this->outputComponents.end())
-        return found->second.get();
-    found = this->inputComponents.find(toFind);
-    if (found != this->inputComponents.end())
-        return found->second.get();
-    found = this->clockComponents.find(toFind);
-    if (found != this->clockComponents.end())
-        return found->second.get();
-    found = this->otherComponents.find(toFind);
     return found->second.get();
 }
 
@@ -45,14 +36,16 @@ void nts::Simulator::initChipsets(nts::Parser::ChipsetsMap &chipsetsMap, nts::Pa
 {
     chipsetsMap = parser.parseChipsets(args);
     for (auto it = chipsetsMap.begin(); it != chipsetsMap.end(); ++it) {
-        if (it->second.at(0).compare("output") == 0) {
-            this->outputComponents.insert({it->first, nts::Factory::createComponent(it->second.at(0), it->second.at(1))});
-        } else if (it->second.at(0).compare("input") == 0) {
-            this->inputComponents.insert({it->first, nts::Factory::createComponent(it->second.at(0), it->second.at(1))});
-        } else if (it->second.at(0).compare("clock") == 0) {
-            this->clockComponents.insert({it->first, nts::Factory::createComponent(it->second.at(0), it->second.at(1))});
-        } else {
-            this->otherComponents.insert({it->first, nts::Factory::createComponent(it->second.at(0), it->second.at(1))});
+        auto newComponent = nts::Factory::createComponent(it->second.at(0), it->second.at(1));
+        this->components.insert({it->first, newComponent});
+        if (it->second.at(0).compare("input") == 0) {
+            this->inputComponents.insert({it->first, newComponent});
+        } else if (it->second.at(0).compare("output") == 0) {
+            this->outputComponents.insert({it->first, newComponent});
+        }
+        if (it->second.at(0) == "output" || it->second.at(0) == "clock"
+        || it->second.at(0) == "terminal" || it->second.at(0) == "4801") {
+            this->simulableComponents.push_back(std::dynamic_pointer_cast<ISimulable>(newComponent));
         }
     }
     if (chipsetsMap.size() == 0) {
@@ -73,7 +66,7 @@ void nts::Simulator::initLinks(nts::Parser::ChipsetsMap &chipsetsMap, nts::Parse
         }
     }
     if (linksVector.size() == 0) {
-        throw nts::Exception::CircuitFileException("No link is specify.", "Simulator");
+        throw nts::Exception::CircuitFileException("No link is specified.", "Simulator");
     }
 }
 
@@ -141,18 +134,15 @@ int nts::Simulator::exitSimulation(void) const
 
 int nts::Simulator::simulate(void) const
 {
-    for (auto it = this->outputComponents.begin(); it != this->outputComponents.end(); ++it) {
-        it->second->compute(1);
-    }
-    for (auto it = this->clockComponents.begin(); it != this->clockComponents.end(); ++it) {
-        it->second->getPin(1)->value = !it->second->getPin(1)->value;
+    for (auto it = this->simulableComponents.begin(); it != this->simulableComponents.end(); ++it) {
+        (*it)->simulate();
     }
     return 0;
 }
 
 void nts::Simulator::signalHandler(int)
 {
-    isLooping = false;
+    nts::Simulator::isLooping = false;
 }
 
 int nts::Simulator::loop(void) const
@@ -163,25 +153,16 @@ int nts::Simulator::loop(void) const
     sa.sa_handler = &nts::Simulator::signalHandler;
     sa.sa_mask = {0};
     sigaction(SIGINT, &sa, NULL);
-    while (isLooping == true) {
+    while (this->isLooping == true) {
         this->simulate();
     }
-    isLooping = true;
+    this->isLooping = true;
     return 0;
 }
 
 int nts::Simulator::dump(void) const
 {
-    for (auto it = this->outputComponents.begin(); it != this->outputComponents.end(); ++it) {
-        it->second->dump();
-    }
-    for (auto it = this->inputComponents.begin(); it != this->inputComponents.end(); ++it) {
-        it->second->dump();
-    }
-    for (auto it = this->clockComponents.begin(); it != this->clockComponents.end(); ++it) {
-        it->second->dump();
-    }
-    for (auto it = this->otherComponents.begin(); it != this->otherComponents.end(); ++it) {
+    for (auto it = this->components.begin(); it != this->components.end(); ++it) {
         it->second->dump();
     }
     return 0;

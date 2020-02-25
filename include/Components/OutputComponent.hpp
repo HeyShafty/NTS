@@ -9,14 +9,17 @@
 #define OUTPUTCOMPONENT_HPP_
 
 #include "AComponent.hpp"
+#include "ISimulable.hpp"
 
 namespace nts::Components
 {
-    class OutputComponent : public AComponent
+    class OutputComponent : public AComponent, public ISimulable
     {
         public:
             OutputComponent();
             ~OutputComponent() = default;
+
+            void simulate() const;
     };
 }
 

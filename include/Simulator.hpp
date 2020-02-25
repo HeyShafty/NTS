@@ -10,6 +10,7 @@
 
 #include <map>
 #include "AComponent.hpp"
+#include "ISimulable.hpp"
 #include "Parser.hpp"
 
 namespace nts
@@ -22,25 +23,25 @@ namespace nts
 
             void initSimulation(int ac, char **av);
             void runSimulation(void) const;
+
+        private:
+            static void signalHandler(int sig);
+            static bool isLooping;
+
             int displayOutputs(void) const;
             int exitSimulation(void) const;
             int simulate(void) const;
             int loop(void) const;
             int dump(void) const;
-
-            static void signalHandler(int sig);
-
-            static bool isLooping;
-        private:
             IComponent *findComponent(std::string toFind) const;
             void initChipsets(nts::Parser::ChipsetsMap &chipsetsMap, nts::Parser &parser, const std::vector<std::string> args);
             void initLinks(nts::Parser::ChipsetsMap &chipsetsMap, nts::Parser &parser) const;
             static const std::map<std::string, int (nts::Simulator::*)(void) const> functionnalitiesMap;
 
+            std::map<std::string, std::shared_ptr<IComponent>> components;
             std::map<std::string, std::shared_ptr<IComponent>> outputComponents;
             std::map<std::string, std::shared_ptr<IComponent>> inputComponents;
-            std::map<std::string, std::shared_ptr<IComponent>> clockComponents;
-            std::map<std::string, std::shared_ptr<IComponent>> otherComponents;
+            std::vector<std::shared_ptr<ISimulable>> simulableComponents;
     };
 }
 

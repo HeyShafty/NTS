@@ -11,8 +11,8 @@
 std::unordered_set<nts::Pin *> nts::AComponent::callHistory;
 nts::Pin *nts::AComponent::callingPin = nullptr;
 
-nts::AComponent::AComponent(const std::string &name, size_t pin_nb)
-    : name(name), pin_nb(pin_nb)
+nts::AComponent::AComponent(const std::string &componentName, size_t pin_nb)
+    : componentName(componentName), pin_nb(pin_nb)
 {
     for (size_t i = 0; i < this->pin_nb; i++) {
         this->pins.push_back(std::make_shared<Pin>());
@@ -22,16 +22,16 @@ nts::AComponent::AComponent(const std::string &name, size_t pin_nb)
 const std::shared_ptr<nts::Pin> &nts::AComponent::getPin(size_t pin) const
 {
     if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Cannot get pin: out of range.", this->name);
+        throw nts::Exception::WrongPinException("Cannot get pin: out of range.", this->componentName);
     return this->pins[pin - 1];
 }
 
 void nts::AComponent::setLink(size_t pin, const IComponent &other, size_t otherPin) const
 {
     if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Cannot link pin: out of range.", this->name);
+        throw nts::Exception::WrongPinException("Cannot link pin: out of range.", this->componentName);
     if (this->pins[pin - 1]->type != PinType::IN)
-        throw nts::Exception::WrongPinException("Cannot link pin: not an input pin.", this->name);
+        throw nts::Exception::WrongPinException("Cannot link pin: not an input pin.", this->componentName);
     this->pins[pin - 1]->link = &other;
     this->pins[pin - 1]->link_n = otherPin;
 }
@@ -39,9 +39,9 @@ void nts::AComponent::setLink(size_t pin, const IComponent &other, size_t otherP
 nts::Tristate nts::AComponent::compute(size_t pin) const
 {
     if (pin == 0 || pin > this->pin_nb)
-        throw nts::Exception::WrongPinException("Cannot compute pin: out of range.", this->name);
+        throw nts::Exception::WrongPinException("Cannot compute pin: out of range.", this->componentName);
     if (this->pins[pin - 1]->type == PinType::ELECTRICAL)
-        throw nts::Exception::WrongPinException("Cannot compute pin: electrical pin.", this->name);
+        throw nts::Exception::WrongPinException("Cannot compute pin: electrical pin.", this->componentName);
     Tristate result = this->pins[pin - 1]->compute();
     this->pins[pin - 1]->value = result;
     return result;

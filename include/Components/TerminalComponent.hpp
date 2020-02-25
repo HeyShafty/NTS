@@ -9,16 +9,17 @@
 #define TerminalComponent_HPP_
 
 #include "AComponent.hpp"
+#include "ISimulable.hpp"
 
 namespace nts::Components
 {
-    class TerminalComponent : public AComponent
+    class TerminalComponent : public AComponent, public ISimulable
     {
         public:
             TerminalComponent();
             ~TerminalComponent() = default;
 
-            void dump() const override;
+            void simulate() const override;
     };
 }
 

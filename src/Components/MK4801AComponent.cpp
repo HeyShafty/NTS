@@ -61,6 +61,11 @@ nts::Tristate nts::Components::MK4801AComponent::computeComponent(size_t pin_ind
     return this->pins[pin_index]->value;
 }
 
+void nts::Components::MK4801AComponent::simulate() const
+{
+    throw "Wow";
+}
+
 int nts::Components::MK4801AComponent::xDecode() const
 {
     int x = 0;

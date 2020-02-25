@@ -19,10 +19,10 @@ nts::Components::TerminalComponent::TerminalComponent()
     BIND_IN_PIN(5, TerminalComponent);
     BIND_IN_PIN(6, TerminalComponent);
     BIND_IN_PIN(7, TerminalComponent);
-    BIND_IN_PIN(8, TerminalComponent); // WR
+    BIND_IN_PIN(8, TerminalComponent); // Write enabled
 }
 
-void nts::Components::TerminalComponent::dump() const
+void nts::Components::TerminalComponent::simulate() const
 {
     if (this->pins[8]->compute() != Tristate::TRUE)
         return;
@@ -34,11 +34,12 @@ void nts::Components::TerminalComponent::dump() const
     Tristate bit6 = this->pins[5]->compute();
     Tristate bit7 = this->pins[6]->compute();
     Tristate bit8 = this->pins[7]->compute();
+    char bit = 0;
 
     if (bit1 == UNDEFINED || bit2 == UNDEFINED || bit3 == UNDEFINED || bit4 == UNDEFINED
     || bit5 == UNDEFINED || bit6 == UNDEFINED || bit7 == UNDEFINED || bit8 == UNDEFINED)
         return;
-    char bit = 0;
-    bit += bit8 << 7 | bit7 << 6 | bit6 << 5 | bit5 << 4 | bit4 << 3 | bit3 << 2 | bit2 << 1 | bit1;
+    bit += bit8 << 7 | bit7 << 6 | bit6 << 5 | bit5 << 4
+         | bit4 << 3 | bit3 << 2 | bit2 << 1 | bit1;
     std::cout << bit << std::endl;
 }
