@@ -36,7 +36,7 @@ void nts::Simulator::initChipsets(nts::Parser::ChipsetsMap &chipsetsMap, nts::Pa
 {
     chipsetsMap = parser.parseChipsets(args);
     for (auto it = chipsetsMap.begin(); it != chipsetsMap.end(); ++it) {
-        auto newComponent = nts::Factory::createComponent(it->second.at(0), it->second.at(1));
+        auto newComponent = nts::Factory::createComponent(it->second.at(0), it->first, it->second.at(1));
         this->components.insert({it->first, newComponent});
         if (it->second.at(0).compare("input") == 0) {
             this->inputComponents.insert({it->first, newComponent});
@@ -164,6 +164,9 @@ int nts::Simulator::dump(void) const
 {
     for (auto it = this->components.begin(); it != this->components.end(); ++it) {
         it->second->dump();
+        if (std::distance(it, this->components.end()) > 1) {
+            std::cout << std::endl;
+        }
     }
     return 0;
 }

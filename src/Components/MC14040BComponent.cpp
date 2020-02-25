@@ -8,8 +8,8 @@
 #include "Components/MC14040BComponent.hpp"
 #include "Factory.hpp"
 
-nts::Components::MC14040BComponent::MC14040BComponent()
-    : AComponent("4040Component", 16), _value(0), oldClockValue(nts::Tristate::UNDEFINED)
+nts::Components::MC14040BComponent::MC14040BComponent(const std::string &name)
+    : AComponent("4040Component", name, 16), _value(0), oldClockValue(nts::Tristate::UNDEFINED)
 {
     BIND_IN_PIN(9, MC14040BComponent);
     BIND_IN_PIN(10, MC14040BComponent);

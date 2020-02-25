@@ -14,7 +14,7 @@ namespace nts::Components
 {
     class HEF4071BComponent : public AComponent {
         public:
-            HEF4071BComponent();
+            HEF4071BComponent(const std::string &name);
             ~HEF4071BComponent() = default;
 
         private:

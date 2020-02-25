@@ -8,8 +8,8 @@
 #include "Components/AndComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
-nts::Components::AndComponent::AndComponent()
-    : AComponent("AndComponent", 3)
+nts::Components::AndComponent::AndComponent(const std::string &name)
+    : AComponent("AndComponent", name, 3)
 {
     BIND_IN_PIN(0, AndComponent);
     BIND_IN_PIN(1, AndComponent);

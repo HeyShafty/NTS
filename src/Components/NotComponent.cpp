@@ -8,8 +8,8 @@
 #include "Components/NotComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
-nts::Components::NotComponent::NotComponent()
-    : AComponent("NotComponent", 2)
+nts::Components::NotComponent::NotComponent(const std::string &name)
+    : AComponent("NotComponent", name, 2)
 {
     BIND_IN_PIN(0, NotComponent);
     this->pins[1]->type = PinType::OUT;

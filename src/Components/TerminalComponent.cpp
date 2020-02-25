@@ -8,8 +8,8 @@
 #include <iostream>
 #include "Components/TerminalComponent.hpp"
 
-nts::Components::TerminalComponent::TerminalComponent()
-    : AComponent("TerminalComponent", 9)
+nts::Components::TerminalComponent::TerminalComponent(const std::string &name)
+    : AComponent("TerminalComponent", name, 9)
 {
     BIND_IN_PIN(0, TerminalComponent);
     BIND_IN_PIN(1, TerminalComponent);

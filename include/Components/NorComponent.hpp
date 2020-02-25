@@ -15,7 +15,7 @@ namespace nts::Components
     class NorComponent : public AComponent
     {
         public:
-            NorComponent();
+            NorComponent(const std::string &name);
             ~NorComponent() = default;
 
         private:

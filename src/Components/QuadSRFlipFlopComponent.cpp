@@ -10,8 +10,8 @@
 #include "Exceptions/WrongPinException.hpp"
 #include "Factory.hpp"
 
-nts::Components::QuadSRFlipFlopComponent::QuadSRFlipFlopComponent()
-    : AComponent("QuadSRFlipFlopComponent", 16)
+nts::Components::QuadSRFlipFlopComponent::QuadSRFlipFlopComponent(const std::string &name)
+    : AComponent("QuadSRFlipFlopComponent", name, 16)
 {
     std::shared_ptr<IComponent> cSRFlipFlop1 = nts::Factory::createComponent("sRFlipFlop");
     std::shared_ptr<IComponent> cSRFlipFlop2 = nts::Factory::createComponent("sRFlipFlop");

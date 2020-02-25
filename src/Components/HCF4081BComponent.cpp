@@ -10,8 +10,8 @@
 #include "Exceptions/WrongPinException.hpp"
 #include "Factory.hpp"
 
-nts::Components::HCF4081BComponent::HCF4081BComponent()
-    : AComponent("HCF4081BComponent", 14)
+nts::Components::HCF4081BComponent::HCF4081BComponent(const std::string &name)
+    : AComponent("HCF4081BComponent", name, 14)
 {
     std::shared_ptr<IComponent> cAnd1 = nts::Factory::createComponent("and");
     std::shared_ptr<IComponent> cAnd2 = nts::Factory::createComponent("and");

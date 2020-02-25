@@ -10,8 +10,8 @@
 #include "Exceptions/WrongPinException.hpp"
 #include "Factory.hpp"
 
-nts::Components::HEF4071BComponent::HEF4071BComponent()
-    : AComponent("HEF4071BComponent", 14)
+nts::Components::HEF4071BComponent::HEF4071BComponent(const std::string &name)
+    : AComponent("HEF4071BComponent", name, 14)
 {
     std::shared_ptr<IComponent> cOr1 = nts::Factory::createComponent("or");
     std::shared_ptr<IComponent> cOr2 = nts::Factory::createComponent("or");

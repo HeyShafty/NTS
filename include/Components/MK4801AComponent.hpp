@@ -19,7 +19,7 @@ namespace nts::Components
     class MK4801AComponent : public AComponent, public ISimulable
     {
         public:
-            MK4801AComponent();
+            MK4801AComponent(const std::string &name);
             ~MK4801AComponent() = default;
 
             void simulate() const override;

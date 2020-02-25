@@ -15,8 +15,8 @@
 #include "Exceptions/WrongPinException.hpp"
 #include "Factory.hpp"
 
-nts::Components::CD4514BCComponent::CD4514BCComponent()
-    : AComponent("CD4514BCComponent", 24)
+nts::Components::CD4514BCComponent::CD4514BCComponent(const std::string &name)
+    : AComponent("CD4514BCComponent", name, 24)
 {
     std::shared_ptr<IComponent> latchIn_4069 = nts::Factory::createComponent("4069");
     std::shared_ptr<IComponent> latchIn_4001_1 = nts::Factory::createComponent("4001");

@@ -17,7 +17,7 @@ namespace nts::Components
 {
     class MM2716EComponent : public AComponent {
         public:
-            MM2716EComponent(const std::string &filepath);
+            MM2716EComponent(const std::string &name, const std::string &filepath);
             ~MM2716EComponent() = default;
 
         private:

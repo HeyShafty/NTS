@@ -15,7 +15,7 @@ namespace nts::Components
     class MC14040BComponent : public AComponent
     {
         public:
-            MC14040BComponent();
+            MC14040BComponent(const std::string &name);
             ~MC14040BComponent() = default;
 
             nts::Tristate computeComponent(size_t pin_idx);

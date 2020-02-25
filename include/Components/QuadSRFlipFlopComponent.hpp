@@ -15,7 +15,7 @@ namespace nts::Components
     class QuadSRFlipFlopComponent : public AComponent
     {
         public:
-            QuadSRFlipFlopComponent();
+            QuadSRFlipFlopComponent(const std::string &name);
             ~QuadSRFlipFlopComponent() = default;
 
         private:

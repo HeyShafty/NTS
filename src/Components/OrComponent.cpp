@@ -8,8 +8,8 @@
 #include "Components/OrComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
-nts::Components::OrComponent::OrComponent()
-    : AComponent("OrComponent", 3)
+nts::Components::OrComponent::OrComponent(const std::string &name)
+    : AComponent("OrComponent", name, 3)
 {
     BIND_IN_PIN(0, OrComponent);
     BIND_IN_PIN(1, OrComponent);

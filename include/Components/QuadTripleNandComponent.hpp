@@ -15,7 +15,7 @@ namespace nts::Components
     class QuadTripleNandComponent : public AComponent
     {
         public:
-            QuadTripleNandComponent();
+            QuadTripleNandComponent(const std::string &name);
             ~QuadTripleNandComponent() = default;
 
         private:

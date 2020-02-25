@@ -16,7 +16,7 @@ namespace nts::Components
     class OutputComponent : public AComponent, public ISimulable
     {
         public:
-            OutputComponent();
+            OutputComponent(const std::string &name);
             ~OutputComponent() = default;
 
             void simulate() const;

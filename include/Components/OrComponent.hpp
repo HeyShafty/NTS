@@ -15,7 +15,7 @@ namespace nts::Components
     class OrComponent : public AComponent
     {
         public:
-            OrComponent();
+            OrComponent(const std::string &name);
             ~OrComponent() = default;
 
         private:

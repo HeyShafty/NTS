@@ -15,7 +15,7 @@ namespace nts::Components
     class InputComponent : public AComponent
     {
         public:
-            InputComponent(nts::Tristate pinValue);
+            InputComponent(const std::string &name, nts::Tristate pinValue);
             ~InputComponent() = default;
 
         private:

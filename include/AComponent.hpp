@@ -19,7 +19,7 @@ namespace nts
     class AComponent : public IComponent
     {
         protected:
-            AComponent(const std::string &componentName, size_t pin_nb);
+            AComponent(const std::string &componentType, const std::string &name, size_t pin_nb);
 
         public:
             virtual ~AComponent() = default;
@@ -31,6 +31,7 @@ namespace nts
             void dump() const override;
 
         protected:
+            const std::string componentType;
             const std::string componentName;
             const size_t pin_nb;
             std::vector<std::shared_ptr<Pin>> pins;

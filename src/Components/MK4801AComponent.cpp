@@ -10,8 +10,8 @@
 #include "Exceptions/WrongPinException.hpp"
 #include "Exceptions/BadFileException.hpp"
 
-nts::Components::MK4801AComponent::MK4801AComponent()
-    : AComponent("MK4801AComponent", 24)
+nts::Components::MK4801AComponent::MK4801AComponent(const std::string &name)
+    : AComponent("MK4801AComponent", name, 24)
 {
     BIND_IN_PIN(0, MK4801AComponent); // A7
     BIND_IN_PIN(1, MK4801AComponent); // A6

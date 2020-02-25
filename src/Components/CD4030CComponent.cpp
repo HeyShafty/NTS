@@ -10,8 +10,8 @@
 #include "Exceptions/WrongPinException.hpp"
 #include "Factory.hpp"
 
-nts::Components::CD4030CComponent::CD4030CComponent()
-    : AComponent("CD4030CComponent", 14)
+nts::Components::CD4030CComponent::CD4030CComponent(const std::string &name)
+    : AComponent("CD4030CComponent", name, 14)
 {
     std::shared_ptr<IComponent> cXor1 = nts::Factory::createComponent("xor");
     std::shared_ptr<IComponent> cXor2 = nts::Factory::createComponent("xor");

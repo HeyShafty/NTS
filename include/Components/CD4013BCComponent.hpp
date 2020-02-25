@@ -15,7 +15,7 @@ namespace nts::Components
     class CD4013BCComponent : public AComponent
     {
         public:
-            CD4013BCComponent();
+            CD4013BCComponent(const std::string &name);
             ~CD4013BCComponent() = default;
 
         private:

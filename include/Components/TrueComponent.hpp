@@ -15,7 +15,7 @@ namespace nts::Components
     class TrueComponent : public AComponent
     {
         public:
-            TrueComponent();
+            TrueComponent(const std::string &name);
             ~TrueComponent() = default;
 
         private:

@@ -8,8 +8,8 @@
 #include "Components/XorComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
-nts::Components::XorComponent::XorComponent()
-    : AComponent("XorComponent", 3)
+nts::Components::XorComponent::XorComponent(const std::string &name)
+    : AComponent("XorComponent", name, 3)
 {
     BIND_IN_PIN(0, XorComponent);
     BIND_IN_PIN(1, XorComponent);

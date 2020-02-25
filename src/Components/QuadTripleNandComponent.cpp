@@ -10,8 +10,8 @@
 #include "Exceptions/WrongPinException.hpp"
 #include "Factory.hpp"
 
-nts::Components::QuadTripleNandComponent::QuadTripleNandComponent()
-    : AComponent("QuadTripleNandComponent", 16)
+nts::Components::QuadTripleNandComponent::QuadTripleNandComponent(const std::string &name)
+    : AComponent("QuadTripleNandComponent", name, 16)
 {
     std::shared_ptr<IComponent> cTripleNand1 = nts::Factory::createComponent("tripleNand");
     std::shared_ptr<IComponent> cTripleNand2 = nts::Factory::createComponent("tripleNand");

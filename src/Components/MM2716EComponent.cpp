@@ -10,8 +10,8 @@
 #include "Exceptions/WrongPinException.hpp"
 #include "Exceptions/BadFileException.hpp"
 
-nts::Components::MM2716EComponent::MM2716EComponent(const std::string &filepath)
-    : AComponent("MM2716EComponent", 24)
+nts::Components::MM2716EComponent::MM2716EComponent(const std::string &name, const std::string &filepath)
+    : AComponent("MM2716EComponent", name, 24)
 {
     std::ifstream infile(filepath);
 

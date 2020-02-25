@@ -10,8 +10,8 @@
 #include "Exceptions/WrongPinException.hpp"
 #include "Factory.hpp"
 
-nts::Components::CD4008BMSComponent::CD4008BMSComponent()
-    : AComponent("CD4008BMSComponent", 16)
+nts::Components::CD4008BMSComponent::CD4008BMSComponent(const std::string &name)
+    : AComponent("CD4008BMSComponent", name, 16)
 {
     std::shared_ptr<IComponent> cSum1 = nts::Factory::createComponent("sum");
     std::shared_ptr<IComponent> cSum2 = nts::Factory::createComponent("sum");

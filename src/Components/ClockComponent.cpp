@@ -7,8 +7,8 @@
 
 #include "Components/ClockComponent.hpp"
 
-nts::Components::ClockComponent::ClockComponent(nts::Tristate pinValue)
-    : AComponent("ClockComponent", 1)
+nts::Components::ClockComponent::ClockComponent(const std::string &name, nts::Tristate pinValue)
+    : AComponent("ClockComponent", name, 1)
 {
     this->pins[0]->type = nts::PinType::OUT;
     this->pins[0]->value = pinValue;

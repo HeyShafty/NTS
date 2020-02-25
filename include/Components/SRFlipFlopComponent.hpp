@@ -15,7 +15,7 @@ namespace nts::Components
     class SRFlipFlopComponent : public AComponent
     {
         public:
-            SRFlipFlopComponent();
+            SRFlipFlopComponent(const std::string &name);
             ~SRFlipFlopComponent() = default;
 
         private:

@@ -16,7 +16,7 @@ namespace nts::Components
     class ClockComponent : public AComponent, public ISimulable
     {
         public:
-            ClockComponent(nts::Tristate pinValue);
+            ClockComponent(const std::string &name, nts::Tristate pinValue);
             ~ClockComponent() = default;
 
             void simulate() const override;

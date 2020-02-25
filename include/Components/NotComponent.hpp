@@ -15,7 +15,7 @@ namespace nts::Components
     class NotComponent : public AComponent
     {
         public:
-            NotComponent();
+            NotComponent(const std::string &name);
             ~NotComponent() = default;
 
         private:

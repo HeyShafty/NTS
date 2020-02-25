@@ -8,8 +8,8 @@
 #include "Components/FalseComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
-nts::Components::FalseComponent::FalseComponent()
-    : AComponent("FalseComponent", 1)
+nts::Components::FalseComponent::FalseComponent(const std::string &name)
+    : AComponent("FalseComponent", name, 1)
 {
     this->pins[0]->type = PinType::OUT;
     this->pins[0]->compute = std::bind(&FalseComponent::computeComponent, this);

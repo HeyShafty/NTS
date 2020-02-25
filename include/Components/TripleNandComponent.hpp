@@ -14,7 +14,7 @@ namespace nts::Components
 {
     class TripleNandComponent : public AComponent {
         public:
-            TripleNandComponent();
+            TripleNandComponent(const std::string &name);
             ~TripleNandComponent() = default;
 
         private:

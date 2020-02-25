@@ -15,7 +15,7 @@ namespace nts::Components
     class HCF4081BComponent : public AComponent
     {
         public:
-            HCF4081BComponent();
+            HCF4081BComponent(const std::string &name);
             ~HCF4081BComponent() = default;
 
         private:

@@ -15,7 +15,7 @@ namespace nts::Components
     class AndComponent : public AComponent
     {
         public:
-            AndComponent();
+            AndComponent(const std::string &name);
             ~AndComponent() = default;
 
         private:

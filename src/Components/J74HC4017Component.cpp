@@ -11,8 +11,8 @@
 
 const std::vector<size_t> nts::Components::J74HC4017Component::indexes = {3, 2, 4, 7, 10, 1, 5, 6, 9, 11, 42};
 
-nts::Components::J74HC4017Component::J74HC4017Component()
-    : AComponent("4017Component", 15), i(3), _oldClockValue(nts::Tristate::UNDEFINED)
+nts::Components::J74HC4017Component::J74HC4017Component(const std::string &name)
+    : AComponent("4017Component", name, 15), i(3), _oldClockValue(nts::Tristate::UNDEFINED)
 {
     BIND_IN_PIN(12, J74HC4017Component);
     BIND_IN_PIN(13, J74HC4017Component);

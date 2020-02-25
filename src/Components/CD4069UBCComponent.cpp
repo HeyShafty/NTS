@@ -10,8 +10,8 @@
 #include "Exceptions/WrongPinException.hpp"
 #include "Factory.hpp"
 
-nts::Components::CD4069UBCComponent::CD4069UBCComponent()
-    : AComponent("CD4069UBCComponent", 14)
+nts::Components::CD4069UBCComponent::CD4069UBCComponent(const std::string &name)
+    : AComponent("CD4069UBCComponent", name, 14)
 {
     std::shared_ptr<IComponent> cNot1 = nts::Factory::createComponent("not");
     std::shared_ptr<IComponent> cNot2 = nts::Factory::createComponent("not");

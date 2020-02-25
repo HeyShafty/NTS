@@ -8,8 +8,8 @@
 #include "Components/SumComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
-nts::Components::SumComponent::SumComponent()
-    : AComponent("SumComponent", 5)
+nts::Components::SumComponent::SumComponent(const std::string &name)
+    : AComponent("SumComponent", name, 5)
 {
     BIND_IN_PIN(0, SumComponent);
     BIND_IN_PIN(1, SumComponent);

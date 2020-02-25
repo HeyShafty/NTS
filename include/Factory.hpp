@@ -20,7 +20,7 @@ namespace nts
             Factory() = default;
             ~Factory() = default;
 
-            static std::shared_ptr<IComponent> createComponent(const std::string &type, const std::string &value = "");
+            static std::shared_ptr<IComponent> createComponent(const std::string &type, const std::string &name = "", const std::string &value = "");
 
             template<class T, typename ...Args>
             static std::shared_ptr<IComponent> createBasicComponent(Args &&...args)
@@ -30,7 +30,7 @@ namespace nts
 
         protected:
         private:
-            static const std::map<const std::string, std::function<std::shared_ptr<nts::IComponent>(const std::string &value)>> componentMap;
+            static const std::map<const std::string, std::function<std::shared_ptr<nts::IComponent>(const std::string &name, const std::string &value)>> componentMap;
     };
 }
 

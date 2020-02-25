@@ -15,7 +15,7 @@ namespace nts::Components
     class DFlipFlopComponent : public AComponent
     {
         public:
-            DFlipFlopComponent();
+            DFlipFlopComponent(const std::string &name);
             ~DFlipFlopComponent() = default;
 
         private:

@@ -15,7 +15,7 @@ namespace nts::Components
     class J74HC4017Component : public AComponent
     {
         public:
-            J74HC4017Component();
+            J74HC4017Component(const std::string &name);
             ~J74HC4017Component() = default;
 
             nts::Tristate computeComponent(size_t pin_index);

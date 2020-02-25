@@ -8,8 +8,8 @@
 #include "Components/InputComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
-nts::Components::InputComponent::InputComponent(nts::Tristate pinValue)
-    : AComponent("InputComponent", 1)
+nts::Components::InputComponent::InputComponent(const std::string &name, nts::Tristate pinValue)
+    : AComponent("InputComponent", name, 1)
 {
     this->pins[0]->value = pinValue;
     this->pins[0]->type = nts::PinType::OUT;

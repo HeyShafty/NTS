@@ -14,7 +14,7 @@ namespace nts::Components
 {
     class CD4008BMSComponent : public AComponent {
         public:
-            CD4008BMSComponent();
+            CD4008BMSComponent(const std::string &name);
             ~CD4008BMSComponent() = default;
 
         private:

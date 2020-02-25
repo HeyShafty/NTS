@@ -40,43 +40,43 @@
 #include "Components/MM2716EComponent.hpp"
 #include "Exceptions/UnknownComponentException.hpp"
 
-const std::map<const std::string, std::function<std::shared_ptr<nts::IComponent>(const std::string &value)>> nts::Factory::componentMap = {
-    {"2716", [](const std::string &value) {return nts::Factory::createBasicComponent<nts::Components::MM2716EComponent>(value);}},
-    {"and", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::AndComponent>();}},
-    {"4008", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::CD4008BMSComponent>();}},
-    {"4011", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::CD4011BComponent>();}},
-    {"4013", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::CD4013BCComponent>();}},
-    {"4030", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::CD4030CComponent>();}},
-    {"4514", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::CD4514BCComponent>();}},
-    {"clock", [](const std::string &value) {return nts::Factory::createBasicComponent<nts::Components::ClockComponent>((nts::Tristate)std::stoi(value));}},
-    {"dFlipFlop", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::DFlipFlopComponent>();}},
-    {"false", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::FalseComponent>();}},
-    {"4081", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::HCF4081BComponent>();}},
-    {"4001", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::HEF4001BComponent>();}},
-    {"4071", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::HEF4071BComponent>();}},
-    {"input", [](const std::string &value) {return nts::Factory::createBasicComponent<nts::Components::InputComponent>((nts::Tristate)std::stoi(value));}},
-    {"4017", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::J74HC4017Component>();}},
-    {"4040", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::MC14040BComponent>();}},
-    {"nand", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::NandComponent>();}},
-    {"nor", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::NorComponent>();}},
-    {"not", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::NotComponent>();}},
-    {"or", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::OrComponent>();}},
-    {"output", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::OutputComponent>();}},
-    {"4069", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::CD4069UBCComponent>();}},
-    {"quadSRFlipFlop", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::QuadSRFlipFlopComponent>();}},
-    {"quadTripleNand", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::QuadTripleNandComponent>();}},
-    {"sRFlipFlop", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::SRFlipFlopComponent>();}},
-    {"sum", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::SumComponent>();}},
-    {"terminal", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::TerminalComponent>();}},
-    {"tripleNand", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::TripleNandComponent>();}},
-    {"true", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::TrueComponent>();}},
-    {"xor", [](const std::string &) {return nts::Factory::createBasicComponent<nts::Components::XorComponent>();}}
+const std::map<const std::string, std::function<std::shared_ptr<nts::IComponent>(const std::string &name, const std::string &value)>> nts::Factory::componentMap = {
+    {"2716", [](const std::string &name, const std::string &value) {return nts::Factory::createBasicComponent<nts::Components::MM2716EComponent>(name, value);}},
+    {"and", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::AndComponent>(name);}},
+    {"4008", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::CD4008BMSComponent>(name);}},
+    {"4011", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::CD4011BComponent>(name);}},
+    {"4013", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::CD4013BCComponent>(name);}},
+    {"4030", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::CD4030CComponent>(name);}},
+    {"4514", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::CD4514BCComponent>(name);}},
+    {"clock", [](const std::string &name, const std::string &value) {return nts::Factory::createBasicComponent<nts::Components::ClockComponent>(name, (nts::Tristate)std::stoi(value));}},
+    {"dFlipFlop", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::DFlipFlopComponent>(name);}},
+    {"false", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::FalseComponent>(name);}},
+    {"4081", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::HCF4081BComponent>(name);}},
+    {"4001", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::HEF4001BComponent>(name);}},
+    {"4071", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::HEF4071BComponent>(name);}},
+    {"input", [](const std::string &name, const std::string &value) {return nts::Factory::createBasicComponent<nts::Components::InputComponent>(name, (nts::Tristate)std::stoi(value));}},
+    {"4017", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::J74HC4017Component>(name);}},
+    {"4040", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::MC14040BComponent>(name);}},
+    {"nand", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::NandComponent>(name);}},
+    {"nor", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::NorComponent>(name);}},
+    {"not", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::NotComponent>(name);}},
+    {"or", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::OrComponent>(name);}},
+    {"output", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::OutputComponent>(name);}},
+    {"4069", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::CD4069UBCComponent>(name);}},
+    {"quadSRFlipFlop", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::QuadSRFlipFlopComponent>(name);}},
+    {"quadTripleNand", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::QuadTripleNandComponent>(name);}},
+    {"sRFlipFlop", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::SRFlipFlopComponent>(name);}},
+    {"sum", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::SumComponent>(name);}},
+    {"terminal", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::TerminalComponent>(name);}},
+    {"tripleNand", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::TripleNandComponent>(name);}},
+    {"true", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::TrueComponent>(name);}},
+    {"xor", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::XorComponent>(name);}}
 };
 
-std::shared_ptr<nts::IComponent> nts::Factory::createComponent(const std::string &type, const std::string &value)
+std::shared_ptr<nts::IComponent> nts::Factory::createComponent(const std::string &type, const std::string &name, const std::string &value)
 {
     try {
-        return componentMap.at(type)(value);
+        return componentMap.at(type)(name, value);
     } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
         throw nts::Exception::UnknownComponentException("Given component couldn't be instanciated because it just doesn't exists.", "Factory");

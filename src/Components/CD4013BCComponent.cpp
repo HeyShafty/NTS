@@ -10,8 +10,8 @@
 #include "Exceptions/WrongPinException.hpp"
 #include "Factory.hpp"
 
-nts::Components::CD4013BCComponent::CD4013BCComponent()
-    : AComponent("CD4013BCComponent", 14)
+nts::Components::CD4013BCComponent::CD4013BCComponent(const std::string &name)
+    : AComponent("CD4013BCComponent", name, 14)
 {
     std::shared_ptr<IComponent> dFlipFlop1 = nts::Factory::createComponent("dFlipFlop");
     std::shared_ptr<IComponent> dFlipFlop2 = nts::Factory::createComponent("dFlipFlop");

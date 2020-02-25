@@ -14,7 +14,7 @@ namespace nts::Components
 {
     class CD4030CComponent : public AComponent {
         public:
-            CD4030CComponent();
+            CD4030CComponent(const std::string &name);
             ~CD4030CComponent() = default;
 
         private:

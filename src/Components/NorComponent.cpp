@@ -8,8 +8,8 @@
 #include "Components/NorComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
-nts::Components::NorComponent::NorComponent()
-    : AComponent("NorComponent", 3)
+nts::Components::NorComponent::NorComponent(const std::string &name)
+    : AComponent("NorComponent", name, 3)
 {
     BIND_IN_PIN(0, NorComponent);
     BIND_IN_PIN(1, NorComponent);

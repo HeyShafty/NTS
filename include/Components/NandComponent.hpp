@@ -14,7 +14,7 @@ namespace nts::Components
 {
     class NandComponent : public AComponent {
         public:
-            NandComponent();
+            NandComponent(const std::string &name);
             ~NandComponent() = default;
 
         private:

@@ -9,8 +9,8 @@
 #include "Exceptions/WrongPinException.hpp"
 #include "Factory.hpp"
 
-nts::Components::DFlipFlopComponent::DFlipFlopComponent()
-    : AComponent("DFlipFlopComponent", 6), clockSave(Tristate::UNDEFINED)
+nts::Components::DFlipFlopComponent::DFlipFlopComponent(const std::string &name)
+    : AComponent("DFlipFlopComponent", name, 6), clockSave(Tristate::UNDEFINED)
 {
     this->pins[0]->type = PinType::OUT;
     this->pins[0]->value = Tristate::UNDEFINED;

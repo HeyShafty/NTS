@@ -5,14 +5,15 @@
 ** AComponent
 */
 
+#include <iostream>
 #include "AComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
 std::unordered_set<nts::Pin *> nts::AComponent::callHistory;
 nts::Pin *nts::AComponent::callingPin = nullptr;
 
-nts::AComponent::AComponent(const std::string &componentName, size_t pin_nb)
-    : componentName(componentName), pin_nb(pin_nb)
+nts::AComponent::AComponent(const std::string &componentType, const std::string &componentName, size_t pin_nb)
+    : componentType(componentType), componentName(componentName), pin_nb(pin_nb)
 {
     for (size_t i = 0; i < this->pin_nb; i++) {
         this->pins.push_back(std::make_shared<Pin>());
@@ -49,7 +50,15 @@ nts::Tristate nts::AComponent::compute(size_t pin) const
 
 void nts::AComponent::dump() const
 {
-    // TODEV
+    size_t i = 0;
+
+    std::cout << "Component Type: " << this->componentType << std::endl;
+    std::cout << "Component Name: " << this->componentName << std::endl;
+    std::cout << "Number of pin: " << this->pin_nb << std::endl;
+    std::cout << "Pins value:" << std::endl;
+    for (auto it = this->pins.begin(); it != this->pins.end(); ++it) {
+        std::cout << "[" << i << "] = " << (*it)->value << std::endl;
+    }
 }
 
 nts::Tristate nts::AComponent::computeInPin(size_t pin_index) const

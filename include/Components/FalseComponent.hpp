@@ -15,7 +15,7 @@ namespace nts::Components
     class FalseComponent : public AComponent
     {
         public:
-            FalseComponent();
+            FalseComponent(const std::string &name);
             ~FalseComponent() = default;
 
         private:

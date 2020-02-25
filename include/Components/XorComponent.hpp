@@ -15,7 +15,7 @@ namespace nts::Components
     class XorComponent : public AComponent
     {
         public:
-            XorComponent();
+            XorComponent(const std::string &name);
             ~XorComponent() = default;
 
         private:

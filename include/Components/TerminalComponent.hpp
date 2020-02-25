@@ -16,7 +16,7 @@ namespace nts::Components
     class TerminalComponent : public AComponent, public ISimulable
     {
         public:
-            TerminalComponent();
+            TerminalComponent(const std::string &name);
             ~TerminalComponent() = default;
 
             void simulate() const override;

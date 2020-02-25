@@ -8,8 +8,8 @@
 #include "Components/OutputComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
-nts::Components::OutputComponent::OutputComponent()
-    : AComponent("OutputComponent", 1)
+nts::Components::OutputComponent::OutputComponent(const std::string &name)
+    : AComponent("OutputComponent", name, 1)
 {
     BIND_IN_PIN(0, OutputComponent);
 }

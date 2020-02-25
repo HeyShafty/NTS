@@ -15,7 +15,7 @@ namespace nts::Components
     class CD4069UBCComponent : public AComponent
     {
         public:
-            CD4069UBCComponent();
+            CD4069UBCComponent(const std::string &name);
             ~CD4069UBCComponent() = default;
 
         private:

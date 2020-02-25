@@ -10,8 +10,8 @@
 #include "Exceptions/WrongPinException.hpp"
 #include "Factory.hpp"
 
-nts::Components::SRFlipFlopComponent::SRFlipFlopComponent()
-    : AComponent("SRFlipFlopComponent", 4)
+nts::Components::SRFlipFlopComponent::SRFlipFlopComponent(const std::string &name)
+    : AComponent("SRFlipFlopComponent", name, 4)
 {
     std::shared_ptr<IComponent> cHEF4001B = nts::Factory::createComponent("4001");
 

@@ -8,8 +8,8 @@
 #include "Components/TripleNandComponent.hpp"
 #include "Exceptions/WrongPinException.hpp"
 
-nts::Components::TripleNandComponent::TripleNandComponent()
-    : AComponent("TripleNandComponent", 4)
+nts::Components::TripleNandComponent::TripleNandComponent(const std::string &name)
+    : AComponent("TripleNandComponent", name, 4)
 {
     BIND_IN_PIN(0, TripleNandComponent);
     BIND_IN_PIN(1, TripleNandComponent);

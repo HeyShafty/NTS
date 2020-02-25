@@ -15,7 +15,7 @@ namespace nts::Components
     class SumComponent : public AComponent
     {
         public:
-            SumComponent();
+            SumComponent(const std::string &name);
             ~SumComponent() = default;
 
         private:
