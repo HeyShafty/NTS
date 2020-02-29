@@ -34,5 +34,4 @@ namespace nts
     };
 }
 
-
 #endif /* !FACTORY_HPP_ */
