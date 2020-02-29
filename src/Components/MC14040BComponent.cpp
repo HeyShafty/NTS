@@ -61,7 +61,7 @@ nts::Tristate nts::Components::MC14040BComponent::computeComponent(size_t pin_id
     std::vector<int> values = {11, 5, 4, 6, 3, 2, 1, 0, 0, 0, 0, 8, 7, 9, 10};
 
     if (clock == nts::Tristate::UNDEFINED || reset == nts::Tristate::UNDEFINED)
-        return nts::Tristate::UNDEFINED;
+        return nts::Tristate::FALSE;
     if (reset == 1) {
         this->_value = 0;
         return nts::Tristate::FALSE;
