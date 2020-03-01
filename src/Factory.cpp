@@ -65,7 +65,7 @@ const std::map<const std::string, std::function<std::shared_ptr<nts::IComponent>
     {"4069", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::CD4069UBCComponent>(name);}},
     {"quadSRFlipFlop", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::QuadSRFlipFlopComponent>(name);}},
     {"quadTripleNand", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::QuadTripleNandComponent>(name);}},
-    {"sRFlipFlop", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::SRFlipFlopComponent>(name);}},
+    {"SRFlipFlop", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::SRFlipFlopComponent>(name);}},
     {"sum", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::SumComponent>(name);}},
     {"terminal", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::TerminalComponent>(name);}},
     {"tripleNand", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::TripleNandComponent>(name);}},

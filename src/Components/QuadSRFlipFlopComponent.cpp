@@ -13,10 +13,10 @@
 nts::Components::QuadSRFlipFlopComponent::QuadSRFlipFlopComponent(const std::string &name)
     : AComponent("QuadSRFlipFlopComponent", name, 16)
 {
-    std::shared_ptr<IComponent> cSRFlipFlop1 = nts::Factory::createComponent("sRFlipFlop");
-    std::shared_ptr<IComponent> cSRFlipFlop2 = nts::Factory::createComponent("sRFlipFlop");
-    std::shared_ptr<IComponent> cSRFlipFlop3 = nts::Factory::createComponent("sRFlipFlop");
-    std::shared_ptr<IComponent> cSRFlipFlop4 = nts::Factory::createComponent("sRFlipFlop");
+    std::shared_ptr<IComponent> cSRFlipFlop1 = nts::Factory::createComponent("SRFlipFlop");
+    std::shared_ptr<IComponent> cSRFlipFlop2 = nts::Factory::createComponent("SRFlipFlop");
+    std::shared_ptr<IComponent> cSRFlipFlop3 = nts::Factory::createComponent("SRFlipFlop");
+    std::shared_ptr<IComponent> cSRFlipFlop4 = nts::Factory::createComponent("SRFlipFlop");
 
     this->pins[0] = cSRFlipFlop1->getPin(1);
     this->pins[1] = cSRFlipFlop1->getPin(2);
