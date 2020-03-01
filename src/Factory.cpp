@@ -13,6 +13,8 @@
 #include "Components/CD4011BComponent.hpp"
 #include "Components/CD4013BCComponent.hpp"
 #include "Components/CD4030CComponent.hpp"
+#include "Components/CD4069UBCComponent.hpp"
+#include "Components/CD4094BCComponent.hpp"
 #include "Components/CD4514BCComponent.hpp"
 #include "Components/ClockComponent.hpp"
 #include "Components/DFlipFlopComponent.hpp"
@@ -28,7 +30,6 @@
 #include "Components/NotComponent.hpp"
 #include "Components/OrComponent.hpp"
 #include "Components/OutputComponent.hpp"
-#include "Components/CD4069UBCComponent.hpp"
 #include "Components/QuadSRFlipFlopComponent.hpp"
 #include "Components/QuadTripleNandComponent.hpp"
 #include "Components/SRFlipFlopComponent.hpp"
@@ -57,6 +58,7 @@ const std::map<const std::string, std::function<std::shared_ptr<nts::IComponent>
     {"input", [](const std::string &name, const std::string &value) {return nts::Factory::createBasicComponent<nts::Components::InputComponent>(name, (nts::Tristate)std::stoi(value));}},
     {"4017", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::J74HC4017Component>(name);}},
     {"4040", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::MC14040BComponent>(name);}},
+    {"4094", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::CD4094BCComponent>(name);}},
     {"nand", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::NandComponent>(name);}},
     {"nor", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::NorComponent>(name);}},
     {"not", [](const std::string &name, const std::string &) {return nts::Factory::createBasicComponent<nts::Components::NotComponent>(name);}},

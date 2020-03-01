@@ -33,6 +33,7 @@ SRC	= 	\
 		$(COMPONENTS_SRC_PATH)/CD4013BCComponent.cpp \
 		$(COMPONENTS_SRC_PATH)/CD4030CComponent.cpp \
 		$(COMPONENTS_SRC_PATH)/CD4069UBCComponent.cpp \
+		$(COMPONENTS_SRC_PATH)/CD4094BCComponent.cpp \
 		$(COMPONENTS_SRC_PATH)/CD4514BCComponent.cpp \
 		$(COMPONENTS_SRC_PATH)/ClockComponent.cpp \
 		$(COMPONENTS_SRC_PATH)/DFlipFlopComponent.cpp \

@@ -23,7 +23,6 @@ namespace nts::Components
         private:
             short _value;
             nts::Tristate oldClockValue;
-            std::vector<std::shared_ptr<IComponent>> innerComponents;
     };
 }
 
